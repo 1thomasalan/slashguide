@@ -62,6 +62,8 @@
   var pills = Array.prototype.slice.call(document.querySelectorAll(".pill[data-sec]"));
   var secs = Array.prototype.slice.call(document.querySelectorAll(".sec"));
   var count = document.getElementById("count"), empty = document.getElementById("empty");
+  var libH = document.getElementById("lib-h"), lib = document.getElementById("shortcuts");
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var current = "all";
   rows.forEach(function (r) { r._q = r.getAttribute("data-q"); r._s = r.getAttribute("data-s"); });
 
@@ -80,7 +82,11 @@
   }
   function setSec(id) {
     current = id;
-    pills.forEach(function (p) { p.setAttribute("aria-pressed", String(p.getAttribute("data-sec") === id)); });
+    pills.forEach(function (p) {
+      var on = p.getAttribute("data-sec") === id;
+      p.setAttribute("aria-pressed", String(on));
+      if (on && libH) libH.textContent = p.getAttribute("data-title");
+    });
     apply();
   }
   var timer;
@@ -89,7 +95,12 @@
     if (ev.key === "Enter") { ev.preventDefault(); document.getElementById("shortcuts").scrollIntoView({ behavior: "smooth" }); }
     if (ev.key === "Escape") { q.value = ""; apply(); }
   });
-  pills.forEach(function (p) { p.addEventListener("click", function () { setSec(p.getAttribute("data-sec")); }); });
+  pills.forEach(function (p) {
+    p.addEventListener("click", function () {
+      setSec(p.getAttribute("data-sec"));
+      lib.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+    });
+  });
   document.querySelectorAll("[data-jump]").forEach(function (a) {
     a.addEventListener("click", function () { q.value = ""; setSec(a.getAttribute("data-jump")); });
   });

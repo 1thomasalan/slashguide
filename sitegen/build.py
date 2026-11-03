@@ -177,9 +177,9 @@ def home():
   <div class="feat-f"><span class="tag">{e(u['edition'])} · {e(u['group'])}</span>{copy_btn(c['cmd'])}</div>
 </li>"""
 
-    pills = '<button class="pill" type="button" data-sec="all" aria-pressed="true">All</button>'
+    pills = '<button class="pill" type="button" data-sec="all" data-title="All shortcuts" aria-pressed="true">All</button>'
     for s in SECTIONS:
-        pills += f'<button class="pill" type="button" data-sec="{s["id"]}" aria-pressed="false">{e(s["short"])}</button>'
+        pills += f'<button class="pill" type="button" data-sec="{s["id"]}" data-title="{e(s["short"])} shortcuts" aria-pressed="false">{e(s["short"])}</button>'
 
     where = ""
     for s in SECTIONS:
