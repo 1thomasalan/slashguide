@@ -101,6 +101,8 @@ def icon(name, size=18):
         "play": '<path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none"/>',
         "download": '<path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/>',
         "arrow": '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',
+        "sun": '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
+        "moon": '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
         "ext": '<path d="M14 5h5v5"/><path d="M19 5 10 14"/><path d="M18 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h4"/>',
     }
     return (f'<svg class="i i-{name}" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" '
@@ -119,7 +121,9 @@ def page(title, desc, body, rel, cls=""):
 <meta name="description" content="{e(desc)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111112" media="(prefers-color-scheme: dark)">
+<script>try{{var t=localStorage.getItem("sg-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 <link rel="icon" href="{rel}assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="{rel}assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/mono-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -134,6 +138,7 @@ def page(title, desc, body, rel, cls=""):
       <a href="{rel or './'}#shortcuts">Shortcuts</a>
       <a href="{rel}downloads/">Free PDFs</a>
       <a class="nav-search" href="{rel or './'}#search" aria-label="Search shortcuts">{icon('search', 20)}</a>
+      <button class="theme" type="button" aria-label="Switch between light and dark mode" title="Light or dark mode">{icon('moon', 18)}{icon('sun', 18)}</button>
     </nav>
   </div>
 </header>
@@ -374,7 +379,7 @@ def downloads():
 NOT_FOUND = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Not found | Slash Guide</title>
 <style>body{font-family:Inter,Helvetica,Arial,sans-serif;color:#111;margin:0;display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px}
-h1{font-family:ui-monospace,Menlo,monospace;color:#C81018;font-size:56px;letter-spacing:-2px;margin:0}p{color:#555;font-size:18px}a{color:#C81018;text-underline-offset:3px}</style></head>
+h1{font-family:ui-monospace,Menlo,monospace;color:#C81018;font-size:56px;letter-spacing:-2px;margin:0}p{color:#555;font-size:18px}a{color:#C81018;text-underline-offset:3px}@media (prefers-color-scheme:dark){body{background:#111112;color:#ececea}p{color:#9c9c98}h1,a{color:#f0444c}}</style></head>
 <body><main><h1>/404</h1><p>That shortcut isn't here. It may have a different name.</p><p><a id="home" href="/">Search all shortcuts</a></p></main>
 <script>var p=location.pathname.split('/');if(location.hostname.endsWith('github.io')&&p[1]){document.getElementById('home').href='/'+p[1]+'/';}</script></body></html>
 """

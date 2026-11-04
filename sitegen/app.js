@@ -114,3 +114,15 @@
   if (s && pills.some(function (p) { return p.getAttribute("data-sec") === s; })) setSec(s); else apply();
   if (location.hash === "#search") q.focus();
 })();
+
+/* light / dark toggle: follows the system until the visitor picks; choice kept in localStorage only */
+(function(){
+  var btn=document.querySelector(".theme"); if(!btn) return;
+  var root=document.documentElement, mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function cur(){return root.dataset.theme||(mq.matches?"dark":"light")}
+  function sync(){var c=cur();btn.setAttribute("aria-label",c==="dark"?"Switch to light mode":"Switch to dark mode");
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){m.content=c==="dark"?"#111112":"#ffffff";m.removeAttribute("media")})}
+  btn.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";root.dataset.theme=n;try{localStorage.setItem("sg-theme",n)}catch(e){}sync()});
+  if(mq.addEventListener) mq.addEventListener("change",sync);
+  sync();
+})();
