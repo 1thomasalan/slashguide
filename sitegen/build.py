@@ -147,10 +147,11 @@ def page(title, desc, body, rel, cls=""):
 </main>
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="otb" href="https://onetobetter.com" rel="noopener">
-      <img src="{rel}assets/otb-logo.png" width="22" height="22" alt="">
-      <span>A One to Better project</span>
-    </a>
+    <div class="otb-box">
+      <a class="otb-wm" href="https://onetobetter.com" rel="noopener" aria-label="One to Better"><img class="otb-l" src="{rel}assets/otb-logo.png" width="44" height="44" alt=""><img class="otb-d" src="{rel}assets/otb-logo-dark.png" width="44" height="44" alt="" loading="lazy"><span aria-hidden="true">NE TO BETTER</span></a>
+      <p class="otb-tag">In pursuit of small improvements, better thinking, and a richer life.</p>
+      <a class="otb-proj" href="https://onetobetter.com" rel="noopener">A One to Better project</a>
+    </div>
     <p class="fine">Shortcuts your AI understands, plus the slash commands built into everyday apps. Not affiliated with or endorsed by OpenAI, Anthropic, Google, xAI, Microsoft, GitHub, Slack, Notion, Discord or Obsidian; names are trademarks of their owners. No ads, no trackers, no cookies.</p>
   </div>
 </footer>
@@ -392,6 +393,7 @@ def assets():
         f = TTFont(ED / "fonts" / f"{name}.ttf"); f.flavor = "woff2"; f.save(a / "fonts" / f"{name}.woff2")
     from PIL import Image
     im = Image.open(ED / "otb-logo.png").convert("RGBA"); im.thumbnail((88, 88), Image.LANCZOS); im.save(a / "otb-logo.png", optimize=True)
+    im = Image.open(ED / "otb-logo-dark.png").convert("RGBA"); im.thumbnail((88, 88), Image.LANCZOS); im.save(a / "otb-logo-dark.png", optimize=True)
     for slug, pdf in (("everyday", "slash-guide-everyday.pdf"), ("work", "slash-guide-work.pdf")):
         tmp = GEN / f"_cover-{slug}"
         subprocess.run(["pdftoppm", "-png", "-r", "150", "-f", "1", "-l", "1", "-singlefile", str(ED / pdf), str(tmp)], check=True)

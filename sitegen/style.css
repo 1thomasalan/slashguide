@@ -139,9 +139,17 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
 
 /* footer */
 .foot{border-top:1px solid var(--l);margin-top:24px}
-.foot-in{display:flex;gap:32px;justify-content:space-between;align-items:flex-start;padding-top:22px;padding-bottom:28px}
-.otb{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;white-space:nowrap}
-.otb:hover span{color:var(--r)}
+.foot-in{display:flex;gap:48px;justify-content:space-between;align-items:flex-start;padding-top:32px;padding-bottom:36px}
+/* One to Better wordmark, same treatment as The Tech Brief: the logo is the O */
+.otb-box{display:grid;gap:10px;justify-items:start;flex:none}
+.otb-wm{display:inline-flex;align-items:center;font:700 28px/1 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.otb-wm img{width:.96em;height:.96em;margin-right:.03em;flex:none}
+.otb-wm .otb-d{display:none}
+.otb-tag{font:italic 400 16px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--g);max-width:46ch}
+.otb-proj{font-size:14px;color:var(--r);text-decoration:underline;text-underline-offset:3px}
+.otb-proj:hover{color:var(--r-ink)}
+:root[data-theme="dark"] .otb-wm .otb-l{display:none}:root[data-theme="dark"] .otb-wm .otb-d{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .otb-wm .otb-l{display:none}:root:not([data-theme="light"]) .otb-wm .otb-d{display:block}}
 .fine{color:var(--g);font-size:12.5px;max-width:72ch;line-height:1.5}
 
 /* command page */
@@ -209,7 +217,7 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
   .rows{grid-template-columns:1fr}
   .where{grid-template-columns:1fr 1fr}
   .pdfs{flex-direction:column;align-items:flex-start;padding:24px}
-  .foot-in{flex-direction:column;gap:12px}
+  .foot-in{flex-direction:column;gap:20px}
 }
 @media (max-width:560px){
   .nav-in{height:58px}
@@ -248,7 +256,6 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
 :root[data-theme="dark"] .vid{background:#1e1e20}
 :root[data-theme="dark"] .covers img,:root[data-theme="dark"] .cover{box-shadow:none}
 :root[data-theme="dark"] .search:focus-within{box-shadow:0 6px 24px -10px rgba(240,68,76,.5)}
-:root[data-theme="dark"] .otb img{background:#fff;border-radius:5px}
 :root[data-theme="dark"] .copy-big{border-color:var(--l)}
 :root[data-theme="dark"] .feat:hover{border-color:#4a4a4e}
 :root[data-theme="dark"]{scrollbar-color:#444 transparent}
@@ -258,7 +265,6 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
 :root:not([data-theme="light"]) .vid{background:#1e1e20}
 :root:not([data-theme="light"]) .covers img,:root:not([data-theme="light"]) .cover{box-shadow:none}
 :root:not([data-theme="light"]) .search:focus-within{box-shadow:0 6px 24px -10px rgba(240,68,76,.5)}
-:root:not([data-theme="light"]) .otb img{background:#fff;border-radius:5px}
 :root:not([data-theme="light"]) .copy-big{border-color:var(--l)}
 :root:not([data-theme="light"]) .feat:hover{border-color:#4a4a4e}
 :root:not([data-theme="light"]){scrollbar-color:#444 transparent}}
