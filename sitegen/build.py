@@ -4,7 +4,8 @@
 Reads the PDF edition data (editions/beginners_data.py, editions/knowledge_data.py)
 plus sitegen/apps_data.py and sitegen/shorts.py, and writes a plain static site to
 site/. Every link is relative, so the same output works at
-https://1thomasalan.github.io/slashguide/ and later at https://slashguide.com/.
+https://slashguide.com/ (custom domain, live 2026-11-14) and the old github.io address.
+Canonical, og:url, sitemap.xml and robots.txt use the full address in SITE_URL.
 
 Run:  PYTHONPATH=/workspace/work/pylib python3 sitegen/build.py
 """
@@ -15,6 +16,9 @@ ROOT = Path(__file__).resolve().parent.parent
 GEN = ROOT / "sitegen"
 ED = ROOT / "editions"
 OUT = ROOT / "site"
+SITE_URL = "https://slashguide.com"
+DOMAIN = "slashguide.com"
+SITEMAP = []
 sys.path[:0] = [str(ED), str(GEN)]
 
 import beginners_data as BD  # noqa: E402
@@ -130,8 +134,11 @@ def icon(name, size=18):
             f'aria-hidden="true">{paths[name]}</svg>')
 
 # ---------------------------------------------------------------- page shell
-def page(title, desc, body, rel, cls=""):
-    """rel = relative prefix to the site root ('' or '../')."""
+def page(title, desc, body, rel, cls="", path="/"):
+    """rel = relative prefix to the site root ('' or '../'); path = page path for its full address."""
+    url = SITE_URL + path
+    if path not in SITEMAP:
+        SITEMAP.append(path)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -141,6 +148,10 @@ def page(title, desc, body, rel, cls=""):
 <meta name="description" content="{e(desc)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE_URL}/assets/cover-everyday.png">
+<link rel="canonical" href="{url}">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111112" media="(prefers-color-scheme: dark)">
 <script>try{{var t=localStorage.getItem("sg-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}}catch(e){{}}</script>
@@ -400,7 +411,7 @@ def cmd_page(c):
   </div>
 </div>
 """
-    return page(title, f"{cmd}: {first['does']} Full prompt and example inside.", body, "../", "cmdpage")
+    return page(title, f"{cmd}: {first['does']} Full prompt and example inside.", body, "../", "cmdpage", f"/{c['slug']}/")
 
 # ---------------------------------------------------------------- downloads
 def downloads():
@@ -431,7 +442,7 @@ def downloads():
 </div>"""
     return page("Free PDF editions | Slash Guide",
                 "Download the Slash Guide Everyday and Work editions: copy-ready AI prompts with slash-word labels, free to print and share.",
-                body, "../", "dlpage")
+                body, "../", "dlpage", "/downloads/")
 
 # ---------------------------------------------------------------- 404 (works at any base path)
 NOT_FOUND = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -439,7 +450,7 @@ NOT_FOUND = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta 
 <style>body{font-family:Inter,Helvetica,Arial,sans-serif;color:#111;margin:0;display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px}
 h1{font-family:ui-monospace,Menlo,monospace;color:#C81018;font-size:56px;letter-spacing:-2px;margin:0}p{color:#555;font-size:18px}a{color:#C81018;text-underline-offset:3px}@media (prefers-color-scheme:dark){body{background:#111112;color:#ececea}p{color:#9c9c98}h1,a{color:#f0444c}}</style></head>
 <body><main><h1>/404</h1><p>That shortcut isn't here. It may have a different name.</p><p><a id="home" href="/">Search all shortcuts</a></p></main>
-<script>var p=location.pathname.split('/');if(location.hostname.endsWith('github.io')&&p[1]){document.getElementById('home').href='/'+p[1]+'/';}</script></body></html>
+</body></html>
 """
 
 # ---------------------------------------------------------------- assets
@@ -478,11 +489,15 @@ def main():
         if isinstance(new, list):
             links = " or ".join(f'<a href="../{n}/">/{n}</a>' for n in new)
             (OUT / old / "index.html").write_text(page(f"/{old} has new names | Slash Guide", f"/{old} is now {', '.join('/' + n for n in new)}.",
-                f'<div class="wrap detail"><h1 class="m red">/{old}</h1><p class="does">This shortcut now has clearer names: {links}.</p></div>', "../", "cmdpage"))
+                f'<div class="wrap detail"><h1 class="m red">/{old}</h1><p class="does">This shortcut now has clearer names: {links}.</p></div>', "../", "cmdpage", f"/{old}/"))
         else:
-            (OUT / old / "index.html").write_text(f'<!doctype html><meta charset="utf-8"><title>Moved to /{new}</title><meta http-equiv="refresh" content="0; url=../{new}/"><link rel="canonical" href="../{new}/"><p>This shortcut is now <a href="../{new}/">/{new}</a>.</p>')
+            (OUT / old / "index.html").write_text(f'<!doctype html><meta charset="utf-8"><title>Moved to /{new}</title><meta http-equiv="refresh" content="0; url=../{new}/"><link rel="canonical" href="{SITE_URL}/{new}/"><p>This shortcut is now <a href="../{new}/">/{new}</a>.</p>')
     (OUT / "404.html").write_text(NOT_FOUND)
     (OUT / ".nojekyll").write_text("")
+    (OUT / "CNAME").write_text(DOMAIN + "\n")
+    (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+    (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{SITE_URL}{p}</loc></url>\n" for p in SITEMAP) + "</urlset>\n")
     print(f"built {N_TOTAL} command pages ({N_AI} AI), {len(rows)} library rows -> {OUT}")
 
 if __name__ == "__main__":
