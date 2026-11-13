@@ -1,0 +1,1191 @@
+[
+ {
+  "name": "Write it for me",
+  "dek": "Letters, notes and replies, in your voice.",
+  "entries": [
+   {
+    "does": "Drafts a clear, polite letter for the purpose you describe.",
+    "prompt": "/letter Write a short, polite letter to [who it's to] about [what you need]. Tone: [friendly / firm / formal]. Keep it under 200 words, say clearly what I am asking for and by when, and end with a polite sign-off. If you need a detail like a name or date, leave a [blank] for me to fill in.",
+    "example": "/letter Write a short, polite letter to my landlord about fixing the dripping kitchen tap. Tone: friendly but firm. Keep it under 200 words, say clearly what I am asking for and by when, and end with a polite sign-off. If you need a detail like a name or date, leave a [blank] for me to fill in.",
+    "asks_ai": "You ask the AI to write a ready-to-send letter. You get a short draft with blanks for any details it doesn't know.",
+    "give": [
+     "Who the letter is to",
+     "What you want them to do",
+     "The tone you want",
+     "Any deadline or key facts"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending and fill in every [blank] with the right names, dates and facts.",
+    "level": "simple",
+    "cmd": "letter"
+   },
+   {
+    "does": "Drafts a reply to a message you paste in.",
+    "prompt": "/reply Here is a message I received: [paste the message]. Write a reply that says [what you want to say back]. Match the tone of the original, keep it about the same length or shorter, and give me just the reply, ready to send.",
+    "example": "/reply Here is a message I received: \"Hi! We'd love to have you over for lunch on Saturday. Can you come around noon?\" Write a reply that says yes to Saturday, but we can only stay until 3. Match the tone of the original, keep it about the same length or shorter, and give me just the reply, ready to send.",
+    "asks_ai": "You ask the AI to answer a message for you. You get one ready-to-send reply.",
+    "give": [
+     "The full message you received",
+     "What you want to say back",
+     "Your relationship to the sender"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending to make sure it says what you mean.",
+    "level": "simple",
+    "cmd": "reply"
+   },
+   {
+    "does": "Writes a warm, specific thank-you note.",
+    "prompt": "/thankyou Write a warm thank-you note to [who] for [what they did]. Mention this detail: [one thing you loved or noticed]. Keep it to 3 to 5 sentences, sincere and not over the top.",
+    "example": "/thankyou Write a warm thank-you note to my neighbor Linda for watering my plants all week while I was away. Mention this detail: my tomato plants are thriving. Keep it to 3 to 5 sentences, sincere and not over the top.",
+    "asks_ai": "You ask the AI to write a short, personal thank-you note. You get a few warm sentences you can copy into a card or message.",
+    "give": [
+     "Who you're thanking",
+     "What they did",
+     "One specific detail you appreciated"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "thankyou"
+   },
+   {
+    "does": "Drafts a calm, clear complaint that states what you want done.",
+    "prompt": "/complaint Write a calm, polite complaint to [company] about [what happened, with dates and any order or reference numbers]. Say clearly what I want them to do: [refund / repair / replacement / apology]. Stick to the facts, no angry language, under 250 words, and ask for a reply by a reasonable date. Leave [blanks] for any details I haven't given.",
+    "example": "/complaint Write a calm, polite complaint to the airline about my checked bag arriving 3 days late after my flight on May 12 (bag reference [number]). Say clearly what I want them to do: refund the $140 I spent on clothes and toiletries; I have receipts. Stick to the facts, no angry language, under 250 words, and ask for a reply by a reasonable date. Leave [blanks] for any details I haven't given.",
+    "asks_ai": "You ask the AI to turn your problem into a calm, factual complaint letter. You get a ready-to-edit draft that ends with a clear request.",
+    "give": [
+     "The company and what went wrong",
+     "Dates, amounts and reference numbers",
+     "What you want them to do",
+     "Proof you have, like receipts"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check every date, amount and reference number before sending. The company decides the outcome; a good letter just helps your case.",
+    "level": "medium",
+    "cmd": "complaint"
+   },
+   {
+    "does": "Helps you write a few gentle words for a sympathy card.",
+    "prompt": "/condolence Help me write a short message for a sympathy card to [who] whose [relationship, e.g. father] has died. How I knew them: [how]. A memory I'd like to include: [memory, optional]. Keep it to 2 to 4 gentle, sincere sentences, avoid clichés, and give me 2 versions to choose from.",
+    "example": "/condolence Help me write a short message for a sympathy card to my friend Mark whose father has died. How I knew them: I met his dad at Mark's fishing trips. A memory I'd like to include: his dad always out-fished us both and laughed about it. Keep it to 2 to 4 gentle, sincere sentences, avoid clichés, and give me 2 versions to choose from.",
+    "asks_ai": "You ask the AI for a few kind words for a sympathy card. You get two short versions to pick from or blend.",
+    "give": [
+     "Who the card is for and who died",
+     "How you knew them",
+     "One memory, if you have one"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it aloud and change any words that don't sound like you.",
+    "level": "simple",
+    "cmd": "condolence"
+   },
+   {
+    "does": "Writes an invitation with all the key details for your event.",
+    "prompt": "/invite Write a friendly invitation for [event]. Date and time: [when]. Place: [where]. Guests should bring: [anything, or nothing]. Include how and by when to RSVP: [how]. Keep it short and easy to read, with the details on separate lines.",
+    "example": "/invite Write a friendly invitation for my 60th birthday BBQ. Date and time: Saturday, June 6, 4 pm. Place: our backyard, 12 Oak Lane. Guests should bring: a lawn chair. Include how and by when to RSVP: text me by June 1. Keep it short and easy to read, with the details on separate lines.",
+    "asks_ai": "You ask the AI to write an invitation. You get a short message with the date, place and RSVP clearly listed.",
+    "give": [
+     "What the event is",
+     "Date, time and place",
+     "What guests should bring",
+     "How to RSVP"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Double-check the date, time and address before you send it out.",
+    "level": "simple",
+    "cmd": "invite"
+   },
+   {
+    "does": "Cuts your text down while keeping the main point.",
+    "prompt": "/shorter Make this text shorter: [paste your text]. Target length: [e.g. 3 sentences or 50 words]. Keep the main point and any names, dates and numbers. Give me only the shortened version.",
+    "example": "/shorter Make this text shorter: \"Hi everyone, I just wanted to reach out and let you all know that, after a lot of thinking and talking it over with the family, we have decided that this year we will be hosting Thanksgiving dinner at our house instead of at Mom's, and we would really love it if you could all come around 2 pm and maybe bring a side dish if you are able to.\" Target length: 2 sentences. Keep the main point and any names, dates and numbers. Give me only the shortened version.",
+    "asks_ai": "You ask the AI to trim your text to a set length. You get a shorter version that keeps the important details.",
+    "give": [
+     "The full text",
+     "How short you want it",
+     "Anything that must stay in"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "shorter"
+   },
+   {
+    "does": "Fixes spelling and grammar, then lists what it changed.",
+    "prompt": "/proofread Check this text for spelling, grammar and punctuation: [paste your text]. Keep my words and style; only fix mistakes. First give me the corrected text, then a short list of each change you made.",
+    "example": "/proofread Check this text for spelling, grammar and punctuation: \"Had a grate time at the lake this weekend, the kids caught there first fish and we didnt want to leave!\" Keep my words and style; only fix mistakes. First give me the corrected text, then a short list of each change you made.",
+    "asks_ai": "You ask the AI to fix mistakes without rewriting your voice. You get the corrected text plus a list of what changed.",
+    "give": [
+     "The full text",
+     "Whether it's casual or formal",
+     "Any words that must stay as they are, like names"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "proofread"
+   },
+   {
+    "does": "Rewrites a message to sound friendlier and less stiff.",
+    "prompt": "/warmer Rewrite this message so it sounds friendlier and more natural, without changing what it says: [paste the message]. Keep it about the same length and don't add exclamation marks everywhere. Give me only the new version.",
+    "example": "/warmer Rewrite this message so it sounds friendlier and more natural, without changing what it says: \"Hello. I am your new coworker at the front desk. Please let me know if you require assistance.\" Keep it about the same length and don't add exclamation marks everywhere. Give me only the new version.",
+    "asks_ai": "You ask the AI to soften the tone of your message. You get a friendlier version that says the same thing.",
+    "give": [
+     "The full message",
+     "Who it's going to"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "warmer"
+   },
+   {
+    "does": "Rewrites a message to sound more professional.",
+    "prompt": "/formal Rewrite this message in a polite, professional tone for [who it's going to]: [paste the message]. Keep all the facts the same, fix any mistakes, and keep it clear and brief. Give me only the new version.",
+    "example": "/formal Rewrite this message in a polite, professional tone for my bank: \"hey, there's a charge on my card i didnt make, $59 on the 3rd, can you look at it\" Keep all the facts the same, fix any mistakes, and keep it clear and brief. Give me only the new version.",
+    "asks_ai": "You ask the AI to make your message sound professional. You get a cleaner version with the same facts.",
+    "give": [
+     "The full message",
+     "Who it's going to",
+     "Any account or reference details to keep"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check names, amounts and dates before sending. Never include full card or account numbers in an email.",
+    "level": "simple",
+    "cmd": "formal"
+   }
+  ]
+ },
+ {
+  "name": "Explain it to me",
+  "dek": "Make sense of anything, at your pace.",
+  "entries": [
+   {
+    "does": "Explains a topic in very simple words, then a bit deeper.",
+    "prompt": "/eli5 Explain like I'm 5 (in very simple words, with an everyday example): [topic]. Keep it to a short paragraph. Then add a second short paragraph that goes a bit deeper for an adult beginner.",
+    "example": "/eli5 Explain like I'm 5 (in very simple words, with an everyday example): how inflation works. Keep it to a short paragraph. Then add a second short paragraph that goes a bit deeper for an adult beginner.",
+    "asks_ai": "You ask the AI for a very simple explanation, then a slightly fuller one. You get two short paragraphs.",
+    "give": [
+     "The topic",
+     "What part confuses you, if anything"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "eli5"
+   },
+   {
+    "does": "Explains a topic at an everyday-adult level, building on what you know.",
+    "prompt": "/explain Explain [topic] to me in plain English for an adult beginner. What I already know: [what you know]. Start from there, use one everyday example, avoid jargon (or explain any you use), and keep it under 200 words. End by asking if I want more detail on any part.",
+    "example": "/explain Explain what \"the cloud\" is to me in plain English for an adult beginner. What I already know: I use email and look at photos on my phone, but not much else. Start from there, use one everyday example, avoid jargon (or explain any you use), and keep it under 200 words. End by asking if I want more detail on any part.",
+    "asks_ai": "You ask the AI for a clear, grown-up explanation that starts from what you know. You get a short explanation and an offer to go further.",
+    "give": [
+     "The topic",
+     "What you already know",
+     "Why you want to know (optional)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "explain"
+   },
+   {
+    "does": "Gives a plain meaning of a word plus an example sentence.",
+    "prompt": "/define Tell me what \"[word or phrase]\" means in plain English, in one or two sentences. Then give one example sentence using it in everyday life. If it has more than one common meaning, list the main ones briefly.",
+    "example": "/define Tell me what \"fiduciary\" means in plain English, in one or two sentences. Then give one example sentence using it in everyday life. If it has more than one common meaning, list the main ones briefly.",
+    "asks_ai": "You ask the AI for a simple definition. You get a short meaning and an example sentence.",
+    "give": [
+     "The word or phrase",
+     "Where you saw it, if the meaning depends on context"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "define"
+   },
+   {
+    "does": "Rewrites jargon-heavy text in plain English.",
+    "prompt": "/jargon Rewrite this in plain, everyday English: [paste the text, or attach a photo of it]. Keep the meaning the same, explain any key terms in brackets, and then sum up in one line what it means for me. If anything is unclear or could be read two ways, say so.",
+    "example": "/jargon Rewrite this in plain, everyday English: \"Coverage is subject to a deductible per occurrence, and benefits are payable only after the insured has satisfied the annual out-of-pocket maximum for in-network services.\" Keep the meaning the same, explain any key terms in brackets, and then sum up in one line what it means for me. If anything is unclear or could be read two ways, say so.",
+    "asks_ai": "You ask the AI to translate confusing official wording into plain English. You get a simple rewrite and a one-line summary.",
+    "give": [
+     "The exact text",
+     "What kind of document it is (insurance, lease, medical)",
+     "Your question about it"
+    ],
+    "needs": "Photo option needs an AI app that accepts images (most do, some only on paid plans).",
+    "fallback": "No photo upload? Type or paste the text in instead.",
+    "check": "This is a plain-English guide, not legal or financial advice. For anything important, confirm with the company or a professional.",
+    "level": "simple",
+    "cmd": "jargon"
+   },
+   {
+    "does": "Helps you understand a photo of a letter, sign or form.",
+    "prompt": "/readthis I've attached a photo of a [letter / sign / form]. Tell me in plain English: what it is, who it's from, what it's asking me to do, and any deadline or amount. List the actions as short steps. If any part is blurry or unclear, tell me instead of guessing. My question: [what you need to know].",
+    "example": "/readthis I've attached a photo of a letter. Tell me in plain English: what it is, who it's from, what it's asking me to do, and any deadline or amount. List the actions as short steps. If any part is blurry or unclear, tell me instead of guessing. My question: do I need to do anything, and by when?",
+    "asks_ai": "You ask the AI to read a photo and explain it simply. You get what it is, what to do, and any deadline.",
+    "give": [
+     "A clear, well-lit photo of the whole page",
+     "What you need to know",
+     "Who it seems to be from"
+    ],
+    "needs": "An AI app that accepts photos (most do, some only on paid plans).",
+    "fallback": "No photo upload? Type the important parts of the text in instead.",
+    "check": "Check deadlines and amounts against the original. If a letter asks for money or personal details, confirm it's real by contacting the sender directly.",
+    "level": "simple",
+    "cmd": "readthis"
+   },
+   {
+    "does": "Pulls out the key points of a long article or document.",
+    "prompt": "/summarize Summarize this in [5] short bullet points: [paste the text, or attach the file]. Then, in 2 sentences, tell me what matters most for someone in my situation: [your situation]. Don't add anything that isn't in the text.",
+    "example": "/summarize Summarize this in 5 short bullet points: [paste the article about changes to Medicare drug coverage]. Then, in 2 sentences, tell me what matters most for someone in my situation: I'm 66 and take two regular prescriptions. Don't add anything that isn't in the text.",
+    "asks_ai": "You ask the AI to boil down a long text. You get a few bullets and a short note on what matters to you.",
+    "give": [
+     "The full text or file",
+     "How many points you want",
+     "Your situation, so it can say what matters to you"
+    ],
+    "needs": "Attaching a file needs an AI app that accepts files; very long documents may be cut off.",
+    "fallback": "No file upload? Copy and paste the text, a section at a time if it's long.",
+    "check": "For anything important, check key facts against the original.",
+    "level": "simple",
+    "cmd": "summarize"
+   },
+   {
+    "does": "Puts two or more options side by side for your needs.",
+    "prompt": "/compare Compare [option A] and [option B] for [what I'll use it for]. What matters most to me: [e.g. price, ease of use, size]. Show a simple side-by-side table, then tell me which fits my needs better and why in 2 or 3 sentences. If prices or models may have changed, say so.",
+    "example": "/compare Compare an iPad and a laptop for email, photos and video calls with family. What matters most to me: ease of use, a big clear screen, and price. Show a simple side-by-side table, then tell me which fits my needs better and why in 2 or 3 sentences. If prices or models may have changed, say so.",
+    "asks_ai": "You ask the AI to weigh options against what you care about. You get a short table and a suggested pick.",
+    "give": [
+     "The options",
+     "What you'll use it for",
+     "What matters most to you",
+     "Your budget"
+    ],
+    "needs": "Current prices and models need an AI app that can search the web.",
+    "fallback": "No web search? Paste in the specs and prices from the store pages yourself.",
+    "check": "Check current prices and details on the seller's site before you buy.",
+    "level": "medium",
+    "cmd": "compare"
+   },
+   {
+    "does": "Lists honest pros and cons to help you decide.",
+    "prompt": "/prosandcons Give me honest pros and cons of [the decision] for someone in my situation: [your situation]. List up to 5 of each as short bullets, then name the one or two questions I should answer before deciding. Don't make the choice for me.",
+    "example": "/prosandcons Give me honest pros and cons of buying an e-bike for errands for someone in my situation: I'm 62, live 2 miles from the shops, and the roads are a bit hilly. List up to 5 of each as short bullets, then name the one or two questions I should answer before deciding. Don't make the choice for me.",
+    "asks_ai": "You ask the AI for a balanced look at a decision. You get pros, cons, and the key questions to think about.",
+    "give": [
+     "The decision",
+     "Your situation",
+     "Budget or limits"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "prosandcons"
+   },
+   {
+    "does": "Translates your text and notes anything tricky.",
+    "prompt": "/translate Translate this into [language], with a [polite / casual] tone, for [who it's for]: [paste or type the text]. Give me the translation first, then a short note on any words or phrases that don't translate directly. If it helps, add a simple pronunciation guide.",
+    "example": "/translate Translate this into Spanish, with a polite tone, for my new neighbor: \"Welcome to the street! We're in the blue house. Let us know if you need anything.\" Give me the translation first, then a short note on any words or phrases that don't translate directly. If it helps, add a simple pronunciation guide.",
+    "asks_ai": "You ask the AI to translate and flag tricky bits. You get the translation plus short notes.",
+    "give": [
+     "The exact text",
+     "The language",
+     "The tone and who it's for"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "For anything important, like medical or legal papers, have a fluent speaker or professional check it.",
+    "level": "simple",
+    "cmd": "translate"
+   },
+   {
+    "does": "Quizzes you one question at a time to help it stick.",
+    "prompt": "/quizme Quiz me on [topic] with [number] questions, one at a time. Ask one question, then wait for my answer before asking the next. After each answer, tell me if I'm right and give a one-line explanation. At the end, give my score and the topics to review.",
+    "example": "/quizme Quiz me on the US Constitution with 10 questions, one at a time. Ask one question, then wait for my answer before asking the next. After each answer, tell me if I'm right and give a one-line explanation. At the end, give my score and the topics to review.",
+    "asks_ai": "You ask the AI to test you, one question at a time. You get feedback on each answer and a final score.",
+    "give": [
+     "The topic",
+     "How many questions",
+     "How hard (beginner or more)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "quizme"
+   }
+  ]
+ },
+ {
+  "name": "Kitchen and home",
+  "dek": "Cooking, chores and fix-it help.",
+  "entries": [
+   {
+    "does": "Gives a simple recipe with a shopping list.",
+    "prompt": "/recipe Give me a simple recipe for [dish] for [number] people. Limits: [e.g. low salt, no nuts, basic tools only]. List the ingredients with amounts, then short numbered steps, the total time, and a shopping list at the end.",
+    "example": "/recipe Give me a simple recipe for chicken soup for 4 people. Limits: low salt, no fancy tools. List the ingredients with amounts, then short numbered steps, the total time, and a shopping list at the end.",
+    "asks_ai": "You ask the AI for an easy recipe that fits your limits. You get ingredients, steps, time and a shopping list.",
+    "give": [
+     "The dish",
+     "How many people",
+     "Allergies or limits",
+     "Tools you have"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Double-check allergies on ingredient labels and cook meat to a safe temperature.",
+    "level": "simple",
+    "cmd": "recipe"
+   },
+   {
+    "does": "Suggests meals from food you already have.",
+    "prompt": "/fridge Here's what I have: [attach a photo of your fridge, or list the items]. Suggest [3] meals for [number] people that I can make in [time] using mostly these items. For each, list anything extra I'd need and short steps. If you can't tell what something is in the photo, ask me.",
+    "example": "/fridge Here's what I have: eggs, half a bag of spinach, cheddar, 2 potatoes, an onion, leftover rice. Suggest 3 meals for 2 people that I can make in under 30 minutes using mostly these items. For each, list anything extra I'd need and short steps. If you can't tell what something is in the photo, ask me.",
+    "asks_ai": "You ask the AI for meal ideas from what's on hand. You get a few quick options with steps.",
+    "give": [
+     "What food you have",
+     "How many people",
+     "How much time",
+     "Allergies or dislikes"
+    ],
+    "needs": "Photo option needs an AI app that accepts images (most do, some only on paid plans).",
+    "fallback": "No photo upload? Just type a list of what you have.",
+    "check": "Check that leftovers and fresh items are still good to eat.",
+    "level": "simple",
+    "cmd": "fridge"
+   },
+   {
+    "does": "Drafts a week of meals that fits your people, budget and tastes.",
+    "prompt": "/mealplan Make a [7]-day dinner plan for [number] people. Budget: about [amount] for the week. Preferences or limits: [e.g. more vegetables, no pork, quick weeknights]. Show it as a simple day-by-day list with one line per meal, reuse ingredients to cut waste, and add a combined shopping list at the end.",
+    "example": "/mealplan Make a 7-day dinner plan for 2 people. Budget: about $80 for the week. Preferences or limits: more vegetables, nothing too spicy, 30 minutes or less on weeknights. Show it as a simple day-by-day list with one line per meal, reuse ingredients to cut waste, and add a combined shopping list at the end.",
+    "asks_ai": "You ask the AI to plan a week of dinners. You get a day-by-day list and one shopping list.",
+    "give": [
+     "How many people",
+     "Your budget",
+     "Likes, dislikes and allergies",
+     "How much time you have to cook"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Prices vary by store and area, so treat the budget as a rough guide. If you have a medical diet, check the plan with your doctor or dietitian.",
+    "level": "medium",
+    "cmd": "mealplan"
+   },
+   {
+    "does": "Turns your meals into a shopping list grouped by store section.",
+    "prompt": "/grocerylist Make one shopping list for these meals: [list the meals or paste the recipes]. Combine repeated items and add amounts. Group it by store section (produce, meat and fish, dairy, bakery, pantry, frozen). Put staples I may already have, like salt and oil, in a separate \"check at home\" list.",
+    "example": "/grocerylist Make one shopping list for these meals: spaghetti with meat sauce, chicken stir-fry, and veggie omelets (each for 2 people). Combine repeated items and add amounts. Group it by store section (produce, meat and fish, dairy, bakery, pantry, frozen). Put staples I may already have, like salt and oil, in a separate \"check at home\" list.",
+    "asks_ai": "You ask the AI to build one tidy shopping list. You get items grouped by store section, plus a check-at-home list.",
+    "give": [
+     "The meals or recipes",
+     "How many people",
+     "Your store, if you want its sections"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "grocerylist"
+   },
+   {
+    "does": "Suggests what to use when you're missing an ingredient.",
+    "prompt": "/substitute I'm making [dish] and I don't have [missing ingredient]. Suggest 2 or 3 swaps using common kitchen items, with exact amounts, and say how each will change the taste or texture. Put the best option first.",
+    "example": "/substitute I'm making pancakes and I don't have buttermilk. Suggest 2 or 3 swaps using common kitchen items, with exact amounts, and say how each will change the taste or texture. Put the best option first.",
+    "asks_ai": "You ask the AI for ingredient swaps. You get a few options with amounts and what to expect.",
+    "give": [
+     "The dish",
+     "The missing ingredient",
+     "What you do have",
+     "Any allergies"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "If the swap is for an allergy, check the label of what you use.",
+    "level": "simple",
+    "cmd": "substitute"
+   },
+   {
+    "does": "Resizes a recipe up or down to the servings you need.",
+    "prompt": "/scale Change this recipe from [current] servings to [new] servings: [paste the recipe]. Show the new ingredient list with amounts rounded to easy kitchen measures. Then note anything that may not scale simply, like pan size, cooking time, eggs, or baking.",
+    "example": "/scale Change this recipe from 4 servings to 10 servings: [paste your chili recipe]. Show the new ingredient list with amounts rounded to easy kitchen measures. Then note anything that may not scale simply, like pan size, cooking time, eggs, or baking.",
+    "asks_ai": "You ask the AI to resize a recipe. You get new amounts plus notes on what to adjust.",
+    "give": [
+     "The full recipe",
+     "Current and new servings",
+     "Your pan or pot size"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check the math on key amounts, and check food is cooked through, since bigger batches can take longer.",
+    "level": "simple",
+    "cmd": "scale"
+   },
+   {
+    "does": "Helps you troubleshoot simple home fixes, step by step.",
+    "prompt": "/fixit Help me fix this at home: [describe the problem, and attach a photo if you can]. What I've already tried: [what you tried]. Give me the most likely causes first, then simple numbered steps, the tools or parts I'd need, and safety steps (like turning off water or power). Tell me clearly when I should stop and call a professional.",
+    "example": "/fixit Help me fix this at home: the toilet keeps running after I flush. What I've already tried: jiggling the handle. Give me the most likely causes first, then simple numbered steps, the tools or parts I'd need, and safety steps (like turning off water or power). Tell me clearly when I should stop and call a professional.",
+    "asks_ai": "You ask the AI to help you figure out and fix a small problem. You get likely causes, steps, tools, and when to call a pro.",
+    "give": [
+     "What's wrong and when it started",
+     "What you've tried",
+     "A photo, if your app accepts one",
+     "Make or model, if you know it"
+    ],
+    "needs": "Photo option needs an AI app that accepts images (most do, some only on paid plans).",
+    "fallback": "No photo upload? Describe what you see and any model number.",
+    "check": "Turn off water, power or gas before working on it. For gas, electrical wiring, or anything you're unsure about, call a licensed professional.",
+    "level": "medium",
+    "cmd": "fixit"
+   },
+   {
+    "does": "Suggests a cleaning method for a specific mess or item.",
+    "prompt": "/cleaning How do I clean [the stain or mess] from [the item and what it's made of]? How long it's been there: [time]. Give me short numbered steps using common household products, starting with the gentlest method, and tell me what to avoid.",
+    "example": "/cleaning How do I clean a coffee spill from a beige wool rug? How long it's been there: about an hour. Give me short numbered steps using common household products, starting with the gentlest method, and tell me what to avoid.",
+    "asks_ai": "You ask the AI how to clean a specific mess. You get gentle-first steps and what not to do.",
+    "give": [
+     "What the stain or mess is",
+     "What the item is made of",
+     "How long it's been there",
+     "Care label, if there is one"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Test on a hidden spot first and follow the care label. Never mix bleach with ammonia or other cleaners.",
+    "level": "simple",
+    "cmd": "cleaning"
+   },
+   {
+    "does": "Helps you identify a plant and work out what it needs.",
+    "prompt": "/plantcare Here's my plant: [attach a photo, or describe it and give its name if you know it]. The problem: [what's going wrong]. Where it lives: [indoors/outdoors, light, how often I water]. Tell me what the plant probably is, the most likely causes of the problem, and simple care steps. If you're not sure what it is, say so.",
+    "example": "/plantcare Here's my plant: [photo of a leafy houseplant in a pot by the window]. The problem: the lower leaves are turning yellow. Where it lives: indoors, bright window, I water it every 3 days. Tell me what the plant probably is, the most likely causes of the problem, and simple care steps. If you're not sure what it is, say so.",
+    "asks_ai": "You ask the AI to name your plant and help fix its problem. You get a best guess, likely causes, and care steps.",
+    "give": [
+     "A clear photo of the leaves and whole plant",
+     "What's going wrong",
+     "Light and watering",
+     "Indoors or outdoors"
+    ],
+    "needs": "Photo option needs an AI app that accepts images (most do, some only on paid plans).",
+    "fallback": "No photo upload? Describe the leaves, size and color, or give the name from the plant tag.",
+    "check": "Plant IDs from photos can be wrong. If you have pets or small children, check whether the plant is safe for them.",
+    "level": "simple",
+    "cmd": "plantcare"
+   },
+   {
+    "does": "Drafts a gentle, step-by-step declutter plan for a space.",
+    "prompt": "/declutter Make a gentle declutter plan for [room or space]. Time I have: [e.g. 30 minutes a day for 2 weeks]. Break it into small daily tasks, one area at a time, and include simple keep / donate / toss rules. Keep each day's task short and doable.",
+    "example": "/declutter Make a gentle declutter plan for the garage. Time I have: 30 minutes a day for 2 weeks. Break it into small daily tasks, one area at a time, and include simple keep / donate / toss rules. Keep each day's task short and doable.",
+    "asks_ai": "You ask the AI for a manageable plan to clear a space. You get small daily tasks and simple sorting rules.",
+    "give": [
+     "The room or space",
+     "How much time you have",
+     "What's in it that's hardest to deal with"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Ask a local recycling center how to get rid of paint, chemicals, batteries and electronics safely.",
+    "level": "medium",
+    "cmd": "declutter"
+   }
+  ]
+ },
+ {
+  "name": "Trips and outings",
+  "dek": "Plan it, pack it, enjoy it.",
+  "entries": [
+   {
+    "does": "Drafts a day-by-day trip plan at the pace you set.",
+    "prompt": "/trip Plan a [number]-day trip to [place] for [who's going]. Our pace: [e.g. easy, lots of rest, limited walking]. Interests: [what you enjoy]. Give a day-by-day plan with morning, afternoon and evening, keep travel between stops short, and suggest a rest break each day. Note anything that needs booking ahead.",
+    "example": "/trip Plan a 4-day trip to Chicago for two people in their 60s. Our pace: easy, with limited walking and a rest each afternoon. Interests: architecture, museums, and good local food. Give a day-by-day plan with morning, afternoon and evening, keep travel between stops short, and suggest a rest break each day. Note anything that needs booking ahead.",
+    "asks_ai": "You ask the AI to sketch out your trip day by day. You get a relaxed plan with notes on what to book.",
+    "give": [
+     "Where and how many days",
+     "Who's going and your pace",
+     "Interests",
+     "Budget and dates"
+    ],
+    "needs": "Up-to-date hours, prices and events need an AI app that can search the web.",
+    "fallback": "No web search? Use the plan as a draft and look up hours and prices yourself.",
+    "check": "Confirm opening hours, prices and bookings on official websites before you go.",
+    "level": "complex",
+    "cmd": "trip"
+   },
+   {
+    "does": "Suggests day-out ideas from where you are.",
+    "prompt": "/daytrip Suggest [3] day trips from [your town] in [month or season]. Interests: [e.g. history, nature, good lunch]. Max travel each way: [e.g. 1.5 hours by car]. For each, give the travel time, what to see, a lunch idea, and a simple timeline for the day.",
+    "example": "/daytrip Suggest 3 day trips from Tampa in October. Interests: history and a good lunch. Max travel each way: 1.5 hours by car. For each, give the travel time, what to see, a lunch idea, and a simple timeline for the day.",
+    "asks_ai": "You ask the AI for day-out ideas near you. You get a few options, each with travel time and a plan for the day.",
+    "give": [
+     "Your starting town",
+     "The season or date",
+     "Interests",
+     "How far you'll travel"
+    ],
+    "needs": "Current hours and events need an AI app that can search the web.",
+    "fallback": "No web search? Use the ideas as a starting point and check each place's website.",
+    "check": "Check opening hours and any seasonal closures before you set off.",
+    "level": "medium",
+    "cmd": "daytrip"
+   },
+   {
+    "does": "Makes a packing checklist for your trip.",
+    "prompt": "/packing Make a packing checklist for [number] days in [place] in [month]. Bag: [e.g. carry-on only]. Activities: [what you'll do]. Group it by clothes, toiletries, documents, tech and health, with quantities, and keep it light enough for my bag.",
+    "example": "/packing Make a packing checklist for 10 days in Italy in May. Bag: carry-on only. Activities: city walking, churches, and a nice dinner or two. Group it by clothes, toiletries, documents, tech and health, with quantities, and keep it light enough for my bag.",
+    "asks_ai": "You ask the AI for a packing list that fits your trip and bag. You get a grouped checklist with amounts.",
+    "give": [
+     "Where, when and how long",
+     "Bag size",
+     "What you'll be doing",
+     "Medicines or special needs"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check your airline's size and weight limits and liquid rules. Keep medicines and documents in your carry-on.",
+    "level": "simple",
+    "cmd": "packing"
+   },
+   {
+    "does": "Suggests indoor backup ideas when weather or plans fall through.",
+    "prompt": "/rainyday Our plans fell through. Suggest [5] indoor things to do in [place] for [who's with you, with ages]. Mix free and paid ideas, note roughly how long each takes, and include one easy option we can do at home or the hotel.",
+    "example": "/rainyday Our plans fell through. Suggest 5 indoor things to do in Seattle for me and two grandkids, ages 6 and 9. Mix free and paid ideas, note roughly how long each takes, and include one easy option we can do at home or the hotel.",
+    "asks_ai": "You ask the AI for backup plans. You get a short list of indoor ideas that suit your group.",
+    "give": [
+     "Where you are",
+     "Who's with you and their ages",
+     "Budget",
+     "How much time you have"
+    ],
+    "needs": "Current hours and events need an AI app that can search the web.",
+    "fallback": "No web search? Use the ideas as a starting point and check each place's website.",
+    "check": "Check opening hours and tickets before heading out.",
+    "level": "simple",
+    "cmd": "rainyday"
+   },
+   {
+    "does": "Gives the handful of useful phrases for your trip.",
+    "prompt": "/phrasebook Give me the [10] most useful phrases for a visitor to [country] for these situations: [e.g. restaurants, trains, shopping]. For each, show the English, the local phrase, and an easy pronunciation guide. Add 2 or 3 polite habits I should know.",
+    "example": "/phrasebook Give me the 10 most useful phrases for a visitor to Japan for these situations: restaurants, trains, and saying thank you. For each, show the English, the local phrase, and an easy pronunciation guide. Add 2 or 3 polite habits I should know.",
+    "asks_ai": "You ask the AI for a short, practical phrase list. You get phrases with pronunciation and a few etiquette tips.",
+    "give": [
+     "The country or language",
+     "Situations you'll be in",
+     "How many phrases"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Pronunciation guides are approximate; a translation app's audio can help you hear it said.",
+    "level": "simple",
+    "cmd": "phrasebook"
+   },
+   {
+    "does": "Explains common local customs and manners for a place or setting.",
+    "prompt": "/etiquette Explain the common customs and manners for [place or setting], focusing on [topics, e.g. tipping, greetings, dress]. Give 5 to 8 short do's and don'ts in plain words, with a one-line reason for each. Mention where customs differ by region or situation.",
+    "example": "/etiquette Explain the common customs and manners for a restaurant meal in France, focusing on tipping and table manners. Give 5 to 8 short do's and don'ts in plain words, with a one-line reason for each. Mention where customs differ by region or situation.",
+    "asks_ai": "You ask for the usual customs in a place. You get a short list of do's and don'ts with reasons.",
+    "give": [
+     "The country, city, or setting",
+     "The situation (meal, visit, business, religious site)",
+     "Topics you care about most"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Customs can vary by region and change over time; check a recent official or local source for anything important.",
+    "level": "simple",
+    "cmd": "etiquette"
+   },
+   {
+    "does": "Drafts a simple day-by-day plan to ease jet lag.",
+    "prompt": "/jetlag Make a simple plan to help me adjust to jet lag.\nTrip: [from city] to [to city], leaving [date and time], landing [date and local time].\nCover the 2 days before, the flight, and the first 3 days after: when to sleep, nap, seek daylight, eat, and have caffeine.\nKeep it to short bullet points by day. Don't suggest medicines or sleep aids; tell me to ask a doctor or pharmacist about those.",
+    "example": "/jetlag Make a simple plan to help me adjust to jet lag.\nTrip: New York to London, leaving Friday at 7 pm, landing Saturday at 7 am local time.\nCover the 2 days before, the flight, and the first 3 days after: when to sleep, nap, seek daylight, eat, and have caffeine.\nKeep it to short bullet points by day. Don't suggest medicines or sleep aids; tell me to ask a doctor or pharmacist about those.",
+    "asks_ai": "You ask for a timing plan for sleep, light, meals, and caffeine around your flight. You get a short day-by-day schedule.",
+    "give": [
+     "Departure and arrival cities",
+     "Flight times with local time on landing",
+     "Your usual bedtime",
+     "Any health limits"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "This is general guidance, not medical advice; ask a doctor or pharmacist before using melatonin or sleep aids.",
+    "level": "medium",
+    "cmd": "jetlag"
+   },
+   {
+    "does": "Gives a rough trip budget by category, plus ways to save.",
+    "prompt": "/travelbudget Give me a rough budget for [length] in [destination] for [number of people], [travel style, e.g. budget, mid-range].\nBreak it into flights, lodging, food, local transport, activities, and extras, with a low and high estimate for each and a total.\nThen list 5 practical ways to save. Say clearly that prices are rough estimates and may be out of date.",
+    "example": "/travelbudget Give me a rough budget for 7 days in Portugal for 2 people, mid-range hotels, flying from Chicago.\nBreak it into flights, lodging, food, local transport, activities, and extras, with a low and high estimate for each and a total.\nThen list 5 practical ways to save. Say clearly that prices are rough estimates and may be out of date.",
+    "asks_ai": "You ask for a cost estimate by category for your trip. You get a low-to-high range per item, a total, and saving tips.",
+    "give": [
+     "Destination and number of days",
+     "Number of travelers and where you fly from",
+     "Travel style (budget, mid-range, luxury)",
+     "Travel month"
+    ],
+    "needs": "Current prices work best with an AI that can search the web.",
+    "fallback": "No web access? Treat the numbers as ballpark and check a few real prices yourself.",
+    "check": "Check real prices on booking sites before you plan around these numbers.",
+    "level": "medium",
+    "cmd": "travelbudget"
+   },
+   {
+    "does": "Drafts a day-by-day road trip plan within your daily driving limit.",
+    "prompt": "/roadtrip Plan a road trip from [start] to [end] over [number] days. I want to drive no more than [hours] hours a day.\nGive a day-by-day plan: where to start and stop, rough driving time, one or two things to see, and where to stay overnight (town only).\nKeep each day to 3 or 4 short lines. Flag any day that may run over my limit.",
+    "example": "/roadtrip Plan a road trip from Denver to Yellowstone over 5 days. I want to drive no more than 4 hours a day.\nGive a day-by-day plan: where to start and stop, rough driving time, one or two things to see, and where to stay overnight (town only).\nKeep each day to 3 or 4 short lines. Flag any day that may run over my limit.",
+    "asks_ai": "You ask for a route split into easy driving days. You get a day-by-day plan with stops and overnight towns.",
+    "give": [
+     "Start and end points",
+     "Number of days",
+     "Max driving hours per day",
+     "Interests (parks, food, history)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check drive times, road closures, and opening hours on a map app before you go.",
+    "level": "medium",
+    "cmd": "roadtrip"
+   },
+   {
+    "does": "Drafts a short highlights route for a big museum.",
+    "prompt": "/museum Make a plan to see [museum] in [time available]. My interests: [interests, or \"just the highlights\"].\nList 6 to 10 must-see works or rooms in a sensible walking order, with one line on why each is worth it and a rough time for each.\nAdd one tip on tickets or entry and remind me to check the museum's map for closed galleries.",
+    "example": "/museum Make a plan to see the Metropolitan Museum of Art in New York in 2 hours. My interests: just the highlights.\nList 6 to 10 must-see works or rooms in a sensible walking order, with one line on why each is worth it and a rough time for each.\nAdd one tip on tickets or entry and remind me to check the museum's map for closed galleries.",
+    "asks_ai": "You ask for a short route through a big museum. You get a timed list of highlights in walking order.",
+    "give": [
+     "The museum's name and city",
+     "How much time you have",
+     "What you like (art type, era, kids' picks)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Galleries move and close; check the museum's website or map on the day.",
+    "level": "simple",
+    "cmd": "museum"
+   }
+  ]
+ },
+ {
+  "name": "Health, with your doctor",
+  "dek": "Be prepared and informed. Never a substitute for medical advice.",
+  "entries": [
+   {
+    "does": "Lists questions to ask your doctor at an appointment.",
+    "prompt": "/doctorqs I have a doctor's appointment for [reason for visit]. Write 8 to 10 clear questions I could ask, in priority order, grouped under short headings (diagnosis, treatment, medicines, next steps). Use plain words and keep each question to one line so I can print it or read it from my phone.",
+    "example": "/doctorqs I have a doctor's appointment for a follow-up on high blood pressure. Write 8 to 10 clear questions I could ask, in priority order, grouped under short headings (diagnosis, treatment, medicines, next steps). Use plain words and keep each question to one line so I can print it or read it from my phone.",
+    "asks_ai": "You ask for a list of good questions for your visit. You get a short, prioritized list you can bring along.",
+    "give": [
+     "Reason for the visit",
+     "What you're worried about most",
+     "Current treatments or medicines"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "This helps you prepare; it isn't medical advice. Your doctor's answers come first.",
+    "level": "simple",
+    "cmd": "doctorqs"
+   },
+   {
+    "does": "Organizes your symptoms and history into a one-page visit summary.",
+    "prompt": "/visitprep Help me organize what to tell my doctor. Here's what's happening: [symptoms, when they started, what makes them better or worse, what I've tried].\nTurn it into a one-page summary with short sections: main concern, timeline, what helps or hurts, medicines I take, and questions I have.\nIf something important is missing, ask me before you write it. Don't diagnose.",
+    "example": "/visitprep Help me organize what to tell my doctor. Here's what's happening: knee pain for 3 weeks, worse on stairs, a little swelling at night, ice helps, I've taken ibuprofen twice.\nTurn it into a one-page summary with short sections: main concern, timeline, what helps or hurts, medicines I take, and questions I have.\nIf something important is missing, ask me before you write it. Don't diagnose.",
+    "asks_ai": "You ask the AI to turn your notes into a tidy summary for your doctor. You get a one-page outline, plus questions if details are missing.",
+    "give": [
+     "Symptoms and when they started",
+     "What makes them better or worse",
+     "Medicines and what you've tried",
+     "Relevant history"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "This organizes your notes; it isn't medical advice. If symptoms are severe or sudden, contact a doctor or emergency services right away.",
+    "level": "medium",
+    "cmd": "visitprep"
+   },
+   {
+    "does": "Explains what the items on a lab report measure, in plain words.",
+    "prompt": "/labterms Explain the terms on this lab report in plain words. For each item, say in one or two sentences what it measures and why doctors check it. Do not tell me whether my results are good or bad or what they mean for my health; end by reminding me to ask my doctor.\n[upload a photo of the report, or paste or type the item names]",
+    "example": "/labterms Explain the terms on this lab report in plain words. For each item, say in one or two sentences what it measures and why doctors check it. Do not tell me whether my results are good or bad or what they mean for my health; end by reminding me to ask my doctor.\nItems: HbA1c, LDL cholesterol, eGFR, TSH, ALT",
+    "asks_ai": "You ask what each lab test measures. You get a plain-language glossary, not a judgment about your results.",
+    "give": [
+     "The test names on the report",
+     "Units or ranges if you want them explained",
+     "What you're unsure about"
+    ],
+    "needs": "An AI app that accepts photos (most do, some only on paid plans).",
+    "fallback": "No photo upload? Type or paste the test names instead.",
+    "check": "Not medical advice. Only your doctor can say what your results mean for you. Cover your name and ID numbers before uploading.",
+    "level": "simple",
+    "cmd": "labterms"
+   },
+   {
+    "does": "Formats your medicines into a clean, printable table.",
+    "prompt": "/medlist Turn my medicines into a clean table I can print and carry. Columns: medicine, dose, when I take it, what it's for, notes.\nCopy names and doses exactly as I typed them; don't change, add, or recommend anything. If something looks unclear or incomplete, list it below the table as a question for me.\nMy medicines: [each medicine, dose, time of day, reason]",
+    "example": "/medlist Turn my medicines into a clean table I can print and carry. Columns: medicine, dose, when I take it, what it's for, notes.\nCopy names and doses exactly as I typed them; don't change, add, or recommend anything. If something looks unclear or incomplete, list it below the table as a question for me.\nMy medicines: lisinopril 10 mg every morning for blood pressure; atorvastatin 20 mg at bedtime for cholesterol; vitamin D 1000 IU with breakfast",
+    "asks_ai": "You ask the AI to format your own medicine list. You get a tidy table plus questions about anything unclear.",
+    "give": [
+     "Each medicine's exact name",
+     "Dose and time of day",
+     "What it's for",
+     "Vitamins and supplements too"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check the table against your bottles or pharmacy list, and ask your pharmacist to review it.",
+    "level": "simple",
+    "cmd": "medlist"
+   },
+   {
+    "does": "Creates a simple daily diary to track symptoms and possible triggers.",
+    "prompt": "/symptomlog Make a simple daily diary to track [symptom] for [length of time]. Include columns for date, time, how bad it was (0 to 10), how long it lasted, and [things to track, e.g. sleep, food, stress].\nKeep it short enough to fill in in under a minute a day, as a table I can print or copy into a notes app. Add 2 lines on how to bring it to my doctor.",
+    "example": "/symptomlog Make a simple daily diary to track headaches for 2 weeks. Include columns for date, time, how bad it was (0 to 10), how long it lasted, and hours of sleep and cups of coffee.\nKeep it short enough to fill in in under a minute a day, as a table I can print or copy into a notes app. Add 2 lines on how to bring it to my doctor.",
+    "asks_ai": "You ask for a ready-to-use symptom diary. You get a printable table with the columns you need.",
+    "give": [
+     "The symptom",
+     "How long to track it",
+     "Possible triggers to record"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "A diary helps your doctor see patterns; it can't diagnose. Get help right away for severe or sudden symptoms.",
+    "level": "simple",
+    "cmd": "symptomlog"
+   },
+   {
+    "does": "Drafts a gentle week-by-week walking plan.",
+    "prompt": "/walkplan Make a gentle walking plan. I can walk [current minutes] minutes now and want to reach [goal] over [weeks]. My doctor's limits: [limits, or \"none given\"].\nShow it week by week: days per week, minutes per walk, and an easy pace cue. Add 3 short tips to stay with it and when to stop and rest. Keep everything within my limits.",
+    "example": "/walkplan Make a gentle walking plan. I can walk 10 minutes now and want to reach 30 minutes over 4 weeks. My doctor's limits: none given.\nShow it week by week: days per week, minutes per walk, and an easy pace cue. Add 3 short tips to stay with it and when to stop and rest. Keep everything within my limits.",
+    "asks_ai": "You ask for a slow, step-up walking schedule. You get a week-by-week plan with simple tips.",
+    "give": [
+     "Where you are now",
+     "Your goal and timeframe",
+     "Any limits from your doctor",
+     "Where you'll walk"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check with your doctor before starting new exercise, especially with a heart or joint condition. Stop if you have chest pain, dizziness, or shortness of breath.",
+    "level": "medium",
+    "cmd": "walkplan"
+   },
+   {
+    "does": "Suggests practical habits for better sleep based on your routine.",
+    "prompt": "/sleep Help me sleep better. My routine: [bedtime, wake time, evening habits]. The problem: [what goes wrong].\nGive 5 to 7 practical habits to try, matched to my problem, each in one line with a short reason. Then suggest one thing to try first this week. Don't recommend medicines or supplements.",
+    "example": "/sleep Help me sleep better. My routine: bed at 10 pm, up at 6 am, TV until bedtime, coffee until 3 pm. The problem: I wake at 3 am and can't get back to sleep.\nGive 5 to 7 practical habits to try, matched to my problem, each in one line with a short reason. Then suggest one thing to try first this week. Don't recommend medicines or supplements.",
+    "asks_ai": "You ask for sleep habits that fit your situation. You get a short list and one thing to start with.",
+    "give": [
+     "Your usual bedtime and wake time",
+     "What goes wrong",
+     "Evening habits (screens, caffeine, alcohol)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "General tips, not medical advice. If poor sleep lasts weeks or you snore loudly or feel very tired by day, talk to a doctor.",
+    "level": "simple",
+    "cmd": "sleep"
+   },
+   {
+    "does": "Explains health insurance terms and walks through a bill or statement.",
+    "prompt": "/insurance Explain this health insurance question in plain words: [term, or paste the bill or statement with personal info removed].\nDefine any insurance terms in one or two sentences each, with a simple dollar example. If I shared a bill, walk through each charge line by line and show the math step by step so I can check it.\nEnd with 2 or 3 questions I could ask my insurer.",
+    "example": "/insurance Explain this health insurance question in plain words: what is the difference between a deductible, a copay, and an out-of-pocket maximum?\nDefine any insurance terms in one or two sentences each, with a simple dollar example. If I shared a bill, walk through each charge line by line and show the math step by step so I can check it.\nEnd with 2 or 3 questions I could ask my insurer.",
+    "asks_ai": "You ask for insurance terms or a bill explained. You get plain definitions, step-by-step math, and questions for your insurer.",
+    "give": [
+     "The term, or the bill's lines and amounts",
+     "Your plan's deductible and copays if you know them",
+     "What confuses you"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check the math yourself and confirm coverage with your insurer; your plan documents are the final word. Remove your name, member ID, and account numbers before pasting.",
+    "level": "medium",
+    "cmd": "insurance"
+   },
+   {
+    "does": "Drafts a care checklist or weekly plan for a loved one.",
+    "prompt": "/caregiver Help me organize care for [who] who [situation]. What's hard right now: [challenges].\nMake a weekly checklist grouped by daily, weekly, and as-needed tasks (meals, medicines, appointments, home safety, and time for me to rest).\nKeep it short and printable. Add a short list of questions to ask their care team. Follow the care team's instructions over anything here.",
+    "example": "/caregiver Help me organize care for my mom who is home after hip surgery. What's hard right now: keeping track of her pills and getting her to physical therapy twice a week.\nMake a weekly checklist grouped by daily, weekly, and as-needed tasks (meals, medicines, appointments, home safety, and time for me to rest).\nKeep it short and printable. Add a short list of questions to ask their care team. Follow the care team's instructions over anything here.",
+    "asks_ai": "You ask for help organizing a loved one's care. You get a printable checklist and questions for their care team.",
+    "give": [
+     "Who you're caring for and their situation",
+     "What's hardest right now",
+     "Appointments and helpers involved",
+     "Care-team instructions"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Follow the doctor's and care team's instructions first; this is for organizing, not medical advice.",
+    "level": "medium",
+    "cmd": "caregiver"
+   },
+   {
+    "does": "Guides you through a short breathing or calming exercise.",
+    "prompt": "/calm I feel [how you feel] and have [minutes] minutes. Guide me through a simple breathing or calming exercise that fits that time. Use short, numbered steps in a calm, kind tone, with counts for breathing in and out. End with one sentence I can repeat to myself.",
+    "example": "/calm I feel anxious before a flight and have 3 minutes. Guide me through a simple breathing or calming exercise that fits that time. Use short, numbered steps in a calm, kind tone, with counts for breathing in and out. End with one sentence I can repeat to myself.",
+    "asks_ai": "You ask for a short calming exercise. You get simple, paced steps you can follow right away.",
+    "give": [
+     "How you feel",
+     "How much time you have",
+     "Where you are (seat, bed, outside)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "If anxiety is frequent or overwhelming, talk to a doctor. If you're in crisis, contact local emergency services or a crisis line.",
+    "level": "simple",
+    "cmd": "calm"
+   }
+  ]
+ },
+ {
+  "name": "Tech help",
+  "dek": "Patient answers, one step at a time.",
+  "entries": [
+   {
+    "does": "Helps troubleshoot a tech problem with simple, numbered steps.",
+    "prompt": "/techhelp Help me fix a tech problem. Device and model: [device]. Problem: [what happens]. What I've tried: [steps]. What I see on screen: [message].\nGive me numbered steps in plain words, easiest fixes first, and say what I should see after each step. If you need more details, ask me first.",
+    "example": "/techhelp Help me fix a tech problem. Device and model: iPhone 14. Problem: it won't charge past 80%. What I've tried: a different cable and restarting. What I see on screen: a message about charging being on hold.\nGive me numbered steps in plain words, easiest fixes first, and say what I should see after each step. If you need more details, ask me first.",
+    "asks_ai": "You ask for help with a device problem. You get numbered fixes, easiest first, or questions if details are missing.",
+    "give": [
+     "Device and model",
+     "Exactly what happens",
+     "What you already tried",
+     "Any error message"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Menus differ by model and software version; back up before resetting anything.",
+    "level": "simple",
+    "cmd": "techhelp"
+   },
+   {
+    "does": "Gives instructions one step at a time and waits for you.",
+    "prompt": "/stepbystep Walk me through [task] on my [device and model]. Give me only ONE step at a time in plain words. After each step, stop and wait until I reply \"done\" or tell you what I see. If I say something went wrong, help me fix it before moving on.",
+    "example": "/stepbystep Walk me through setting up a new Gmail account on my Samsung Galaxy A54 Android phone. Give me only ONE step at a time in plain words. After each step, stop and wait until I reply \"done\" or tell you what I see. If I say something went wrong, help me fix it before moving on.",
+    "asks_ai": "You ask for a guided walk-through, one step per message. You get a step, then the AI waits for you before the next.",
+    "give": [
+     "The task",
+     "Your device and model",
+     "Your comfort level"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Screens differ by model; if a button isn't where the AI says, describe what you see.",
+    "level": "simple",
+    "cmd": "stepbystep"
+   },
+   {
+    "does": "Explains what's on your screen and what to tap next.",
+    "prompt": "/screenshot Look at this screenshot from my [device]. Explain in plain words what it is showing and what it wants me to do. Then tell me exactly what to tap next, step by step. If it looks like a scam or a warning, say so.\n[upload screenshot, or type exactly what the screen says]",
+    "example": "/screenshot Look at this screenshot from my iPhone. Explain in plain words what it is showing and what it wants me to do. Then tell me exactly what to tap next, step by step. If it looks like a scam or a warning, say so.\nThe screen says: \"iCloud storage is full. Upgrade now or manage storage.\" with buttons \"Upgrade\" and \"Not Now\".",
+    "asks_ai": "You ask the AI to read your screen and tell you what to do. You get a plain explanation and the next taps.",
+    "give": [
+     "The screenshot or exact words on screen",
+     "Your device",
+     "What you were trying to do"
+    ],
+    "needs": "An AI app that accepts photos (most do, some only on paid plans).",
+    "fallback": "No image upload? Type exactly what the screen says, including button names.",
+    "check": "Cover personal info (names, account numbers) before sharing a screenshot.",
+    "level": "simple",
+    "cmd": "screenshot"
+   },
+   {
+    "does": "Points out scam warning signs in a message or call.",
+    "prompt": "/scamcheck Check this message for scam warning signs. List each warning sign you see in plain words, say how risky it looks (low, medium, high), and tell me what to do next. Remind me never to click links or call numbers in the message; contact the company using its official website or app instead.\nMessage: [paste the text or describe the call; remove any personal info]",
+    "example": "/scamcheck Check this message for scam warning signs. List each warning sign you see in plain words, say how risky it looks (low, medium, high), and tell me what to do next. Remind me never to click links or call numbers in the message; contact the company using its official website or app instead.\nMessage: \"USPS: Your package is on hold due to an incomplete address. Pay $2.99 to reschedule delivery: usps-redelivery-help.com\"",
+    "asks_ai": "You ask for a scam check on a message or call. You get the red flags, a risk level, and safe next steps.",
+    "give": [
+     "The exact text or what the caller said",
+     "Who it claims to be from",
+     "What it asks you to do"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "The AI can't confirm a message is safe. Don't click links; contact the company through its official site or app. Never share codes or passwords.",
+    "level": "simple",
+    "cmd": "scamcheck"
+   },
+   {
+    "does": "Explains simple steps to keep your accounts safe.",
+    "prompt": "/passwords Help me keep my accounts safe. My devices: [devices]. What worries me: [concern].\nGive me simple, numbered steps in plain words, starting with the most important. Do not ask me for any real passwords, and remind me never to share them or codes with anyone, including you.",
+    "example": "/passwords Help me keep my accounts safe. My devices: an iPhone and a Windows laptop. What worries me: I use the same password everywhere and want to start using a password manager.\nGive me simple, numbered steps in plain words, starting with the most important. Do not ask me for any real passwords, and remind me never to share them or codes with anyone, including you.",
+    "asks_ai": "You ask for account safety steps. You get a short, prioritized action list without sharing any passwords.",
+    "give": [
+     "Your devices",
+     "What worries you",
+     "Which accounts matter most (email, bank)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Never paste real passwords or sign-in codes into any AI chat.",
+    "level": "simple",
+    "cmd": "passwords"
+   },
+   {
+    "does": "Suggests step-by-step fixes for slow or dropping Wi-Fi.",
+    "prompt": "/wifi Help me fix my Wi-Fi. Problem: [what happens and when]. Router: [brand or provider]. Devices affected: [devices]. Where it's worst: [room].\nGive numbered fixes, easiest and free first, in plain words. Say what each one should change. If you need more details, ask me first.",
+    "example": "/wifi Help me fix my Wi-Fi. Problem: it drops every evening. Router: provider's box in the living room. Devices affected: laptop and TV. Where it's worst: the back bedroom.\nGive numbered fixes, easiest and free first, in plain words. Say what each one should change. If you need more details, ask me first.",
+    "asks_ai": "You ask for help with Wi-Fi problems. You get numbered fixes, easiest first.",
+    "give": [
+     "What happens and when",
+     "Router brand or provider",
+     "Which devices and rooms",
+     "Home size and layout"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Before buying new equipment, ask your internet provider whether there's a known issue.",
+    "level": "simple",
+    "cmd": "wifi"
+   },
+   {
+    "does": "Explains how to back up your photos and files, step by step.",
+    "prompt": "/backup Help me back up [what to back up] from my [device]. Accounts I have: [e.g. iCloud, Google, none]. Explain 2 options in plain words (one cloud, one offline), then give numbered steps for the one you recommend for me, and how to check the backup worked.",
+    "example": "/backup Help me back up all my photos from my iPhone. Accounts I have: iCloud with 5 GB free and a Windows laptop. Explain 2 options in plain words (one cloud, one offline), then give numbered steps for the one you recommend for me, and how to check the backup worked.",
+    "asks_ai": "You ask how to protect your photos or files. You get two options and step-by-step setup for one.",
+    "give": [
+     "Your device",
+     "What you want to back up and how much",
+     "Accounts and computers you have"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Storage plans and prices change; check the provider's current options. Confirm your photos appear in the backup before deleting anything.",
+    "level": "simple",
+    "cmd": "backup"
+   },
+   {
+    "does": "Gives a short day-one setup list for a new device.",
+    "prompt": "/newgadget I just got a [device and model]. I want to use it for [main uses]. Give me a day-one setup checklist of 6 to 10 items in order, each with one line on why it matters, and numbered steps for the first one. Use plain words; I'm a beginner.",
+    "example": "/newgadget I just got an Apple Watch Series 10. I want to use it for fitness tracking and seeing messages. Give me a day-one setup checklist of 6 to 10 items in order, each with one line on why it matters, and numbered steps for the first one. Use plain words; I'm a beginner.",
+    "asks_ai": "You ask what to set up first on a new device. You get an ordered checklist with reasons.",
+    "give": [
+     "Device and model",
+     "What you want to use it for",
+     "Phone or computer you'll pair it with"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Menus differ by model and software version; check the maker's guide if a step doesn't match.",
+    "level": "simple",
+    "cmd": "newgadget"
+   },
+   {
+    "does": "Helps you compare devices that fit your needs and budget.",
+    "prompt": "/whichbuy Help me choose a [type of device]. I'll use it for [uses]. Budget: [amount]. Must-haves: [features]. Already own: [devices or brand].\nFirst list the 4 or 5 features that matter most for my uses. Then suggest 2 or 3 options in a short table (price range, pros, cons) and say which you'd pick and why. Say if your product info may be out of date.",
+    "example": "/whichbuy Help me choose a tablet. I'll use it for reading and FaceTime with family. Budget: under $400. Must-haves: easy to see screen. Already own: an iPhone.\nFirst list the 4 or 5 features that matter most for my uses. Then suggest 2 or 3 options in a short table (price range, pros, cons) and say which you'd pick and why. Say if your product info may be out of date.",
+    "asks_ai": "You ask for help choosing a device. You get key features to look for and a short comparison.",
+    "give": [
+     "What you'll use it for",
+     "Your budget",
+     "Devices you already own",
+     "Must-haves"
+    ],
+    "needs": "Current models and prices work best with an AI that can search the web.",
+    "fallback": "No web access? Use the feature list to compare current models in a store or online.",
+    "check": "Check current prices, models, and return policies before buying.",
+    "level": "medium",
+    "cmd": "whichbuy"
+   },
+   {
+    "does": "Shows where a setting usually is on your device, step by step.",
+    "prompt": "/settings On my [device, model, and software version if known], how do I [what you want to change]? Give the exact menu path as numbered taps, in plain words. If it can differ by version, say so and tell me what to search for in the Settings search bar.",
+    "example": "/settings On my Samsung Galaxy S23, how do I make the text bigger? Give the exact menu path as numbered taps, in plain words. If it can differ by version, say so and tell me what to search for in the Settings search bar.",
+    "asks_ai": "You ask where a setting lives. You get the tap-by-tap path and a search tip if menus differ.",
+    "give": [
+     "Device and model",
+     "Software version if known",
+     "What you want to change"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "If the menu doesn't match, use the search bar in Settings.",
+    "level": "simple",
+    "cmd": "settings"
+   }
+  ]
+ },
+ {
+  "name": "Money and paperwork",
+  "dek": "Understand it, organize it, handle it.",
+  "entries": [
+   {
+    "does": "Explains each line of a bill and what may have changed.",
+    "prompt": "/explainbill Explain this bill line by line in plain words. For each charge, say what it is for. If I tell you last month's total, point out what likely changed and why. End with questions I could ask the company.\n[upload a photo, or paste or type the charges and amounts]",
+    "example": "/explainbill Explain this bill line by line in plain words. For each charge, say what it is for. If I tell you last month's total, point out what likely changed and why. End with questions I could ask the company.\nPhone bill: Unlimited plan $65.00; Device payment $27.50; Regulatory fee $3.49; Taxes $6.12; Promo credit -$0.00. Last month's total was $81.00.",
+    "asks_ai": "You ask for a bill explained line by line. You get what each charge is and what likely changed.",
+    "give": [
+     "Each charge and amount",
+     "Last month's total",
+     "What surprised you"
+    ],
+    "needs": "An AI app that accepts photos (most do, some only on paid plans).",
+    "fallback": "No photo upload? Type or paste the charges and amounts.",
+    "check": "Check the math yourself and confirm with the company. Cover account numbers before sharing.",
+    "level": "simple",
+    "cmd": "explainbill"
+   },
+   {
+    "does": "Builds a simple monthly budget from your income and costs.",
+    "prompt": "/budget Build a simple monthly budget. Take-home pay: [amount]. Regular costs: [list each cost and amount]. Goal: [e.g. save $300 a month].\nShow a table with needs, wants, and savings, with totals and what's left over. Show your math. Then suggest 3 realistic places to trim, without judging my choices.",
+    "example": "/budget Build a simple monthly budget. Take-home pay: $4,200. Regular costs: rent $1,500, car payment $350, insurance $180, groceries $500, utilities $220, phone $80, streaming $40, eating out $250. Goal: save $400 a month.\nShow a table with needs, wants, and savings, with totals and what's left over. Show your math. Then suggest 3 realistic places to trim, without judging my choices.",
+    "asks_ai": "You ask for a monthly budget from your numbers. You get a table, totals, and a few ideas to save.",
+    "give": [
+     "Take-home pay",
+     "Each regular cost",
+     "Your savings goal",
+     "Irregular costs (gifts, car repairs)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Double-check the totals; AI can make math mistakes. This isn't financial advice.",
+    "level": "medium",
+    "cmd": "budget"
+   },
+   {
+    "does": "Explains a form field by field so you can fill it in.",
+    "prompt": "/formhelp Explain this form in plain words, field by field: what each box asks for and where I'd usually find that information. If I ask about one box, start there. Don't fill it in for me and don't ask for my ID, Social Security, or account numbers.\nForm: [name of form] [upload a photo, or type the box labels]\nMy question: [question]",
+    "example": "/formhelp Explain this form in plain words, field by field: what each box asks for and where I'd usually find that information. If I ask about one box, start there. Don't fill it in for me and don't ask for my ID, Social Security, or account numbers.\nForm: IRS Form W-4, Employee's Withholding Certificate\nMy question: What goes in Step 3, Claim Dependents?",
+    "asks_ai": "You ask what each part of a form means. You get a plain explanation of the fields, starting with your question.",
+    "give": [
+     "The form's name",
+     "The box labels or a photo",
+     "Your specific question"
+    ],
+    "needs": "An AI app that accepts photos or files (most do, some only on paid plans).",
+    "fallback": "No upload? Type the form's name and the box labels you're unsure about.",
+    "check": "For tax, legal, or government forms, check the official instructions or ask a professional. Cover personal numbers before uploading.",
+    "level": "simple",
+    "cmd": "formhelp"
+   },
+   {
+    "does": "Drafts a clear, polite cancellation letter or email.",
+    "prompt": "/cancelletter Write a short, polite cancellation email to [company] for my [service or membership]. Account name or number: [account details]. Cancel effective: [date]. Ask them to confirm the cancellation in writing and confirm there are no further charges. Include a subject line. Keep it under 120 words.",
+    "example": "/cancelletter Write a short, polite cancellation email to Summit Fitness for my gym membership. Account name or number: Jane Doe, member #48213. Cancel effective: May 31. Ask them to confirm the cancellation in writing and confirm there are no further charges. Include a subject line. Keep it under 120 words.",
+    "asks_ai": "You ask the AI to write your cancellation request. You get a short, ready-to-send email with a subject line.",
+    "give": [
+     "Company and service",
+     "Your account name or number",
+     "The cancel date",
+     "Any contract notice period"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check your contract for notice rules, read the draft before sending, and keep the confirmation.",
+    "level": "simple",
+    "cmd": "cancelletter"
+   },
+   {
+    "does": "Drafts a polite message disputing a wrong charge.",
+    "prompt": "/dispute Write a short, polite message to [company or bank] disputing a charge. Charge: [amount] on [date]. Why it's wrong: [reason]. What I want: [refund, correction].\nInclude a subject line, the key facts in 2 or 3 sentences, a clear request, and a list of documents I should attach. Keep it under 150 words and firm but friendly.",
+    "example": "/dispute Write a short, polite message to Harbor View Hotel disputing a charge. Charge: $189 charged twice on May 3. Why it's wrong: I stayed one night only, booking #HV22917. What I want: a refund of the duplicate $189.\nInclude a subject line, the key facts in 2 or 3 sentences, a clear request, and a list of documents I should attach. Keep it under 150 words and firm but friendly.",
+    "asks_ai": "You ask for a dispute message about a charge. You get a ready-to-send note and a list of proof to attach.",
+    "give": [
+     "The amount and date",
+     "Why it's wrong",
+     "What you want",
+     "Booking or account number"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check facts before sending, keep copies, and note any deadline your bank or card has for disputes.",
+    "level": "simple",
+    "cmd": "dispute"
+   },
+   {
+    "does": "Makes a checklist for a big task, organized by timeline.",
+    "prompt": "/checklist Make a checklist for [task]. My deadline: [date or time left]. Details: [who's involved, anything special].\nGroup tasks by when to do them (for example, weeks before), with checkboxes and short lines. Put the easy-to-forget items in bold or mark them with a star. Ask me first if anything key is missing.",
+    "example": "/checklist Make a checklist for moving house. My deadline: 6 weeks from now. Details: a 2-bedroom apartment, 2 adults and a cat, moving within the same city.\nGroup tasks by when to do them (for example, weeks before), with checkboxes and short lines. Put the easy-to-forget items in bold or mark them with a star. Ask me first if anything key is missing.",
+    "asks_ai": "You ask for a checklist for a big job. You get tasks grouped by timeline with easy-to-forget items marked.",
+    "give": [
+     "The task",
+     "Your deadline",
+     "Who's involved",
+     "Anything unusual"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "checklist"
+   },
+   {
+    "does": "Suggests a simple system for organizing your papers and files.",
+    "prompt": "/organize Help me set up a simple system for my [papers, digital files, or both]. What I keep: [types of documents]. Where it piles up: [problem].\nSuggest 5 to 8 folder names, what goes in each, and roughly how long to keep each type. Add a 10-minute monthly routine to keep it tidy. Keep it simple.",
+    "example": "/organize Help me set up a simple system for my papers and digital files. What I keep: bills, tax papers, warranties, medical records. Where it piles up: on the kitchen counter and in my email.\nSuggest 5 to 8 folder names, what goes in each, and roughly how long to keep each type. Add a 10-minute monthly routine to keep it tidy. Keep it simple.",
+    "asks_ai": "You ask for a simple filing system. You get folder names, what goes where, and a short monthly routine.",
+    "give": [
+     "What you keep",
+     "Paper, digital, or both",
+     "Where things pile up"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "How long to keep tax and legal papers varies; check official guidance or a tax professional.",
+    "level": "simple",
+    "cmd": "organize"
+   },
+   {
+    "does": "Lists questions to ask before you sign or buy something.",
+    "prompt": "/questionstoask I'm about to [sign or buy] [what]. Write 8 to 10 questions I should ask the seller or company first, most important first, each with one line on why it matters. Then list 3 red flags to watch for in their answers.",
+    "example": "/questionstoask I'm about to sign a 3-year car lease. Write 8 to 10 questions I should ask the seller or company first, most important first, each with one line on why it matters. Then list 3 red flags to watch for in their answers.",
+    "asks_ai": "You ask for questions to ask before a big decision. You get a prioritized list and red flags.",
+    "give": [
+     "What you're signing or buying",
+     "The cost or length of commitment",
+     "What worries you"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "This helps you prepare; for big contracts, ask a professional before signing.",
+    "level": "simple",
+    "cmd": "questionstoask"
+   },
+   {
+    "does": "Drafts a short script to ask for a better price.",
+    "prompt": "/negotiate Help me ask for a better price on [what]. Current price: [amount]. My goal: [amount]. What I know: [competitor offers, how long I've been a customer].\nWrite a short, polite phone or chat script with an opening line, 2 or 3 points to make, and what to say if they say no. Add 3 quick tips. Keep it friendly, not pushy.",
+    "example": "/negotiate Help me ask for a better price on my home internet. Current price: $95 a month. My goal: $60 a month. What I know: a competitor offers similar speed for $55, and I've been a customer for 4 years.\nWrite a short, polite phone or chat script with an opening line, 2 or 3 points to make, and what to say if they say no. Add 3 quick tips. Keep it friendly, not pushy.",
+    "asks_ai": "You ask for a script to request a lower price. You get what to say, how to respond to a no, and tips.",
+    "give": [
+     "What it's for and the current price",
+     "Your target price",
+     "Competitor offers",
+     "How long you've been a customer"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check any competitor prices before you call, and get any new deal confirmed in writing.",
+    "level": "simple",
+    "cmd": "negotiate"
+   },
+   {
+    "does": "Summarizes fine print into key points in plain words.",
+    "prompt": "/plainterms Explain these terms in plain words. Summarize in short bullets: what I'm agreeing to, what it costs, how to cancel, deadlines, and anything unusual or one-sided. Quote the exact sentence for anything important. Say if the text seems cut off.\n[paste the terms]",
+    "example": "/plainterms Explain these terms in plain words. Summarize in short bullets: what I'm agreeing to, what it costs, how to cancel, deadlines, and anything unusual or one-sided. Quote the exact sentence for anything important. Say if the text seems cut off.\nTerms: \"This extended warranty covers mechanical failure for 24 months from purchase. Accidental damage is excluded. Claims require original receipt. A $49 service fee applies per claim. Cancellation within 30 days for full refund; thereafter pro-rated minus a $25 fee.\"",
+    "asks_ai": "You ask for fine print in plain language. You get key points, costs, deadlines, and red flags with quotes.",
+    "give": [
+     "The full terms text",
+     "What you're signing up for",
+     "Your main concern"
+    ],
+    "needs": "Long documents work best in an AI app that accepts files or long pasted text.",
+    "fallback": "Can't upload? Paste the sections on costs, cancellation, and fees.",
+    "check": "A summary can miss details; this isn't legal advice. Read the original and ask a professional about anything big.",
+    "level": "medium",
+    "cmd": "plainterms"
+   }
+  ]
+ }
+]

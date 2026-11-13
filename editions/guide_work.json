@@ -1,0 +1,1170 @@
+[
+ {
+  "name": "Email",
+  "dek": "Clear messages, sent faster.",
+  "entries": [
+   {
+    "does": "Drafts a clear, ready-to-send work email from your notes.",
+    "prompt": "/email Write a work email to [recipient] asking for [what you need] by [deadline]. Tone: [tone]. Include a clear subject line, keep it under 150 words, and end with the specific ask and date. If the recipient or deadline is missing, ask me before drafting.",
+    "example": "/email Write a work email to our finance team asking for the Q3 budget numbers by Friday. Tone: friendly. Include a clear subject line, keep it under 150 words, and end with the specific ask and date. If the recipient or deadline is missing, ask me before drafting.",
+    "asks_ai": "Asks the AI to draft one short email with a subject line. You get a ready-to-edit draft.",
+    "give": [
+     "Who it is to and your relationship",
+     "What you need",
+     "The deadline",
+     "Tone"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending; fix any names, dates, or facts the AI got wrong.",
+    "level": "simple",
+    "cmd": "email"
+   },
+   {
+    "does": "Drafts a reply to an email you paste in.",
+    "prompt": "/reply Draft a reply to the email below. My answer: [what you want to say]. Tone: [tone]. Keep it under [number] words, respond to every question the sender asked, and give me only the reply text.\n\nEmail:\n[paste the email]",
+    "example": "/reply Draft a reply to the email below. My answer: decline the meeting politely and offer a short written update by Thursday instead. Tone: professional and warm. Keep it under 120 words, respond to every question the sender asked, and give me only the reply text.\n\nEmail:\nHi, can we set up 30 minutes Wednesday to walk through the event numbers? Also, do you have the final headcount yet? Thanks, Dana",
+    "asks_ai": "Asks the AI to write your response to a specific email. You get the reply text only.",
+    "give": [
+     "The original email, pasted in full",
+     "What you want to say back",
+     "Tone and length"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending; fix any names, dates, or facts the AI got wrong.",
+    "level": "simple",
+    "cmd": "reply"
+   },
+   {
+    "does": "Shortens your draft to a target length, keeping the key points.",
+    "prompt": "/tighten Shorten the draft below to under [number] words. Keep every request, date, and number. Cut filler and repetition, keep my tone, and give me only the revised text.\n\nDraft:\n[paste your draft]",
+    "example": "/tighten Shorten the draft below to under 100 words. Keep every request, date, and number. Cut filler and repetition, keep my tone, and give me only the revised text.\n\nDraft:\nHi team, I just wanted to reach out and touch base about the upcoming open house. As you may know, we have been planning this for quite a while now, and I think it is going to be a great event. I wanted to ask if everyone could please send me their volunteer availability by next Wednesday, March 4, so that I can put together the schedule. Also, please remember that the setup starts at 8 a.m. Thanks so much for all your help, I really appreciate it.",
+    "asks_ai": "Asks the AI to cut your text down without losing what matters. You get the shorter version only.",
+    "give": [
+     "Your draft",
+     "Target word count",
+     "Anything that must stay"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "tighten"
+   },
+   {
+    "does": "Rewrites a message so the main point comes first.",
+    "prompt": "/bluf Rewrite the message below in BLUF style (Bottom Line Up Front): put the main point or decision needed in the first sentence, then the key supporting facts as 2-4 short bullets, then any background. Keep all facts. Reader: [who].\n\nMessage:\n[paste the message]",
+    "example": "/bluf Rewrite the message below in BLUF style (Bottom Line Up Front): put the main point or decision needed in the first sentence, then the key supporting facts as 2-4 short bullets, then any background. Keep all facts. Reader: my director.\n\nMessage:\nOver the past two weeks we looked at three printing vendors. Vendor A was cheapest but can't meet our date. Vendor C was fast but over budget by about $2,000. Vendor B fits the budget and the date. I need your approval by Monday to place the order with Vendor B.",
+    "asks_ai": "Asks the AI to restructure a message so the reader sees the point first. You get the rewritten message.",
+    "give": [
+     "The full message",
+     "Who will read it",
+     "The decision or action you need"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "bluf"
+   },
+   {
+    "does": "Drafts a polite follow-up when you are waiting on someone.",
+    "prompt": "/followup Write a short, polite follow-up email to [person] about [what I asked for], which I requested on [date]. Ask them to send it by [new deadline], offer help if something is blocking them, and keep it under 80 words. No guilt-tripping.",
+    "example": "/followup Write a short, polite follow-up email to our legal contact about the contract draft, which I requested last Tuesday. Ask them to send it by this Friday, offer help if something is blocking them, and keep it under 80 words. No guilt-tripping.",
+    "asks_ai": "Asks the AI to write a short, friendly nudge. You get a ready-to-edit email.",
+    "give": [
+     "What you asked for",
+     "When you asked",
+     "The new deadline",
+     "Who it is to"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending; fix any names, dates, or facts the AI got wrong.",
+    "level": "simple",
+    "cmd": "followup"
+   },
+   {
+    "does": "Drafts a professional no or not-yet to a request.",
+    "prompt": "/pushback Write a short, professional reply declining [the request] from [person]. My reason: [reason]. Say no clearly, keep the relationship positive, and offer [alternative, e.g. a later date or other help] if I give one. Under 120 words.",
+    "example": "/pushback Write a short, professional reply declining the request to run the spring event from our events manager. My reason: my team is at full capacity until May. Say no clearly, keep the relationship positive, and offer to help plan the fall event instead. Under 120 words.",
+    "asks_ai": "Asks the AI to draft a clear, polite decline. You get a short reply you can send after editing.",
+    "give": [
+     "The request",
+     "Your real reason",
+     "Any alternative you can offer",
+     "Who is asking"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending; fix any names, dates, or facts the AI got wrong.",
+    "level": "simple",
+    "cmd": "pushback"
+   },
+   {
+    "does": "Tells you how a message may come across and suggests edits.",
+    "prompt": "/tone Read the message below as [reader]. Tell me in 2-3 sentences how it is likely to come across, quote any phrases that could sound rude, cold, or unclear, and suggest a better wording for each. Then give me a revised version.\n\nMessage:\n[paste the message]",
+    "example": "/tone Read the message below as a frustrated client. Tell me in 2-3 sentences how it is likely to come across, quote any phrases that could sound rude, cold, or unclear, and suggest a better wording for each. Then give me a revised version.\n\nMessage:\nAs I mentioned in my last email, the delay is due to your late approval. We will deliver when we can.",
+    "asks_ai": "Asks the AI to judge how your message reads and fix risky phrases. You get a short assessment, flagged phrases, and a revised version.",
+    "give": [
+     "The message",
+     "Who will read it and their mood",
+     "What you want them to feel or do"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "It is a best guess at how people read tone, not a certainty.",
+    "level": "simple",
+    "cmd": "tone"
+   },
+   {
+    "does": "Drafts a calm, factual message raising a problem to leadership.",
+    "prompt": "/escalate Write a short escalation email to [person/role]. Issue: [what happened]. Impact: [effect on cost, schedule, or people]. What I have tried: [steps]. What I need: [decision or help] by [date]. Use a calm, factual tone, lead with the impact, no blame, under 150 words.",
+    "example": "/escalate Write a short escalation email to my division director. Issue: our web vendor missed two delivery deadlines this month. Impact: the site launch on June 1 is at risk. What I have tried: two calls and a written reminder to the vendor. What I need: approval to bring in a backup developer by May 10. Use a calm, factual tone, lead with the impact, no blame, under 150 words.",
+    "asks_ai": "Asks the AI to draft a factual escalation that states impact and the help you need. You get a short email.",
+    "give": [
+     "The issue and its impact",
+     "What you already tried",
+     "The specific decision or help needed",
+     "The deadline"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check every fact and date before sending; keep it to facts, not blame.",
+    "level": "medium",
+    "cmd": "escalate"
+   },
+   {
+    "does": "Drafts a short email introducing two people to each other.",
+    "prompt": "/intro Write a short email introducing [person A, role] to [person B, role]. Say in one line who each is, why they should talk, and suggest a next step such as a 20-minute call. Friendly, under 100 words, addressed to both.",
+    "example": "/intro Write a short email introducing Maria, our web lead, to Ken, our new IT contractor. Say in one line who each is, why they should talk, and suggest a next step such as a 20-minute call. Friendly, under 100 words, addressed to both.",
+    "asks_ai": "Asks the AI to write a double introduction email. You get a short draft addressed to both people.",
+    "give": [
+     "Names and roles of both people",
+     "Why they should talk",
+     "The next step you suggest"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Ask both people before sharing their contact details.",
+    "level": "simple",
+    "cmd": "intro"
+   },
+   {
+    "does": "Sorts pasted subject lines into reply, delegate, or ignore.",
+    "prompt": "/inbox Sort the email subject lines below into three groups: Reply (I should answer), Delegate (someone else should handle it), Ignore (no action). Put the most urgent first in each group and add a few words on why. My role: [your role]. If a subject line is unclear, put it under 'Check' instead of guessing.\n\nSubject lines:\n[paste subject lines]",
+    "example": "/inbox Sort the email subject lines below into three groups: Reply (I should answer), Delegate (someone else should handle it), Ignore (no action). Put the most urgent first in each group and add a few words on why. My role: marketing manager.\n\nSubject lines:\nURGENT: Banner proof needs approval today\nReminder: annual training due Nov 30\nNewsletter: Industry news this week\nPrinter jammed on 2nd floor again\nQuestion about holiday event volunteer list\nYour password expires in 5 days",
+    "asks_ai": "Asks the AI to triage subject lines into action groups. You get three sorted lists with short reasons.",
+    "give": [
+     "Subject lines only",
+     "Your role",
+     "What counts as urgent for you"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Paste subject lines only; leave out confidential details. The sort is a guess, so skim the Ignore pile.",
+    "level": "simple",
+    "cmd": "inbox"
+   }
+  ]
+ },
+ {
+  "name": "Meetings",
+  "dek": "Shorter meetings that end in decisions.",
+  "entries": [
+   {
+    "does": "Builds a timed meeting agenda around one clear goal.",
+    "prompt": "/agenda Create a timed agenda for a [length]-minute [meeting type] with [number] people. Goal: [decision or outcome needed]. List each item with minutes, owner, and purpose, leave 5 minutes for next steps, and make the times add up to the total. Start with a one-line meeting goal.",
+    "example": "/agenda Create a timed agenda for a 30-minute project kickoff with 6 people. Goal: agree on project scope. List each item with minutes, owner, and purpose, leave 5 minutes for next steps, and make the times add up to the total. Start with a one-line meeting goal.",
+    "asks_ai": "Asks the AI for a timed agenda that leads to a decision. You get a list of items with minutes and owners.",
+    "give": [
+     "Meeting length",
+     "The decision or outcome needed",
+     "Who attends",
+     "Topics that must be covered"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check that item times add up to the meeting length.",
+    "level": "medium",
+    "cmd": "agenda"
+   },
+   {
+    "does": "Helps you prepare talking points and answers for a meeting.",
+    "prompt": "/prep Help me prepare for a meeting with [who] about [topic]. My goal: [what I want to get]. Give me: 1) a one-line opening, 2) three talking points with supporting facts I should bring, 3) the three toughest questions they may ask and short answers, 4) my fallback if they say no. Keep it to one page. Ask me for facts you need rather than inventing them.",
+    "example": "/prep Help me prepare for a meeting with my VP about next year's budget. My goal: approval for one more full-time hire. Give me: 1) a one-line opening, 2) three talking points with supporting facts I should bring, 3) the three toughest questions they may ask and short answers, 4) my fallback if they say no. Keep it to one page. Ask me for facts you need rather than inventing them.",
+    "asks_ai": "Asks the AI for a one-page meeting prep sheet. You get talking points, likely questions with answers, and a fallback.",
+    "give": [
+     "Who is in the meeting",
+     "Your goal",
+     "Facts and numbers you have",
+     "What the other side cares about"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Replace any example numbers with your own real figures.",
+    "level": "complex",
+    "cmd": "prep"
+   },
+   {
+    "does": "Turns rough meeting notes into clean minutes.",
+    "prompt": "/minutes Turn my rough notes below into meeting minutes. Format: meeting name, date, attendees; then Decisions; then Action items (owner, task, due date); then a short Discussion summary. Use only what is in my notes, and mark anything unclear as [unclear] instead of guessing.\n\nNotes:\n[paste notes]",
+    "example": "/minutes Turn my rough notes below into meeting minutes. Format: meeting name, date, attendees; then Decisions; then Action items (owner, task, due date); then a short Discussion summary. Use only what is in my notes, and mark anything unclear as [unclear] instead of guessing.\n\nNotes:\nweekly mktg mtg 11/12 - me, Tiara, Collette, Sam. agreed holiday campaign starts dec 1. Collette to draft 5 posts by 11/20. Sam check budget for boosted posts?? Tiara web banner, date tbd. talked about low IG engagement, maybe more video.",
+    "asks_ai": "Asks the AI to organize notes into standard minutes without adding anything. You get decisions, action items, and a summary.",
+    "give": [
+     "Your notes",
+     "Meeting name, date, and attendees",
+     "Preferred order of sections"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check names, decisions, and dates against what was actually said.",
+    "level": "medium",
+    "cmd": "minutes"
+   },
+   {
+    "does": "Pulls owners, tasks, and due dates from notes into a table.",
+    "prompt": "/actions From the notes below, list every action item as a table with columns: Owner, Task, Due date. Use only what the notes say. If an owner or date is missing, write 'Not set' rather than guessing. Put items with near due dates first.\n\nNotes:\n[paste notes]",
+    "example": "/actions From the notes below, list every action item as a table with columns: Owner, Task, Due date. Use only what the notes say. If an owner or date is missing, write 'Not set' rather than guessing. Put items with near due dates first.\n\nNotes:\nJen will send the vendor list by Monday. Need someone to book the room. Ali updates the budget sheet before the 15th. Revisit signage next week.",
+    "asks_ai": "Asks the AI to extract tasks from notes. You get a table of owner, task, and due date, with gaps marked.",
+    "give": [
+     "The notes",
+     "Any deadlines not written down",
+     "Team member names"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "actions"
+   },
+   {
+    "does": "Drafts the follow-up email after a meeting.",
+    "prompt": "/recap Write a follow-up email to [recipients] after our meeting about [topic], using my notes below. Include: thanks, the decisions made, action items with owners and dates, and the next meeting or step. Tone: [tone]. Max [number] lines. Use only facts from my notes.\n\nNotes:\n[paste notes]",
+    "example": "/recap Write a follow-up email to the client after our meeting about the spring campaign, using my notes below. Include: thanks, the decisions made, action items with owners and dates, and the next meeting or step. Tone: friendly. Max 8 lines. Use only facts from my notes.\n\nNotes:\nAgreed on 3 posters + 1 video. Client sends logo files by 3/5. We send first drafts 3/12. Next check-in call 3/14 at 10am.",
+    "asks_ai": "Asks the AI to turn meeting notes into a short follow-up email. You get a draft with decisions and next steps.",
+    "give": [
+     "Your notes",
+     "Who receives it",
+     "Tone and length"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending; fix any names, dates, or facts the AI got wrong.",
+    "level": "simple",
+    "cmd": "recap"
+   },
+   {
+    "does": "Lists sharp questions to ask in a meeting or demo.",
+    "prompt": "/meetingquestions Give me [number] sharp questions to ask in a [meeting type] about [topic]. My main concerns: [concerns]. Group them by theme, put the most important first, and add one line on what a good answer would sound like. Questions only, no essay.",
+    "example": "/meetingquestions Give me 10 sharp questions to ask in a vendor demo about a new staff scheduling tool. My main concerns: cost after the first year, data security, and how long setup takes. Group them by theme, put the most important first, and add one line on what a good answer would sound like. Questions only, no essay.",
+    "asks_ai": "Asks the AI for a focused list of questions to bring to a meeting. You get grouped questions with what a good answer looks like.",
+    "give": [
+     "The meeting type and topic",
+     "Your concerns",
+     "How many questions you want"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "meetingquestions"
+   },
+   {
+    "does": "Formats your update as done, next, and blocked.",
+    "prompt": "/standup Turn my notes below into a short standup update with three headings: Done, Next, Blocked. One line per item, plain language, no extra detail. If nothing is blocked, write 'None'.\n\nNotes:\n[your notes]",
+    "example": "/standup Turn my notes below into a short standup update with three headings: Done, Next, Blocked. One line per item, plain language, no extra detail. If nothing is blocked, write 'None'.\n\nNotes:\nfinished the customer survey, starting the summary report, waiting on IT for access to the analytics account",
+    "asks_ai": "Asks the AI to format your work update. You get a three-part Done, Next, Blocked list.",
+    "give": [
+     "What you finished",
+     "What is next",
+     "What is blocking you and who can unblock it"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "standup"
+   },
+   {
+    "does": "Suggests short, low-pressure icebreakers for a group.",
+    "prompt": "/icebreaker Suggest 3 low-pressure icebreakers for [number] people who [know each other well / are meeting for the first time], at a [setting]. Each must fit in [minutes] minutes, need no props, and avoid anything personal or physical. Give one line of instructions for each.",
+    "example": "/icebreaker Suggest 3 low-pressure icebreakers for 8 people who are meeting for the first time, at a workshop. Each must fit in 5 minutes, need no props, and avoid anything personal or physical. Give one line of instructions for each.",
+    "asks_ai": "Asks the AI for a few quick, comfortable openers. You get three options with one-line instructions.",
+    "give": [
+     "Group size",
+     "How well they know each other",
+     "Time available",
+     "Setting (in person or video)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "icebreaker"
+   },
+   {
+    "does": "Plans how to run a working session, step by step.",
+    "prompt": "/facilitate Plan a [length]-minute working session for [number] people. Goal: [outcome]. Give me a run sheet: each step with minutes, what I say or ask, the activity (for example silent writing, pairs, dot voting), and the output it produces. End with how we decide and capture next steps. Times must add up to the total.",
+    "example": "/facilitate Plan a 90-minute working session for 10 people. Goal: a shortlist of 5 event ideas for next year. Give me a run sheet: each step with minutes, what I say or ask, the activity (for example silent writing, pairs, dot voting), and the output it produces. End with how we decide and capture next steps. Times must add up to the total.",
+    "asks_ai": "Asks the AI for a step-by-step run sheet for a session you lead. You get timed steps, prompts, and how to reach a decision.",
+    "give": [
+     "Goal and the output you need",
+     "Time available",
+     "Group size",
+     "In person or online"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check that step times add up to the session length.",
+    "level": "complex",
+    "cmd": "facilitate"
+   },
+   {
+    "does": "Helps you decide if a meeting is needed or an email would do.",
+    "prompt": "/needmeeting Should this be a meeting or an email/async update? Purpose: [purpose]. Attendees: [number and roles]. Frequency: [how often]. Give me a yes or no with three short reasons. If no, suggest the replacement (format and who does what). If yes, suggest a shorter format.",
+    "example": "/needmeeting Should this be a meeting or an email/async update? Purpose: weekly status updates. Attendees: 12 people, mostly team leads. Frequency: every Monday, 60 minutes. Give me a yes or no with three short reasons. If no, suggest the replacement (format and who does what). If yes, suggest a shorter format.",
+    "asks_ai": "Asks the AI to judge whether a meeting is worth holding. You get a recommendation, reasons, and an alternative.",
+    "give": [
+     "The meeting purpose",
+     "Attendees and how many",
+     "How often and how long",
+     "Whether decisions are made in it"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "needmeeting"
+   }
+  ]
+ },
+ {
+  "name": "Summarizing and reading",
+  "dek": "Get the point without reading every word.",
+  "entries": [
+   {
+    "does": "Summarizes long text to the length you choose.",
+    "prompt": "/tldr Give me a TL;DR (too long; didn't read) of the text below: [number] bullets with the main points, then one line on what I should do, if anything. Use only what the text says.\n\nText:\n[paste text]",
+    "example": "/tldr Give me a TL;DR (too long; didn't read) of the text below: 3 bullets with the main points, then one line on what I should do, if anything. Use only what the text says.\n\nText:\nStarting January 1, all travel requests must be submitted 21 days before departure instead of 14. Requests must include a cost estimate from the travel office. Exceptions require director approval in writing. Reimbursement claims are due within 5 business days of return.",
+    "asks_ai": "Asks the AI to shrink long text into a few bullets plus an action line. You get the short version.",
+    "give": [
+     "The full text",
+     "How short you want it",
+     "Your role, so the action line fits you"
+    ],
+    "needs": "Long documents may be more than some AI apps take in one message.",
+    "fallback": "Too long? Paste it in parts, then ask for one combined result at the end.",
+    "check": "Summaries can drop details; check the original for dates and numbers.",
+    "level": "simple",
+    "cmd": "tldr"
+   },
+   {
+    "does": "Pulls the main arguments and evidence from a text.",
+    "prompt": "/keypoints From the text below, list the [number] main points. For each: the point in one line, the evidence or data the text gives, and why it matters for [my purpose]. Use only the text; say 'no evidence given' where that is true.\n\nText:\n[paste text]",
+    "example": "/keypoints From the text below, list the 5 main points. For each: the point in one line, the evidence or data the text gives, and why it matters for a 10-minute team briefing. Use only the text; say 'no evidence given' where that is true.\n\nText:\nEvent attendance across the industry rose 12% in 2025, driven mostly by family events. Survey data from 4,000 attendees shows 61% now find events through social media, up from 44% in 2022. Ticket prices rose 8%, but satisfaction held steady. Organizers who sent text reminders saw 20% fewer no-shows. Smaller venues report staffing shortages as their top concern.",
+    "asks_ai": "Asks the AI to extract the key claims and their support. You get a short list of points with evidence and relevance.",
+    "give": [
+     "The text",
+     "Your purpose",
+     "How many points"
+    ],
+    "needs": "Long documents may be more than some AI apps take in one message.",
+    "fallback": "Too long? Paste it in parts, then ask for one combined result at the end.",
+    "check": "Check any figures against the source before sharing.",
+    "level": "medium",
+    "cmd": "keypoints"
+   },
+   {
+    "does": "Compares two versions and lists what changed.",
+    "prompt": "/whatchanged Compare Version A (old) and Version B (new) below. List every change as: section, what it said before, what it says now, and whether it is a meaningful change or just wording. Put the meaningful changes first. Do not summarize parts that did not change.\n\nVersion A:\n[paste old]\n\nVersion B:\n[paste new]",
+    "example": "/whatchanged Compare Version A (old) and Version B (new) below. List every change as: section, what it said before, what it says now, and whether it is a meaningful change or just wording. Put the meaningful changes first. Do not summarize parts that did not change.\n\nVersion A:\nTelework: Staff may telework up to 2 days per week with supervisor approval. Requests are due by Friday for the following week.\n\nVersion B:\nTelework: Staff may telework up to 1 day per week with director approval. Requests are due by Wednesday for the following week.",
+    "asks_ai": "Asks the AI to compare two versions side by side. You get a list of changes, most important first.",
+    "give": [
+     "Both versions, clearly labeled",
+     "Which is old and which is new",
+     "What kind of changes you care about"
+    ],
+    "needs": "Long documents may be more than some AI apps take in one message.",
+    "fallback": "Too long? Compare one section at a time.",
+    "check": "AI can miss small edits; for contracts or policy, confirm with a document compare tool.",
+    "level": "medium",
+    "cmd": "whatchanged"
+   },
+   {
+    "does": "Explains a topic in terms a specific audience understands.",
+    "prompt": "/explainto Explain [topic] to [audience]. Assume they know [what they already know]. Use plain words, one everyday example, and no jargon unless you define it. Keep it to [length], and end with the 2-3 things they most need to remember.",
+    "example": "/explainto Explain our annual budget process to a new supervisor. Assume they know basic spreadsheets but not our finance terms. Use plain words, one everyday example, and no jargon unless you define it. Keep it to about 200 words, and end with the 2-3 things they most need to remember.",
+    "asks_ai": "Asks the AI to tailor an explanation to one audience. You get a short, plain explanation with key takeaways.",
+    "give": [
+     "The topic",
+     "Who the audience is",
+     "What they already know",
+     "Any details specific to your organization"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "The AI does not know your organization's rules; paste them in or check the result.",
+    "level": "simple",
+    "cmd": "explainto"
+   },
+   {
+    "does": "Builds a plain-English glossary of terms from a document.",
+    "prompt": "/glossary From the text below, list the technical terms, acronyms, and jargon a newcomer may not know. For each, give a one-line plain-English definition based on how the text uses it. Sort A to Z. If the text does not make a term's meaning clear, say so.\n\nText:\n[paste text]",
+    "example": "/glossary From the text below, list the technical terms, acronyms, and jargon a newcomer may not know. For each, give a one-line plain-English definition based on how the text uses it. Sort A to Z. If the text does not make a term's meaning clear, say so.\n\nText:\nThe CMS will push content via API to the CDN. All assets must meet WCAG 2.1 AA and use SSO for editor access. Staging deploys run nightly.",
+    "asks_ai": "Asks the AI to pull out and define jargon from a document. You get an A-to-Z list of terms with plain definitions.",
+    "give": [
+     "The text",
+     "Who the glossary is for",
+     "Any terms you already know to skip"
+    ],
+    "needs": "Long documents may be more than some AI apps take in one message.",
+    "fallback": "Too long? Paste it in parts, then ask for one combined result at the end.",
+    "check": "",
+    "level": "simple",
+    "cmd": "glossary"
+   },
+   {
+    "does": "Points out weak spots in a proposal or argument.",
+    "prompt": "/critique Review the piece below as [reader, e.g. a skeptical CFO]. List the 5 biggest weaknesses: unsupported claims, missing numbers, risks not addressed, and likely objections. For each, quote the passage and suggest a fix. Be direct but fair, and end with the one change that would help most.\n\nText:\n[paste text]",
+    "example": "/critique Review the piece below as a skeptical CFO. List the 5 biggest weaknesses: unsupported claims, missing numbers, risks not addressed, and likely objections. For each, quote the passage and suggest a fix. Be direct but fair, and end with the one change that would help most.\n\nText:\nWe propose launching a member app next spring. It will increase engagement and pay for itself quickly. Development will take about 4 months with our current team.",
+    "asks_ai": "Asks the AI to stress-test your draft from a tough reader's view. You get the main weaknesses with quoted passages and fixes.",
+    "give": [
+     "The full text",
+     "Who will judge it",
+     "What you want them to approve"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "critique"
+   },
+   {
+    "does": "Turns a long document into questions and answers.",
+    "prompt": "/faq Turn the document below into an FAQ (frequently asked questions) for [audience]. Write [number] questions they would really ask, each with a short plain-English answer taken only from the document. If the document does not answer an obvious question, list it at the end under 'Not covered'.\n\nDocument:\n[paste document]",
+    "example": "/faq Turn the document below into an FAQ (frequently asked questions) for staff. Write 8 questions they would really ask, each with a short plain-English answer taken only from the document. If the document does not answer an obvious question, list it at the end under 'Not covered'.\n\nDocument:\nEffective Jan 1, all employees earn 4 hours of annual leave per pay period. Up to 240 hours may carry over to the next year. Leave requests over 3 days need 2 weeks' notice. Sick leave of more than 3 days requires a doctor's note. Unused leave above the cap is lost on Jan 1.",
+    "asks_ai": "Asks the AI to rewrite a document as questions and answers. You get an FAQ plus a list of gaps.",
+    "give": [
+     "The document",
+     "The audience",
+     "How many questions"
+    ],
+    "needs": "Long documents may be more than some AI apps take in one message.",
+    "fallback": "Too long? Paste it in parts, then ask for one combined result at the end.",
+    "check": "Have the policy owner review answers before you share them.",
+    "level": "medium",
+    "cmd": "faq"
+   },
+   {
+    "does": "Finds the most quotable lines in a text, word for word.",
+    "prompt": "/quotes Find the [number] most quotable lines in the text below for [purpose]. Copy each quote exactly, word for word, with who said it. Add one line on why it works. Do not change, combine, or tidy any wording.\n\nText:\n[paste text]",
+    "example": "/quotes Find the 3 most quotable lines in the text below for a newsletter feature. Copy each quote exactly, word for word, with who said it. Add one line on why it works. Do not change, combine, or tidy any wording.\n\nText:\nInterviewer: Why did you start volunteering?\nMaria Lopez: Honestly, I was new here and lonely. The food drive gave me 40 friends in one afternoon.\nInterviewer: What keeps you coming back?\nMaria Lopez: You see the same kids every week, and they remember your name. That's the paycheck.\nInterviewer: Advice for newcomers?\nMaria Lopez: Show up once. Just once. The second time is easy.",
+    "asks_ai": "Asks the AI to pick strong lines and copy them exactly. You get a few quotes with speakers and why they work.",
+    "give": [
+     "The text or transcript",
+     "What the quotes are for",
+     "How many you want"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check every quote against the source; AI sometimes changes wording.",
+    "level": "simple",
+    "cmd": "quotes"
+   },
+   {
+    "does": "Suggests what to read to get up to speed on a topic.",
+    "prompt": "/readinglist I have [hours] hours to get up to speed on [topic] for [reason]. Suggest a reading plan in order: what to read first, why, and how long each takes. Prefer well-known, reliable sources and say which type each is (book, report, article, course). Only list sources you are confident exist; if unsure, describe what to search for instead.",
+    "example": "/readinglist I have 3 hours to get up to speed on AI governance basics for a policy meeting. Suggest a reading plan in order: what to read first, why, and how long each takes. Prefer well-known, reliable sources and say which type each is (book, report, article, course). Only list sources you are confident exist; if unsure, describe what to search for instead.",
+    "asks_ai": "Asks the AI for an ordered reading plan that fits your time. You get a short list of sources with reasons and time estimates.",
+    "give": [
+     "The topic",
+     "Time you have",
+     "Why you need it",
+     "Your current level"
+    ],
+    "needs": "For the newest sources, an AI app that can search the web.",
+    "fallback": "No web search? Ask for topics and search terms, then look them up yourself.",
+    "check": "Confirm each title and link exists before you share the list.",
+    "level": "medium",
+    "cmd": "readinglist"
+   },
+   {
+    "does": "Writes a one-page brief for a busy reader.",
+    "prompt": "/briefing Write a one-page brief for [reader] on [topic], using only the notes below. Format: Bottom line (2 sentences), Key facts (3-5 bullets), What it means for us, Recommended action or decision needed. Under 300 words. Mark gaps as [need info].\n\nNotes:\n[paste notes or text]",
+    "example": "/briefing Write a one-page brief for my CEO on the new travel rules, using only the notes below. Format: Bottom line (2 sentences), Key facts (3-5 bullets), What it means for us, Recommended action or decision needed. Under 300 words. Mark gaps as [need info].\n\nNotes:\nNew rules start Jan 1. Requests due 21 days ahead (was 14). Cost estimate required. Exceptions need director sign-off. Last year 30% of our trips were booked under 21 days.",
+    "asks_ai": "Asks the AI to turn notes into a short decision-ready brief. You get a one-page brief with a bottom line and recommendation.",
+    "give": [
+     "Your notes or source text",
+     "Who the reader is",
+     "The decision you need from them"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Do not paste confidential company data into a public AI app; check facts before sending.",
+    "level": "medium",
+    "cmd": "briefing"
+   }
+  ]
+ },
+ {
+  "name": "Analysis and decisions",
+  "dek": "Think it through, then write it down.",
+  "entries": [
+   {
+    "does": "Lays out pros, cons, and a lean for a decision.",
+    "prompt": "/prosandcons I'm deciding whether to [decision]. What matters most to us: [priorities]. List the pros and cons in two columns, mark the 2-3 that matter most given our priorities, note anything you are assuming, and end with which way you would lean and why in two sentences.",
+    "example": "/prosandcons I'm deciding whether to move our monthly newsletter to weekly. What matters most to us: reader engagement and staff time. List the pros and cons in two columns, mark the 2-3 that matter most given our priorities, note anything you are assuming, and end with which way you would lean and why in two sentences.",
+    "asks_ai": "Asks the AI to weigh a decision against your priorities. You get a pros and cons list, key factors, and a suggested lean.",
+    "give": [
+     "The decision",
+     "What matters most",
+     "Constraints like budget, staff, or time"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "prosandcons"
+   },
+   {
+    "does": "Writes a short record of a decision, options, and reasons.",
+    "prompt": "/decisionlog Write a decision record from my notes below. Sections: Decision, Date, Decision maker, Options considered, Why we chose this, Risks and how we will watch them, When to revisit. Use only my notes; mark missing items as [add].\n\nNotes:\n[what was decided, options, and reasons]",
+    "example": "/decisionlog Write a decision record from my notes below. Sections: Decision, Date, Decision maker, Options considered, Why we chose this, Risks and how we will watch them, When to revisit. Use only my notes; mark missing items as [add].\n\nNotes:\nChose Vendor B for printing on Nov 12. Director approved. Options: A (cheapest, missed our date), B (on budget, on time), C (fast, $2,000 over). Risk: B is new to us, so we'll check the first proof closely. Revisit after the spring order.",
+    "asks_ai": "Asks the AI to format a decision into a standard record. You get a clean log entry with gaps marked.",
+    "give": [
+     "The decision and date",
+     "Options you considered",
+     "Your reasons",
+     "Who decided"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "decisionlog"
+   },
+   {
+    "does": "Runs a quick SWOT check: strengths, weaknesses, opportunities, threats.",
+    "prompt": "/swot Do a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) for [project or idea] in this context: [context]. Give 3-4 specific points in each of the four boxes, based on what I have told you, and mark guesses as assumptions. End with the top 2 actions it suggests.",
+    "example": "/swot Do a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) for launching a member app next spring in this context: we run community programs for about 20,000 members, have a small web team of 3, and members mostly find events through social media. Give 3-4 specific points in each of the four boxes, based on what I have told you, and mark guesses as assumptions. End with the top 2 actions it suggests.",
+    "asks_ai": "Asks the AI for a four-part strategic check. You get a SWOT grid plus two suggested actions.",
+    "give": [
+     "The project or idea",
+     "Your team, budget, and audience",
+     "Competitors or alternatives",
+     "Your goal"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "swot"
+   },
+   {
+    "does": "Helps you investigate possible causes of a problem.",
+    "prompt": "/rootcause Help me investigate why [problem]. What I have seen: [facts and data]. Ask 'why' step by step (the 5 Whys method) to list the most likely causes. For each cause, give the evidence that supports it, what would rule it out, and a quick test or data check to confirm it. Rank them by likelihood. Ask me for missing data rather than guessing.",
+    "example": "/rootcause Help me investigate why event signups dropped 30% this year. What I have seen: we moved signups from a paper form to an online form in March, posted fewer reminders on social media, and two big events changed dates. Ask 'why' step by step (the 5 Whys method) to list the most likely causes. For each cause, give the evidence that supports it, what would rule it out, and a quick test or data check to confirm it. Rank them by likelihood. Ask me for missing data rather than guessing.",
+    "asks_ai": "Asks the AI to suggest likely causes and how to confirm each. You get a ranked list of possible causes with evidence and tests.",
+    "give": [
+     "The problem and when it started",
+     "What changed around that time",
+     "Data you have",
+     "What you already ruled out"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "These are hypotheses; confirm with your own data before acting.",
+    "level": "complex",
+    "cmd": "rootcause"
+   },
+   {
+    "does": "Imagines the project failed and lists why, with ways to prevent it.",
+    "prompt": "/premortem Run a premortem: imagine [project] has failed [time after launch]. Context: [timeline, team, budget, key dependencies]. List the 8 most likely reasons it failed, rate each as high, medium, or low likelihood and impact, and give one early warning sign and one prevention step for each. Put the highest risks first.",
+    "example": "/premortem Run a premortem: imagine our website redesign has failed 3 months after launch. Context: launch in 8 weeks, team of 3, outside vendor builds the templates, content comes from 6 departments. List the 8 most likely reasons it failed, rate each as high, medium, or low likelihood and impact, and give one early warning sign and one prevention step for each. Put the highest risks first.",
+    "asks_ai": "Asks the AI to imagine failure so you can spot risks early. You get a ranked risk list with warning signs and prevention steps.",
+    "give": [
+     "The project and timeline",
+     "Team and key dependencies",
+     "What success looks like"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "complex",
+    "cmd": "premortem"
+   },
+   {
+    "does": "Brainstorms several possible approaches to a problem, within your limits.",
+    "prompt": "/options Give me 6 to 8 different ways to solve this problem: [problem]. My limits: [budget, time, rules, people]. Include at least two less obvious ideas. For each, give one line on how it works and one line on its main risk. Ask me first if my limits are unclear.",
+    "example": "/options Give me 6 to 8 different ways to solve this problem: cut our print costs by 20% without losing reach. My limits: no new staff, must finish by March, posters still required on base. Include at least two less obvious ideas. For each, give one line on how it works and one line on its main risk. Ask me first if my limits are unclear.",
+    "asks_ai": "You ask for a short list of distinct options to solve a problem. You get each option with how it works and its main risk.",
+    "give": [
+     "The problem in one sentence",
+     "Your limits: budget, time, rules",
+     "What you have already tried"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "options"
+   },
+   {
+    "does": "Scores your options against weighted criteria in a table.",
+    "prompt": "/weigh Compare these options: [option A, option B, option C]. Score each from 1 to 5 on these criteria and weights: [criterion = weight %]. Show a table with the scores, the weighted total for each option, and one line explaining each score. If I did not give weights, ask me for them before scoring. End with which option wins and how close it is.",
+    "example": "/weigh Compare these options: Trello, Asana, Monday.com. Score each from 1 to 5 on these criteria and weights: cost = 40%, ease of use = 35%, support = 25%. Show a table with the scores, the weighted total for each option, and one line explaining each score. If I did not give weights, ask me for them before scoring. End with which option wins and how close it is.",
+    "asks_ai": "You ask the AI to score your options against criteria you choose and weight. You get a table with weighted totals and a short verdict.",
+    "give": [
+     "The options",
+     "Your criteria with weights",
+     "Facts you know about each option (prices, features)"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Scores are only as good as the facts given; check prices and features yourself, the AI may be out of date.",
+    "level": "medium",
+    "cmd": "weigh"
+   },
+   {
+    "does": "Argues the strongest case against your position so you can prepare.",
+    "prompt": "/devilsadvocate Play devil's advocate against my position: [your position]. Give the 5 strongest objections a smart skeptic would raise, strongest first. For each, add one line on how I could answer it. Be direct, not rude.",
+    "example": "/devilsadvocate Play devil's advocate against my position: we should pilot a 4-day work week for our marketing team next quarter. Give the 5 strongest objections a smart skeptic would raise, strongest first. For each, add one line on how I could answer it. Be direct, not rude.",
+    "asks_ai": "You ask the AI to argue against your idea. You get the toughest objections plus a suggested reply to each.",
+    "give": [
+     "Your position in one sentence",
+     "Who you need to convince",
+     "Your main reasons"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "devilsadvocate"
+   },
+   {
+    "does": "Lists the hidden assumptions in a plan, ranked by risk.",
+    "prompt": "/assumptions Read the plan below and list the assumptions it depends on, including ones it never states. Rank them from riskiest to safest. For each, say what happens if it is wrong and one quick way to test it.\nPlan: [paste plan]",
+    "example": "/assumptions Read the plan below and list the assumptions it depends on, including ones it never states. Rank them from riskiest to safest. For each, say what happens if it is wrong and one quick way to test it.\nPlan: Launch the new MCCS app in January. Promote it with posters and two social posts a week. Expect 5,000 downloads in 60 days. Staff will answer support emails within a day.",
+    "asks_ai": "You ask the AI to surface what your plan takes for granted. You get a ranked list with impact and a quick test for each.",
+    "give": [
+     "The full plan text",
+     "Goal and deadline",
+     "Who carries it out"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Remove names, client details, and confidential company figures before pasting.",
+    "level": "medium",
+    "cmd": "assumptions"
+   },
+   {
+    "does": "Shows what you gain and give up with each choice.",
+    "prompt": "/tradeoffs Compare these choices: [choice A] vs. [choice B]. For each, list what I gain and what I give up on cost, time, quality, risk, and long-term effects. Put it in a table, then say in two sentences which situations favor each choice. Do not pick for me unless I ask.",
+    "example": "/tradeoffs Compare these choices: hire a contractor vs. train someone internally to run our video editing. For each, list what I gain and what I give up on cost, time, quality, risk, and long-term effects. Put it in a table, then say in two sentences which situations favor each choice. Do not pick for me unless I ask.",
+    "asks_ai": "You ask for a side-by-side of what each choice costs you. You get a table and a short note on when each makes sense.",
+    "give": [
+     "The choices",
+     "Your budget and timeline",
+     "What matters most to you"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "tradeoffs"
+   }
+  ]
+ },
+ {
+  "name": "Spreadsheets and data",
+  "dek": "Formulas, tables and charts without the guesswork.",
+  "entries": [
+   {
+    "does": "Writes a spreadsheet formula and explains how it works.",
+    "prompt": "/formula Write a formula for [Excel or Google Sheets]. My data: [which columns hold what, and the row range]. I want: [the result]. Give the formula on its own line, then explain each part in plain words, and note any common mistakes.",
+    "example": "/formula Write a formula for Google Sheets. My data: column A has location names, column C has amounts, rows 2 to 500. I want: the total of column C where column A says \"Okinawa\". Give the formula on its own line, then explain each part in plain words, and note any common mistakes.",
+    "asks_ai": "You ask for a working spreadsheet formula. You get the formula plus a plain explanation.",
+    "give": [
+     "Excel or Google Sheets",
+     "Column letters and what they hold",
+     "The exact result you want"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Test the formula on a few rows you can check by hand.",
+    "level": "simple",
+    "cmd": "formula"
+   },
+   {
+    "does": "Helps find why a formula fails and suggests a fix.",
+    "prompt": "/fixformula This formula is not working in [Excel or Google Sheets]: [paste formula]. The error or wrong result is: [error]. My data looks like: [columns and what they hold]. Explain the most likely cause in plain words, give the corrected formula, and list other causes to check if that does not fix it.",
+    "example": "/fixformula This formula is not working in Excel: =VLOOKUP(A2,B:C,3,0). The error or wrong result is: #REF!. My data looks like: column B has employee IDs, column C has names. Explain the most likely cause in plain words, give the corrected formula, and list other causes to check if that does not fix it.",
+    "asks_ai": "You ask the AI to diagnose a broken formula. You get the likely cause, a fixed formula, and other things to check.",
+    "give": [
+     "The exact formula",
+     "The error message or wrong result",
+     "What your columns hold",
+     "Excel or Sheets"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "fixformula"
+   },
+   {
+    "does": "Walks you step by step through building a pivot table.",
+    "prompt": "/pivot Walk me step by step through building a pivot table in [Excel or Google Sheets]. My columns are: [column names]. The question I want answered: [question]. Tell me exactly what goes in Rows, Columns, Values, and Filters, and how to summarize the values (sum, count, or average).",
+    "example": "/pivot Walk me step by step through building a pivot table in Excel. My columns are: Date, Region, Product, Sales. The question I want answered: total sales by month and region. Tell me exactly what goes in Rows, Columns, Values, and Filters, and how to summarize the values (sum, count, or average).",
+    "asks_ai": "You ask for click-by-click pivot table steps. You get where each field goes and how to summarize it.",
+    "give": [
+     "Excel or Google Sheets",
+     "Your column names",
+     "The question you want answered"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Menu names vary by app version; if a step doesn't match your screen, tell the AI what you see.",
+    "level": "simple",
+    "cmd": "pivot"
+   },
+   {
+    "does": "Gives step-by-step instructions to tidy messy data.",
+    "prompt": "/cleandata Give me step-by-step instructions to clean this data in [Excel or Google Sheets]. The problems: [describe the mess]. Here are a few sample rows with fake values: [sample rows]. For each problem, give the formula or menu steps, in the order I should do them. Remind me to work on a copy.",
+    "example": "/cleandata Give me step-by-step instructions to clean this data in Google Sheets. The problems: names in mixed case, extra spaces, and duplicate rows. Here are a few sample rows with fake values: \"  jANE doe \", \"John SMITH\", \"John SMITH\". For each problem, give the formula or menu steps, in the order I should do them. Remind me to work on a copy.",
+    "asks_ai": "You ask for a cleanup recipe for messy data. You get ordered steps with formulas or menu clicks.",
+    "give": [
+     "Excel or Google Sheets",
+     "Each problem in the data",
+     "A few sample rows with fake values"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Use sample rows, not real personal data, and clean a copy of the file first.",
+    "level": "simple",
+    "cmd": "cleandata"
+   },
+   {
+    "does": "Recommends the best chart type for your point and audience.",
+    "prompt": "/chart Recommend the best chart for this. My data: [what it is and how much]. The point I want to make: [message]. Audience and setting: [who, and where it will be shown]. Give your top pick and one backup, why each works, and 3 tips to make it clear (title, labels, colors).",
+    "example": "/chart Recommend the best chart for this. My data: 12 months of website visits. The point I want to make: traffic grew steadily after the app launch in May. Audience and setting: senior leaders, one slide in a board briefing. Give your top pick and one backup, why each works, and 3 tips to make it clear (title, labels, colors).",
+    "asks_ai": "You ask which chart fits your message. You get a top pick, a backup, and tips to make it readable.",
+    "give": [
+     "What the data is",
+     "The one point you want to make",
+     "Who sees it and where"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "chart"
+   },
+   {
+    "does": "Points out possible patterns and questions in a small table.",
+    "prompt": "/insights Look at this table and tell me what stands out: trends, big changes, outliers, and anything that looks off. Question I care about: [question]. Keep it to 5 bullets, each tied to specific numbers in the table, and add 2 follow-up questions worth checking. Do not guess at causes as if they were facts.\nTable: [paste anonymized numbers]",
+    "example": "/insights Look at this table and tell me what stands out: trends, big changes, outliers, and anything that looks off. Question I care about: which months need attention? Keep it to 5 bullets, each tied to specific numbers in the table, and add 2 follow-up questions worth checking. Do not guess at causes as if they were facts.\nTable: Jan 420, Feb 455, Mar 610, Apr 300, May 470, Jun 480",
+    "asks_ai": "You ask the AI to read a small table and flag what stands out. You get 5 number-backed observations and follow-up questions.",
+    "give": [
+     "The table (anonymized)",
+     "The question you care about",
+     "Context like seasons or events"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "AI can misread numbers; check each observation against the table. Remove names, client details, and confidential company figures before pasting.",
+    "level": "medium",
+    "cmd": "insights"
+   },
+   {
+    "does": "Writes a pattern (regular expression) to find or clean text.",
+    "prompt": "/regex Write a regular expression (a text-matching pattern) for [where I'll use it, e.g. Google Sheets REGEXEXTRACT, Excel, Python]. It should match: [what to match]. Example text: [sample]. Should not match: [counter-example, if any]. Give the pattern, a ready-to-use formula or line of code, and explain each part in plain words.",
+    "example": "/regex Write a regular expression (a text-matching pattern) for Google Sheets REGEXEXTRACT. It should match: the 5-digit ZIP code in an address. Example text: \"123 Main St, Tampa, FL 33602\". Should not match: the street number. Give the pattern, a ready-to-use formula or line of code, and explain each part in plain words.",
+    "asks_ai": "You ask for a text-matching pattern. You get the pattern, a ready formula, and a plain explanation.",
+    "give": [
+     "Where you'll use it (app or language)",
+     "What to match, with real-looking examples",
+     "What should not match"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Test the pattern on a handful of rows before running it on everything.",
+    "level": "medium",
+    "cmd": "regex"
+   },
+   {
+    "does": "Drafts a simple script to automate a repeated spreadsheet task.",
+    "prompt": "/macro Write a simple script for [Excel VBA or Google Sheets Apps Script]. The task I repeat: [steps]. When it should run: [on a button, on edit, daily]. Give the full code with short comments, step-by-step instructions to install and run it, and any permissions it will ask for. Ask me first if anything is unclear.",
+    "example": "/macro Write a simple script for Google Sheets Apps Script. The task I repeat: check column D every morning and email me at my work address a list of rows that say \"Overdue\". When it should run: daily at 8 am. Give the full code with short comments, step-by-step instructions to install and run it, and any permissions it will ask for. Ask me first if anything is unclear.",
+    "asks_ai": "You ask the AI to draft automation code for your spreadsheet. You get commented code plus install and run steps.",
+    "give": [
+     "Excel VBA or Google Sheets Apps Script",
+     "The exact steps you repeat",
+     "When it should run"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Test on a copy first, and check your workplace allows scripts before running code on work files.",
+    "level": "complex",
+    "cmd": "macro"
+   },
+   {
+    "does": "Gives a checklist of sanity checks before you share numbers.",
+    "prompt": "/datacheck Give me a short checklist of sanity checks to run before I share these numbers. What they are: [data]. Where they are going: [audience]. Cover totals, sources, dates, sample size, percentages, and charts. Put the 3 most likely mistakes first.",
+    "example": "/datacheck Give me a short checklist of sanity checks to run before I share these numbers. What they are: staff survey results, 140 responses. Where they are going: a leadership briefing. Cover totals, sources, dates, sample size, percentages, and charts. Put the 3 most likely mistakes first.",
+    "asks_ai": "You ask for a pre-share checklist for your numbers. You get a prioritized list of checks.",
+    "give": [
+     "What the numbers are",
+     "Who will see them",
+     "How they were collected"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "datacheck"
+   },
+   {
+    "does": "Turns your figures into two plain sentences for an audience.",
+    "prompt": "/explaindata Explain these figures in two plain sentences for [audience]: [figures]. Say what changed and why it matters to them. Use only the numbers I gave you and do not add new ones.",
+    "example": "/explaindata Explain these figures in two plain sentences for front-desk staff: event attendance rose 12% this quarter, and cost per attendee fell from $9 to $7. Say what changed and why it matters to them. Use only the numbers I gave you and do not add new ones.",
+    "asks_ai": "You ask the AI to turn numbers into a short plain-English summary. You get two sentences for your audience.",
+    "give": [
+     "The exact figures",
+     "The audience",
+     "Why the numbers matter"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Make sure no figures were changed or added.",
+    "level": "simple",
+    "cmd": "explaindata"
+   }
+  ]
+ },
+ {
+  "name": "Decks and documents",
+  "dek": "Structure first, then the words.",
+  "entries": [
+   {
+    "does": "Builds a structured outline before you write.",
+    "prompt": "/outline Build an outline for a [type: talk, report, article] on [topic] for [audience], about [length]. Give the main sections in order, 2 or 3 key points under each, and a rough time or word count per section. Start with the opening hook and end with the takeaway.",
+    "example": "/outline Build an outline for a talk on using AI at work for managers, about 10 minutes. Give the main sections in order, 2 or 3 key points under each, and a rough time or word count per section. Start with the opening hook and end with the takeaway.",
+    "asks_ai": "You ask for a skeleton before writing. You get sections, key points, and timing.",
+    "give": [
+     "Topic",
+     "Audience",
+     "Length or time",
+     "Your main message"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "outline"
+   },
+   {
+    "does": "Drafts slide titles with one key point each.",
+    "prompt": "/slides Draft [number] slides for a presentation on [topic] for [audience]. For each slide give a headline-style title that states the point as a full sentence, and one supporting line underneath. Number the slides. Use only the facts I give you: [key facts or numbers].",
+    "example": "/slides Draft 8 slides for a presentation on quarterly results for the leadership team. For each slide give a headline-style title that states the point as a full sentence, and one supporting line underneath. Number the slides. Use only the facts I give you: revenue up 6%, app downloads 12,000, two events cancelled for weather.",
+    "asks_ai": "You ask for a slide-by-slide draft. You get numbered headline titles with one point each.",
+    "give": [
+     "Slide count",
+     "Topic and audience",
+     "Key facts and numbers"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check every number on the slides against your source.",
+    "level": "medium",
+    "cmd": "slides"
+   },
+   {
+    "does": "Rewrites a passage for a different audience and reading level.",
+    "prompt": "/rewriteforaudience Rewrite the text below for [audience] at about a [grade] reading level. Keep every fact and requirement, and do not add new ones. Use short sentences and a [tone] tone. After the rewrite, list anything you removed or simplified.\nText: [paste text]",
+    "example": "/rewriteforaudience Rewrite the text below for frontline staff at about an 8th-grade reading level. Keep every fact and requirement, and do not add new ones. Use short sentences and a friendly tone. After the rewrite, list anything you removed or simplified.\nText: All personnel shall ensure that facility access credentials are displayed at all times while on the premises and that any loss thereof is reported to the security office within 24 hours.",
+    "asks_ai": "You ask the AI to rewrite text for a new reader. You get the rewrite plus a note of what was simplified.",
+    "give": [
+     "The text",
+     "The audience",
+     "Reading level and tone"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check policy rewrites with the policy owner before sharing.",
+    "level": "simple",
+    "cmd": "rewriteforaudience"
+   },
+   {
+    "does": "Suggests clear title or subject line options.",
+    "prompt": "/headline Give me [number] headline options for [what it is: newsletter story, email subject, report title] about [topic], for [reader]. Keep each under [number] words, clear before clever. Mark your top pick and say why in one line.",
+    "example": "/headline Give me 5 headline options for an internal newsletter story about our team winning a regional design award, for all staff. Keep each under 10 words, clear before clever. Mark your top pick and say why in one line.",
+    "asks_ai": "You ask for title or subject line choices. You get several options with a recommended pick.",
+    "give": [
+     "What it's about",
+     "Where it appears",
+     "The reader",
+     "Length limit"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "headline"
+   },
+   {
+    "does": "Writes notes to say alongside each slide, timed to your limit.",
+    "prompt": "/speakernotes Write speaker notes for each slide below. Total time: [minutes]. Tone: [tone]. For each slide give what to say in short spoken sentences, a suggested time, and a transition to the next slide. Keep the total within my time limit.\nSlides: [paste slide titles and key points]",
+    "example": "/speakernotes Write speaker notes for each slide below. Total time: 12 minutes. Tone: conversational. For each slide give what to say in short spoken sentences, a suggested time, and a transition to the next slide. Keep the total within my time limit.\nSlides: 1. Why we're here 2. What changed this year 3. Results 4. What's next 5. Questions",
+    "asks_ai": "You ask for a spoken script per slide. You get notes, timing, and transitions that fit your time.",
+    "give": [
+     "Slide titles and points",
+     "Total time",
+     "Tone"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "speakernotes"
+   },
+   {
+    "does": "Turns how you do a task into a step-by-step procedure.",
+    "prompt": "/sop Turn this into an SOP (standard operating procedure). Task: [task]. How I do it: [your steps in your own words]. Format: purpose, who does it, what you need, numbered steps, and common mistakes. Use plain language a new hire can follow. Ask me about any step that is unclear instead of guessing.",
+    "example": "/sop Turn this into an SOP (standard operating procedure). Task: posting an event to the website. How I do it: get the flyer and details from the program, log into the CMS, create a new event, add the image and text, set the dates, preview, get approval, publish. Format: purpose, who does it, what you need, numbered steps, and common mistakes. Use plain language a new hire can follow. Ask me about any step that is unclear instead of guessing.",
+    "asks_ai": "You ask the AI to write a procedure from your steps. You get a formatted SOP and questions on gaps.",
+    "give": [
+     "Your steps in order",
+     "Who does it",
+     "Tools or systems used"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Have someone follow it once to catch missing steps.",
+    "level": "medium",
+    "cmd": "sop"
+   },
+   {
+    "does": "Drafts a one-page proposal with the decision you need up front.",
+    "prompt": "/proposal Draft a one-page proposal for [decision maker].\nStart with the ask: what I need decided and by when.\nThen: the problem, the proposed solution, cost, benefits, risks, and next steps.\nUse only these facts: [problem, solution, cost, deadline].\nUnder 350 words, short headings, professional tone. Ask me for any missing fact instead of inventing it.",
+    "example": "/proposal Draft a one-page proposal for the facility director.\nStart with the ask: what I need decided and by when.\nThen: the problem, the proposed solution, cost, benefits, risks, and next steps.\nUse only these facts: our signs are outdated and inconsistent; replace them with a standard signage system; cost $12,000; approval needed by June 1.\nUnder 350 words, short headings, professional tone. Ask me for any missing fact instead of inventing it.",
+    "asks_ai": "You ask for a short proposal that leads with the decision needed. You get a one-page draft built only from your facts.",
+    "give": [
+     "The decision and deadline",
+     "Problem and solution",
+     "Cost",
+     "Who decides"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check all costs and dates before sending.",
+    "level": "complex",
+    "cmd": "proposal"
+   },
+   {
+    "does": "Writes a short professional bio from your facts.",
+    "prompt": "/bio Write a professional bio in [first or third] person, about [number] words, for [where it will appear]. Use only these facts: [role, employer, years of experience, key achievements, education, a personal touch]. Do not add titles or achievements I did not give.",
+    "example": "/bio Write a professional bio in third person, about 80 words, for a conference speaker page. Use only these facts: digital marketing manager, 20 years in marketing and communications, led a mobile app launch, US Marine Corps veteran, enjoys photography. Do not add titles or achievements I did not give.",
+    "asks_ai": "You ask for a short bio built from your details. You get a ready-to-use paragraph.",
+    "give": [
+     "Your facts",
+     "Length",
+     "First or third person",
+     "Where it appears"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it for any detail you did not provide.",
+    "level": "simple",
+    "cmd": "bio"
+   },
+   {
+    "does": "Rewrites text without jargon, keeping the meaning.",
+    "prompt": "/plainlanguage Rewrite the text below in plain language. Replace jargon and acronyms with everyday words, use short sentences and active voice, and keep every fact and requirement. After the rewrite, list each term you replaced and what you used instead.\nText: [paste text]",
+    "example": "/plainlanguage Rewrite the text below in plain language. Replace jargon and acronyms with everyday words, use short sentences and active voice, and keep every fact and requirement. After the rewrite, list each term you replaced and what you used instead.\nText: Patrons must utilize designated parking areas and ensure vehicles are not left unattended in fire lanes, per installation directives, to facilitate unimpeded ingress and egress.",
+    "asks_ai": "You ask the AI to remove jargon from text. You get a plain version and a list of terms replaced.",
+    "give": [
+     "The text",
+     "Who will read it"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "plainlanguage"
+   }
+  ]
+ },
+ {
+  "name": "Planning and focus",
+  "dek": "Decide what matters, then protect the time.",
+  "entries": [
+   {
+    "does": "Helps rank your tasks by impact, urgency, and time available.",
+    "prompt": "/prioritize Rank my tasks for [today or this week]. I have [hours] of focus time. Deadlines: [deadlines]. Rank by impact and urgency, and give one line of reasoning for each. Then say what to do first, what can wait, and what to delegate or drop.\nTasks: [paste list]",
+    "example": "/prioritize Rank my tasks for today. I have 3 focus hours. Deadlines: budget memo due 3 pm, newsletter due Friday. Rank by impact and urgency, and give one line of reasoning for each. Then say what to do first, what can wait, and what to delegate or drop.\nTasks: budget memo, reply to 20 emails, review new signage proofs, update the app banner, plan next week's posts.",
+    "asks_ai": "You ask the AI to order your task list. You get a ranked plan with reasons and what to drop.",
+    "give": [
+     "Your task list",
+     "Deadlines",
+     "Focus time available",
+     "What your boss cares about most"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "prioritize"
+   },
+   {
+    "does": "Builds a realistic week plan around your meetings.",
+    "prompt": "/weekplan Build a realistic plan for my week. Projects and tasks: [list with deadlines]. Fixed meetings: [days and times]. My best focus hours: [time]. Put deep work in my best hours, leave 20% buffer, and flag anything that will not fit. Give it as a day-by-day list.",
+    "example": "/weekplan Build a realistic plan for my week. Projects and tasks: annual report draft (due Thursday), app update review, newsletter, event promo plan. Fixed meetings: Mon 1-2, Tue 9-10 and 2-3, Wed 10-11, Thu 1-3, Fri 11-12. My best focus hours: before 10 am. Put deep work in my best hours, leave 20% buffer, and flag anything that will not fit. Give it as a day-by-day list.",
+    "asks_ai": "You ask for a week plan that fits your real calendar. You get a day-by-day schedule and warnings about overload.",
+    "give": [
+     "Tasks with deadlines",
+     "Meeting days and times",
+     "Your best focus hours"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "weekplan"
+   },
+   {
+    "does": "Turns a goal into objectives and measurable key results.",
+    "prompt": "/okr Turn my goal into OKRs (Objectives and Key Results: an inspiring objective plus 3 measurable results that show we got there). Goal: [goal]. Time frame: [quarter or dates]. Starting point: [current numbers]. For each key result give a number, a deadline, and how we will measure it. Ask me for the starting numbers if I did not give them.",
+    "example": "/okr Turn my goal into OKRs (Objectives and Key Results: an inspiring objective plus 3 measurable results that show we got there). Goal: grow downloads of our app. Time frame: January to March. Starting point: about 2,000 downloads a month. For each key result give a number, a deadline, and how we will measure it. Ask me for the starting numbers if I did not give them.",
+    "asks_ai": "You ask the AI to turn a goal into OKRs. You get an objective and measurable results with targets.",
+    "give": [
+     "The goal",
+     "Time frame",
+     "Current numbers"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "okr"
+   },
+   {
+    "does": "Drafts a table of who does, decides, advises, and is informed.",
+    "prompt": "/raci Build a RACI chart (Responsible = does the work, Accountable = makes the final call, Consulted = gives input, Informed = kept updated) for [project]. Tasks: [list]. People and roles: [names or roles]. Show it as a table with tasks as rows and people as columns. Only one Accountable per task. Flag gaps or overloaded people.",
+    "example": "/raci Build a RACI chart (Responsible = does the work, Accountable = makes the final call, Consulted = gives input, Informed = kept updated) for the website relaunch. Tasks: content audit, design, page writing, testing, launch announcement. People and roles: manager, web specialist, designer, social media specialist, IT lead. Show it as a table with tasks as rows and people as columns. Only one Accountable per task. Flag gaps or overloaded people.",
+    "asks_ai": "You ask for a clear roles chart for a project. You get a RACI table and any gaps flagged.",
+    "give": [
+     "Project tasks",
+     "People or roles",
+     "Who has final say"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "raci"
+   },
+   {
+    "does": "Breaks a big project into small, ordered steps.",
+    "prompt": "/breakdown Break this project into steps: [project]. Deadline: [date or weeks]. Group the steps into phases, and for each step give a rough time estimate and what it depends on. Make the first step something I can start today in under 30 minutes.",
+    "example": "/breakdown Break this project into steps: produce our annual report. Deadline: 6 weeks from now. Group the steps into phases, and for each step give a rough time estimate and what it depends on. Make the first step something I can start today in under 30 minutes.",
+    "asks_ai": "You ask the AI to split a project into manageable steps. You get phases, estimates, and an easy first step.",
+    "give": [
+     "The project",
+     "Deadline",
+     "Who helps",
+     "What's already done"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "breakdown"
+   },
+   {
+    "does": "Builds a dated schedule working backward from your deadline.",
+    "prompt": "/timeline Build a backward timeline from my deadline: [date]. Today is [date]. Major steps: [list]. Work back from the deadline and give a start and finish date for each step, with buffer before the deadline. Show it as a table and flag any step that is already behind.",
+    "example": "/timeline Build a backward timeline from my deadline: November 20 (event day). Today is October 23. Major steps: book venue, design flyer, print, post on social, sell tickets, final headcount. Work back from the deadline and give a start and finish date for each step, with buffer before the deadline. Show it as a table and flag any step that is already behind.",
+    "asks_ai": "You ask for a schedule counted back from a deadline. You get dated steps in a table.",
+    "give": [
+     "Deadline",
+     "Today's date (AI may not know it)",
+     "Major steps"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Check dates against a calendar; AI can miscount days or weekdays.",
+    "level": "medium",
+    "cmd": "timeline"
+   },
+   {
+    "does": "Writes a short end-of-day update from your notes.",
+    "prompt": "/eod Write my EOD (end-of-day) update for [who]. Done today: [list]. Still in progress: [list]. Blockers or help needed: [list]. Up next: [list]. Format: [number] short bullets, plain and professional.",
+    "example": "/eod Write my EOD (end-of-day) update for my manager. Done today: sent signage proofs, fixed app banner. Still in progress: newsletter draft. Blockers or help needed: waiting on event photos from the program. Up next: finish newsletter tomorrow. Format: 3 short bullets, plain and professional.",
+    "asks_ai": "You ask the AI to turn your notes into an end-of-day update. You get a few clean bullets.",
+    "give": [
+     "What you did",
+     "What's next",
+     "Blockers",
+     "Who reads it"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending.",
+    "level": "simple",
+    "cmd": "eod"
+   },
+   {
+    "does": "Writes a clear hand-off note for a task.",
+    "prompt": "/delegate Write a hand-off note for [person or role]. Task: [task]. Why it matters: [reason]. What done looks like: [result and deadline]. Include: steps or resources, decisions they can make on their own, when to check in, and who to ask for help. Keep it under 200 words and friendly.",
+    "example": "/delegate Write a hand-off note for a new analyst. Task: build the monthly web traffic report. Why it matters: leadership uses it to plan promotions. What done looks like: a 2-page report with charts, sent by the 5th of each month. Include: steps or resources, decisions they can make on their own, when to check in, and who to ask for help. Keep it under 200 words and friendly.",
+    "asks_ai": "You ask for a hand-off that sets someone up to succeed. You get a short note with clear expectations.",
+    "give": [
+     "The task",
+     "Who it's for",
+     "What done looks like",
+     "Deadline"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "Read it before sending.",
+    "level": "simple",
+    "cmd": "delegate"
+   },
+   {
+    "does": "Helps you take a small first step on a task you're avoiding.",
+    "prompt": "/unstuck I have been putting off [task] for [how long]. I think the reason is [why]. Ask me one or two quick questions if you need to, then give me the smallest first step I can do in 10 minutes, and two more short steps after it. Keep it practical, no pep talk.",
+    "example": "/unstuck I have been putting off a budget memo for a week. I think the reason is I don't know which numbers leadership wants to see. Ask me one or two quick questions if you need to, then give me the smallest first step I can do in 10 minutes, and two more short steps after it. Keep it practical, no pep talk.",
+    "asks_ai": "You ask for help starting a stalled task. You get a tiny first step and a couple of next steps.",
+    "give": [
+     "The task",
+     "Why you're avoiding it",
+     "How much time you have"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "simple",
+    "cmd": "unstuck"
+   },
+   {
+    "does": "Runs a short look-back after a project with lessons and actions.",
+    "prompt": "/retro Run a retrospective (a look back after a project) on [project]. Here is what happened and the team's notes: [notes]. Sort it into what worked, what didn't, and what to do differently next time. End with 3 specific action items, each with a suggested owner. Keep it blame-free.",
+    "example": "/retro Run a retrospective (a look back after a project) on our summer campaign. Here is what happened and the team's notes: posters went up late, social posts beat goals by 30%, the sign-up form broke for two days, staff liked the weekly check-ins. Sort it into what worked, what didn't, and what to do differently next time. End with 3 specific action items, each with a suggested owner. Keep it blame-free.",
+    "asks_ai": "You ask the AI to organize project lessons. You get a worked, didn't-work, next-time summary with action items.",
+    "give": [
+     "What happened",
+     "Team notes and feedback",
+     "Results versus goals"
+    ],
+    "needs": "",
+    "fallback": "",
+    "check": "",
+    "level": "medium",
+    "cmd": "retro"
+   }
+  ]
+ }
+]

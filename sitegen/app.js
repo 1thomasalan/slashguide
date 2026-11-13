@@ -24,7 +24,7 @@
     var t = b.getAttribute("data-copy"), l = b.querySelector(".copy-l"), old = l ? l.textContent : "";
     copyText(t).then(function () {
       b.classList.add("done"); if (l) l.textContent = "Copied";
-      live.textContent = "Copied " + t;
+      live.textContent = "Copied";
       clearTimeout(b._t);
       b._t = setTimeout(function () { b.classList.remove("done"); if (l) l.textContent = old; }, 1600);
     }, function () {

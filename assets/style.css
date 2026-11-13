@@ -246,6 +246,11 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
 }
 
 .lib{scroll-margin-top:76px}
+.row .row-ex{display:block;margin-top:4px;font-size:13px;line-height:1.5;color:var(--g);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .row-ex-c{color:var(--r)}
+.rows{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row{min-width:0}.row-t{flex:1;overflow:hidden}
+@media (max-width:820px){.rows{grid-template-columns:minmax(0,1fr)}}
+.row-a{min-width:0}@media (max-width:520px){.row-t{align-self:stretch;width:100%}}
 
 /* dark mode: follows the system unless the visitor picks one (saved in localStorage, no cookies) */
 :root[data-theme="dark"]{--bg:#111112; --nav:rgba(17,17,18,.94); --s:#1b1b1d; --l:#2e2e31; --ink:#ececea; --ink2:#c3c3bf; --g:#9c9c98; --r:#f0444c; --r-ink:#ff6970; --r-tint:rgba(240,68,76,.14); --bubble:#2a2a2d; --hov:#55555a; color-scheme:dark;}
@@ -274,3 +279,21 @@ h2{font-size:28px;letter-spacing:-.025em;line-height:1.2}
 :root[data-theme="dark"] .theme .i-sun{display:block}:root[data-theme="dark"] .theme .i-moon{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .i-sun{display:block}:root:not([data-theme="light"]) .theme .i-moon{display:none}}
 @media (max-width:560px){.theme{width:32px;height:32px}}
+
+/* full prompt, give list, notes, how-it-works (Nov 2026 audit) */
+.pr{border:1.5px solid var(--r);border-radius:10px;padding:14px 16px;font-size:16px;line-height:1.6;display:flex;gap:14px;align-items:flex-start;justify-content:space-between;max-width:65ch;background:var(--bg)}
+.pr p{min-width:0;overflow-wrap:anywhere}
+.ph{background:var(--r-tint);color:var(--ink);border-radius:4px;padding:0 3px;font-weight:500}
+.pr-tip{font-size:13.5px;color:var(--g);margin-top:8px;max-width:65ch}
+.give{list-style:none;max-width:65ch;display:grid;gap:6px}
+.give li{position:relative;padding-left:20px;font-size:16px;line-height:1.5}
+.give li::before{content:"/";position:absolute;left:2px;color:var(--r);font-family:Mono,monospace;font-weight:600}
+.note-box{margin-top:18px;border-left:3px solid var(--ink2);background:var(--s);border-radius:0 10px 10px 0;padding:12px 16px;max-width:65ch;font-size:15px;line-height:1.5;display:grid;gap:4px}
+.note-box.chk{border-left-color:var(--r)}
+.ex p{min-width:0;overflow-wrap:anywhere}
+.how{list-style:none;counter-reset:h;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 28px;max-width:1100px}
+.how li{counter-increment:h;position:relative;padding-left:34px;color:var(--ink2);font-size:15px;line-height:1.55}
+.how li::before{content:counter(h);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--r);color:#fff;font-size:13px;font-weight:600;display:grid;place-items:center}
+.how b{color:var(--ink)}
+.honest a{color:inherit}
+@media (max-width:560px){.pr{flex-direction:column;gap:10px;font-size:15px}.give li{font-size:15px}}

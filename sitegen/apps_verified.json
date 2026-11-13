@@ -1,0 +1,786 @@
+{
+ "sections": [
+  {
+   "id": "slack",
+   "name": "Slack",
+   "where": "the Slack message box",
+   "prereq": "",
+   "blurb": "Built into every Slack workspace. Type / in the message box, or click the slash icon next to it.",
+   "source": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack",
+   "note": "A few built-in commands (like /archive, /rename, /remove) can be limited to owners and admins.",
+   "commands": [
+    {
+     "cmd": "remind",
+     "verdict": "fix",
+     "reason": "Slack's list says /remind is for yourself; its reminder page only shows the channel format /remind [#channel] [what] [when]. Nothing official covers reminding another person, and the 'me' syntax isn't shown.",
+     "does": "Sets a reminder for yourself, or posts a reminder in a channel at the time you pick.",
+     "add": "For a channel: #channel, what, and when.",
+     "example": "/remind #marketing-team to submit expenses every Thursday",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/208423427-Set-a-reminder"
+    },
+    {
+     "cmd": "status",
+     "verdict": "fix",
+     "reason": "Real and current, but it only flips your availability to away or active. It does not set a custom status message.",
+     "does": "Switches you between away and active.",
+     "add": "Nothing else needed.",
+     "example": "/status",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "dnd",
+     "verdict": "fix",
+     "reason": "Real, but the official list shows no duration option, so the 'for 1 hour' example is unverified.",
+     "does": "Turns Do Not Disturb on or off to pause notifications.",
+     "add": "Nothing else needed.",
+     "example": "/dnd",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "huddle",
+     "verdict": "keep",
+     "reason": "Listed as 'Start a huddle'.",
+     "does": "Starts a huddle (a quick audio call) in the current conversation.",
+     "add": "Nothing else needed.",
+     "example": "/huddle",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "msg",
+     "verdict": "keep",
+     "reason": "Listed for both DMs and channels: /msg [@someone] or [#channel] [your message].",
+     "does": "Sends a message to a person or a channel without leaving where you are.",
+     "add": "@someone or #channel, then your message.",
+     "example": "/msg @dana the deck is in the shared folder",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "invite",
+     "verdict": "keep",
+     "reason": "Listed as /invite [@someone] [#channel].",
+     "does": "Adds someone to a channel.",
+     "add": "@someone and, if it's another channel, #channel.",
+     "example": "/invite @sam #project-launch",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "leave",
+     "verdict": "keep",
+     "reason": "Listed.",
+     "does": "Leaves the current channel.",
+     "add": "Nothing else needed.",
+     "example": "/leave",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "topic",
+     "verdict": "keep",
+     "reason": "Listed as 'Set the current channel topic'.",
+     "does": "Sets the topic shown at the top of the channel.",
+     "add": "The new topic.",
+     "example": "/topic Launch week: questions here, decisions in the doc",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "mute",
+     "verdict": "keep",
+     "reason": "Listed as /mute [#channel].",
+     "does": "Mutes or unmutes a conversation.",
+     "add": "Optional: #channel. Leave it off for the current one.",
+     "example": "/mute #random",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "search",
+     "verdict": "keep",
+     "reason": "Listed as /search [your search terms].",
+     "does": "Searches messages and files.",
+     "add": "Your search words.",
+     "example": "/search budget spreadsheet",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    },
+    {
+     "cmd": "shrug",
+     "verdict": "keep",
+     "reason": "Listed: appends the shrug to the end of your message.",
+     "does": "Adds ¯\\_(ツ)_/¯ to the end of your message.",
+     "add": "Optional: your message.",
+     "example": "/shrug no idea who moved the meeting",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+    }
+   ]
+  },
+  {
+   "id": "notion",
+   "name": "Notion",
+   "where": "any Notion page (type / on a new line or in a block)",
+   "prereq": "",
+   "blurb": "Type / on a Notion page and keep typing to pick a block.",
+   "source": "https://www.notion.com/help/keyboard-shortcuts",
+   "note": "Press Esc to close the / menu if you just want to type a slash.",
+   "commands": [
+    {
+     "cmd": "todo",
+     "verdict": "keep",
+     "reason": "Listed: creates a to-do list with checkboxes.",
+     "does": "Adds a checkbox to-do list.",
+     "add": "Your first task after it appears.",
+     "example": "/todo",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "toggle",
+     "verdict": "keep",
+     "reason": "Listed: creates a toggle list.",
+     "does": "Adds a toggle list that opens and closes.",
+     "add": "A short title; tuck details inside.",
+     "example": "/toggle",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "callout",
+     "verdict": "keep",
+     "reason": "Notion's styling page says 'Type /callout in your page and press enter.'",
+     "does": "Adds a highlighted box with an icon, for notes and warnings.",
+     "add": "The text you want to stand out.",
+     "example": "/callout",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/customize-and-style-your-content"
+    },
+    {
+     "cmd": "table",
+     "verdict": "keep",
+     "reason": "Notion's page says to use the command /table for a simple table.",
+     "does": "Adds a simple table.",
+     "add": "Fill in rows and columns after it appears.",
+     "example": "/table",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/columns-headings-and-dividers"
+    },
+    {
+     "cmd": "code",
+     "verdict": "keep",
+     "reason": "Listed: creates a code block.",
+     "does": "Adds a code block with syntax colors.",
+     "add": "Paste your code, then pick the language.",
+     "example": "/code",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "quote",
+     "verdict": "keep",
+     "reason": "Listed: creates a quote block of larger text.",
+     "does": "Adds a larger quote block.",
+     "add": "The quote.",
+     "example": "/quote",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "h1",
+     "verdict": "keep",
+     "reason": "Listed, with /h2 and /h3 for smaller headings.",
+     "does": "Adds a large heading. /h2 and /h3 make smaller ones.",
+     "add": "The heading text.",
+     "example": "/h1",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "div",
+     "verdict": "keep",
+     "reason": "Listed: creates a light gray divider.",
+     "does": "Adds a light gray divider line.",
+     "add": "Nothing else needed.",
+     "example": "/div",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "toc",
+     "verdict": "keep",
+     "reason": "Listed: creates a Table of Contents block.",
+     "does": "Adds a table of contents built from your headings.",
+     "add": "Nothing else needed; it updates itself.",
+     "example": "/toc",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+    },
+    {
+     "cmd": "comment",
+     "verdict": "remove",
+     "reason": "Not a slash command in Notion's docs. Comments are added with Cmd/Ctrl+Shift+M, the Comment button on selected text, or the block menu.",
+     "does": "",
+     "add": "",
+     "example": "",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://www.notion.com/help/comments-mentions-and-reminders"
+    }
+   ]
+  },
+  {
+   "id": "discord",
+   "name": "Discord",
+   "where": "the message box in a Discord text channel or DM",
+   "prereq": "",
+   "blurb": "Discord's own built-in commands, before any bots are added.",
+   "source": "https://support-apps.discord.com/hc/en-us/articles/26501837786775-Slash-Commands-FAQ",
+   "note": "Built-ins like /giphy, /nick and /me work even where a server turns off bot slash commands. /nick needs the server to allow nickname changes, and /tts only plays for people who have text-to-speech turned on.",
+   "commands": [
+    {
+     "cmd": "giphy",
+     "verdict": "keep",
+     "reason": "Named as a built-in command in Discord's Slash Commands FAQ. Use this, not /gif, which has no official listing.",
+     "does": "Searches Giphy for a GIF to send.",
+     "add": "A word or two to search for.",
+     "example": "/giphy happy dance",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support-apps.discord.com/hc/en-us/articles/26501837786775-Slash-Commands-FAQ"
+    },
+    {
+     "cmd": "tenor",
+     "verdict": "keep",
+     "reason": "Only confirmed in a 2021 Discord staff changelog ('giphy/tenor commands'), not in a current help page. Keep, but re-check it shows when you type /.",
+     "does": "Searches Tenor for a GIF to send.",
+     "add": "A word or two to search for.",
+     "example": "/tenor thumbs up",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://github.com/discord/discord-api-docs/issues/2490"
+    },
+    {
+     "cmd": "spoiler",
+     "verdict": "keep",
+     "reason": "Discord's Spoiler Tags page: 'typing /spoiler before your message.'",
+     "does": "Sends your message hidden until someone clicks it.",
+     "add": "The message to hide.",
+     "example": "/spoiler the twist is in episode 6",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support.discord.com/hc/en-us/articles/360022320632-Spoiler-Tags"
+    },
+    {
+     "cmd": "nick",
+     "verdict": "keep",
+     "reason": "Named as a built-in in the Slash Commands FAQ.",
+     "does": "Changes your nickname in this server.",
+     "add": "Your new nickname.",
+     "example": "/nick Alan (Okinawa)",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support-apps.discord.com/hc/en-us/articles/26501837786775-Slash-Commands-FAQ"
+    },
+    {
+     "cmd": "me",
+     "verdict": "keep",
+     "reason": "Named as a built-in in the Slash Commands FAQ.",
+     "does": "Sends your message styled as an action.",
+     "add": "What you're doing.",
+     "example": "/me is brewing more coffee",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support-apps.discord.com/hc/en-us/articles/26501837786775-Slash-Commands-FAQ"
+    },
+    {
+     "cmd": "tts",
+     "verdict": "fix",
+     "reason": "Real (Text-to-Speech 101), but listeners only hear it if they have text-to-speech notifications on, and the sender's server may block it.",
+     "does": "Sends your message to be read aloud to people in the channel who have text-to-speech on.",
+     "add": "The message to read.",
+     "example": "/tts dinner is ready",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support.discord.com/hc/en-us/articles/212517297-Text-to-Speech-101"
+    },
+    {
+     "cmd": "thread",
+     "verdict": "remove",
+     "reason": "Discord's Threads FAQ only shows creating threads from the message menu or the Threads button. No official page lists a /thread command.",
+     "does": "",
+     "add": "",
+     "example": "",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://support.discord.com/hc/en-us/articles/4403205878423-Threads-FAQ"
+    },
+    {
+     "cmd": "tableflip",
+     "verdict": "keep",
+     "reason": "Confirmed as a desktop built-in in Discord's own developer changelog (2021). No current help page lists it.",
+     "does": "Adds (╯°□°)╯︵ ┻━┻ to your message.",
+     "add": "Optional: your message.",
+     "example": "/tableflip",
+     "where_override": "",
+     "platforms": "Discord desktop",
+     "source_url": "https://github.com/discord/discord-api-docs/issues/2490"
+    },
+    {
+     "cmd": "shrug",
+     "verdict": "keep",
+     "reason": "Confirmed as a desktop built-in in Discord's own developer changelog (2021). No current help page lists it.",
+     "does": "Adds ¯\\_(ツ)_/¯ to your message.",
+     "add": "Optional: your message.",
+     "example": "/shrug",
+     "where_override": "",
+     "platforms": "Discord desktop",
+     "source_url": "https://github.com/discord/discord-api-docs/issues/2490"
+    }
+   ]
+  },
+  {
+   "id": "obsidian",
+   "name": "Obsidian",
+   "where": "the Obsidian editor, at the start of a line or after a space",
+   "prereq": "Turn on Slash commands in Settings → Core plugins. Templates and Daily notes are separate core plugins you may also need to turn on.",
+   "blurb": "Typing / opens a search of Obsidian's commands. Type a few letters and press Enter. These aren't fixed commands; they're the words that find each one.",
+   "source": "https://help.obsidian.md/plugins/slash-commands",
+   "note": "Obsidian matches loosely, like its Command palette, so a few letters find any command. Press Esc or Space to close the search.",
+   "commands": [
+    {
+     "cmd": "table",
+     "verdict": "fix",
+     "reason": "The command is 'Insert Table' (help page). /table is just search words that find it; say so.",
+     "does": "Finds Insert Table, which adds a Markdown table.",
+     "add": "Fill in the cells after it appears.",
+     "example": "/table",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/advanced-syntax"
+    },
+    {
+     "cmd": "callout",
+     "verdict": "fix",
+     "reason": "The command is 'Insert callout'; it adds a [!note] callout and can wrap selected text. /callout is search words.",
+     "does": "Finds Insert callout, which adds a note callout or wraps your selected text in one.",
+     "add": "Your note. Change the type, like [!tip], if you like.",
+     "example": "/callout",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/callouts"
+    },
+    {
+     "cmd": "codeblock",
+     "verdict": "remove",
+     "reason": "Obsidian's help has no 'Insert code block' command (checked the official help source).",
+     "does": "",
+     "add": "",
+     "example": "",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://github.com/obsidianmd/obsidian-help"
+    },
+    {
+     "cmd": "template",
+     "verdict": "keep",
+     "reason": "'Templates: Insert template' is documented. Needs the Templates core plugin and a templates folder.",
+     "does": "Finds Templates: Insert template. Needs the Templates core plugin.",
+     "add": "Pick a template from your templates folder.",
+     "example": "/template",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/plugins/templates"
+    },
+    {
+     "cmd": "date",
+     "verdict": "keep",
+     "reason": "'Templates: Insert current date' is documented. Needs the Templates core plugin.",
+     "does": "Finds Templates: Insert current date. Needs the Templates core plugin.",
+     "add": "Nothing else needed.",
+     "example": "/date",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/plugins/templates"
+    },
+    {
+     "cmd": "today",
+     "verdict": "keep",
+     "reason": "'Open today's daily note' is documented. Needs the Daily notes core plugin.",
+     "does": "Finds Open today's daily note. Needs the Daily notes core plugin.",
+     "add": "Nothing else needed.",
+     "example": "/today",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/plugins/daily-notes"
+    },
+    {
+     "cmd": "property",
+     "verdict": "keep",
+     "reason": "'Add file property' is documented as a command.",
+     "does": "Finds Add file property, for tags, dates and other note details.",
+     "add": "The property name and value.",
+     "example": "/property",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://help.obsidian.md/properties"
+    },
+    {
+     "cmd": "checkbox",
+     "verdict": "remove",
+     "reason": "'Toggle checkbox status' does not appear in Obsidian's official help (checked the help source).",
+     "does": "",
+     "add": "",
+     "example": "",
+     "where_override": "",
+     "platforms": "",
+     "source_url": "https://github.com/obsidianmd/obsidian-help"
+    }
+   ]
+  },
+  {
+   "id": "teams",
+   "name": "Teams",
+   "where": "the Teams message box (any chat, channel or meeting chat) or the search bar at the top",
+   "prereq": "Teams desktop app only. Your organization can turn some commands off.",
+   "blurb": "Built into Microsoft Teams on desktop. Type / in a message box or in the search bar.",
+   "source": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams",
+   "note": "Microsoft says built-in slash commands work only in Teams desktop. Most work in the message box; /chat works only in the search bar.",
+   "commands": [
+    {
+     "cmd": "available",
+     "verdict": "keep",
+     "reason": "Listed for both message box and search bar.",
+     "does": "Sets your status to Available.",
+     "add": "Nothing else needed.",
+     "example": "/available",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "busy",
+     "verdict": "keep",
+     "reason": "Listed for both.",
+     "does": "Sets your status to Busy.",
+     "add": "Nothing else needed.",
+     "example": "/busy",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "brb",
+     "verdict": "keep",
+     "reason": "Listed for both.",
+     "does": "Sets your status to Be right back.",
+     "add": "Nothing else needed.",
+     "example": "/brb",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "away",
+     "verdict": "keep",
+     "reason": "Listed for both.",
+     "does": "Sets your status to Away.",
+     "add": "Nothing else needed.",
+     "example": "/away",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "dnd",
+     "verdict": "keep",
+     "reason": "Listed for both.",
+     "does": "Sets your status to Do not disturb.",
+     "add": "Nothing else needed.",
+     "example": "/dnd",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "goto",
+     "verdict": "keep",
+     "reason": "Listed for both. Ctrl+G does the same thing.",
+     "does": "Jumps straight to a chat or channel.",
+     "add": "The chat or channel name.",
+     "example": "/goto Marketing team",
+     "where_override": "message box or search bar",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "chat",
+     "verdict": "fix",
+     "reason": "Search bar only, per Microsoft's table. Label it that way.",
+     "does": "Sends a quick message from the search bar.",
+     "add": "The person, then your message.",
+     "example": "/chat Dana running 5 minutes late",
+     "where_override": "search bar only",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "meetnow",
+     "verdict": "keep",
+     "reason": "Message box only.",
+     "does": "Starts or joins a quick meeting.",
+     "add": "Nothing else needed.",
+     "example": "/meetnow",
+     "where_override": "message box",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "schedulemessage",
+     "verdict": "keep",
+     "reason": "Message box only.",
+     "does": "Schedules the message you're writing to send later.",
+     "add": "The day and time.",
+     "example": "/schedulemessage",
+     "where_override": "message box",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "mute",
+     "verdict": "keep",
+     "reason": "Message box only; /unmute is also listed.",
+     "does": "Mutes the current chat. /unmute turns it back on.",
+     "add": "Nothing else needed.",
+     "example": "/mute",
+     "where_override": "message box",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    },
+    {
+     "cmd": "code",
+     "verdict": "keep",
+     "reason": "Message box only.",
+     "does": "Inserts a code block in your message.",
+     "add": "Paste your code.",
+     "example": "/code",
+     "where_override": "message box",
+     "platforms": "",
+     "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+    }
+   ]
+  },
+  {
+   "id": "copilot",
+   "name": "GitHub Copilot",
+   "where": "the GitHub Copilot Chat box in your code editor",
+   "prereq": "GitHub Copilot extension signed in, in VS Code, Visual Studio, JetBrains or Xcode. This is GitHub Copilot, not Microsoft Copilot.",
+   "blurb": "GitHub Copilot Chat in VS Code, Visual Studio, JetBrains IDEs and Xcode. Each editor offers a different set.",
+   "source": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet",
+   "note": "The list changes by editor and over time. Type / in Copilot Chat to see what yours offers.",
+   "commands": [
+    {
+     "cmd": "explain",
+     "verdict": "keep",
+     "reason": "Listed for VS Code, Visual Studio, JetBrains and Xcode.",
+     "does": "Explains how the selected code works.",
+     "add": "Select the code first. Add a question if you have one.",
+     "example": "/explain why this loop skips the last item",
+     "where_override": "",
+     "platforms": "VS Code, Visual Studio, JetBrains, Xcode",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "fix",
+     "verdict": "keep",
+     "reason": "Listed for all four editors.",
+     "does": "Proposes a fix for problems in the selected code.",
+     "add": "Select the code. Paste the error if there is one.",
+     "example": "/fix TypeError: cannot read 'name' of undefined",
+     "where_override": "",
+     "platforms": "VS Code, Visual Studio, JetBrains, Xcode",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "tests",
+     "verdict": "keep",
+     "reason": "Listed for all four editors.",
+     "does": "Writes unit tests for the selected code.",
+     "add": "Select the code. Name your test framework.",
+     "example": "/tests using pytest",
+     "where_override": "",
+     "platforms": "VS Code, Visual Studio, JetBrains, Xcode",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "doc",
+     "verdict": "keep",
+     "reason": "Listed for Visual Studio and Xcode only.",
+     "does": "Adds a documentation comment for the function or class.",
+     "add": "Put the cursor on the function or class.",
+     "example": "/doc",
+     "where_override": "",
+     "platforms": "Visual Studio, Xcode",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "optimize",
+     "verdict": "keep",
+     "reason": "Listed for Visual Studio only.",
+     "does": "Suggests ways to make the selected code run faster.",
+     "add": "Select the code.",
+     "example": "/optimize",
+     "where_override": "",
+     "platforms": "Visual Studio",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "simplify",
+     "verdict": "keep",
+     "reason": "Listed for Xcode only.",
+     "does": "Simplifies the selected code.",
+     "add": "Select the code.",
+     "example": "/simplify",
+     "where_override": "",
+     "platforms": "Xcode",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "new",
+     "verdict": "fix",
+     "reason": "In VS Code it creates a new project. On GitHub.com the same /new starts a new conversation instead. Not listed for other editors.",
+     "does": "Starts a new project from a description.",
+     "add": "What you want to build.",
+     "example": "/new a Flask app with one page and a contact form",
+     "where_override": "",
+     "platforms": "VS Code",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "clear",
+     "verdict": "fix",
+     "reason": "Only listed for VS Code (starts a new chat session) and Copilot on GitHub.com (clears the conversation).",
+     "does": "Clears the chat so you can start fresh.",
+     "add": "Nothing else needed.",
+     "example": "/clear",
+     "where_override": "",
+     "platforms": "VS Code, GitHub.com",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    },
+    {
+     "cmd": "help",
+     "verdict": "fix",
+     "reason": "Listed for VS Code, Visual Studio and JetBrains, not Xcode.",
+     "does": "Shows a quick guide to using Copilot Chat.",
+     "add": "Nothing else needed.",
+     "example": "/help",
+     "where_override": "",
+     "platforms": "VS Code, Visual Studio, JetBrains",
+     "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+    }
+   ]
+  }
+ ],
+ "search_key": {
+  "id": "web",
+  "name": "Web",
+  "slug": "search-key",
+  "cmd": "/",
+  "verdict": "fix",
+  "reason": "YouTube, GitHub and Gmail confirmed in official help. MDN has no official page saying / focuses search, so drop it. Slash Guide is the owner's own site; confirm it on the live page.",
+  "does": "Press / on many websites to jump straight to the search box, no mouse needed.",
+  "add": "Just the / key, then type what you're looking for.",
+  "example": "On YouTube, press / and type: how to repot a bonsai",
+  "works": [
+   "YouTube",
+   "GitHub (S also works)",
+   "Gmail (turn on keyboard shortcuts in Settings first)",
+   "Slash Guide"
+  ],
+  "blurb": "Not a command you type into a box: a key that takes you to the box.",
+  "where_override": "",
+  "platforms": "Computer web browsers",
+  "source_url": "https://support.google.com/youtube/answer/7631406",
+  "sources": [
+   "https://support.google.com/youtube/answer/7631406",
+   "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
+   "https://support.google.com/mail/answer/6594"
+  ]
+ },
+ "add_suggestions": [
+  {
+   "app": "slack",
+   "cmd": "gif",
+   "does": "Adds a GIF to your message.",
+   "add": "A word to search for.",
+   "example": "/gif celebrate",
+   "where_override": "",
+   "platforms": "",
+   "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+  },
+  {
+   "app": "slack",
+   "cmd": "saved",
+   "does": "Shows the messages and files you saved for later.",
+   "add": "Nothing else needed.",
+   "example": "/saved",
+   "where_override": "",
+   "platforms": "",
+   "source_url": "https://slack.com/help/articles/360057554553-Use-shortcuts-to-take-actions-in-Slack"
+  },
+  {
+   "app": "teams",
+   "cmd": "offline",
+   "does": "Sets your status to Offline.",
+   "add": "Nothing else needed.",
+   "example": "/offline",
+   "where_override": "message box or search bar",
+   "platforms": "Teams desktop",
+   "source_url": "https://support.microsoft.com/en-us/teams/chat/use-commands-in-microsoft-teams"
+  },
+  {
+   "app": "notion",
+   "cmd": "turn",
+   "does": "Turns the current block into a different type, like a heading or to-do.",
+   "add": "Pick the new block type from the list.",
+   "example": "/turn",
+   "where_override": "at the start or end of a block",
+   "platforms": "",
+   "source_url": "https://www.notion.com/help/keyboard-shortcuts"
+  },
+  {
+   "app": "copilot",
+   "cmd": "fixTestFailure",
+   "does": "Finds and fixes a failing test.",
+   "add": "Run your tests first so there's a failure to fix.",
+   "example": "/fixTestFailure",
+   "where_override": "",
+   "platforms": "VS Code",
+   "source_url": "https://docs.github.com/en/copilot/reference/chat-cheat-sheet"
+  }
+ ]
+}

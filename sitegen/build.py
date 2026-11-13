@@ -19,27 +19,32 @@ sys.path[:0] = [str(ED), str(GEN)]
 
 import beginners_data as BD  # noqa: E402
 import knowledge_data as KD  # noqa: E402
-import apps_data as AD  # noqa: E402
+import apps_data as AD  # noqa: E402  (acronyms only; commands come from apps_verified.json)
 import shorts as SH  # noqa: E402
 
 e = lambda s: html.escape(str(s), quote=True)
-AI_WORKS = ["ChatGPT", "Claude", "Gemini", "Copilot", "Grok"]
 ACR = {}
 for d in (BD.ACRONYMS, KD.ACRONYMS, AD.ACRONYMS):
     ACR.update(d)
 
 # ---------------------------------------------------------------- data model
+GUIDE = {"everyday": json.loads((ED / "guide_everyday.json").read_text()),
+         "work": json.loads((ED / "guide_work.json").read_text())}
+REDIRECTS = json.loads((ED / "guide_redirects.json").read_text())
+REDIRECTS["questions"] = ["questionstoask", "meetingquestions"]
+APPS = json.loads((GEN / "apps_verified.json").read_text())
+
 SECTIONS = [
-    {"id": "ai", "name": "AI chat", "short": "AI", "sub": "ChatGPT, Claude, Gemini, Copilot, Grok",
-     "blurb": "Words your AI already understands. Type the slash word, add two details, get a better answer. "
-              "They're shortcuts the model reads as intent, not official features, so results vary a little by model.",
+    {"id": "ai", "name": "AI chat", "short": "AI", "sub": "Any AI chat: ChatGPT, Claude, Gemini, Copilot, Grok",
+     "blurb": "Copy-ready prompts that each start with a short slash word. The slash word is a label, not a built-in command: "
+              "the full prompt does the work, so it gives the same kind of answer in any AI chat.",
      "source": ""},
 ]
-for s in AD.APP_SECTIONS:
-    SECTIONS.append({"id": s["id"], "name": s["name"], "short": s["name"], "sub": s["where"],
-                     "blurb": s["blurb"], "source": s["source"], "note": s["note"]})
-SK = AD.SEARCH_KEY
-SECTIONS.append({"id": "web", "name": "The / key on websites", "short": "Web", "sub": "YouTube, GitHub and more",
+for s in APPS["sections"]:
+    SECTIONS.append({"id": s["id"], "name": s["name"], "short": s["name"].replace("GitHub ", ""), "sub": s["where"],
+                     "blurb": s["blurb"], "source": s["source"], "note": s.get("note", ""), "prereq": s.get("prereq", "")})
+SK = APPS["search_key"]
+SECTIONS.append({"id": "web", "name": "The / key on websites", "short": "Web", "sub": "YouTube, GitHub, Gmail",
                  "blurb": SK["blurb"], "source": ""})
 SEC = {s["id"]: s for s in SECTIONS}
 
@@ -51,27 +56,32 @@ def add(slug, cmd, use):
     c = cmds.setdefault(slug, {"slug": slug, "cmd": cmd, "uses": []})
     c["uses"].append(use)
 
-for mod, ed_label, ed_id in ((BD, "Everyday", "everyday"), (KD, "Work", "work")):
-    for gname, gdek, items in mod.SECTIONS:
+for ed_id, ed_label in (("everyday", "Everyday"), ("work", "Work")):
+    for g in GUIDE[ed_id]:
         slugs = []
-        for cmd, does, addl, ex in items:
-            slug = cmd.lower()
-            add(slug, "/" + cmd, {"sec": "ai", "group": gname, "edition": ed_label, "ed_id": ed_id,
-                                  "does": does, "add": addl, "example": ex, "works": AI_WORKS})
+        for x in g["entries"]:
+            slug = x["cmd"].lower()
+            add(slug, "/" + x["cmd"], dict(x, sec="ai", group=g["name"], edition=ed_label, ed_id=ed_id, add="", copy=x["prompt"]))
             slugs.append(slug)
-        groups.append(("ai", gname, ed_label, slugs))
+        groups.append(("ai", g["name"], ed_label, slugs))
 
-for s in AD.APP_SECTIONS:
+for s in APPS["sections"]:
     slugs = []
-    for cmd, does, addl, ex in s["commands"]:
-        slug = cmd.lower()
-        add(slug, "/" + cmd, {"sec": s["id"], "group": s["name"], "edition": "", "does": does,
-                              "add": addl, "example": ex, "works": [s["where"][0].upper() + s["where"][1:]]})
+    for x in s["commands"]:
+        if x["verdict"] == "remove":
+            continue
+        slug = x["cmd"].lower()
+        add(slug, "/" + x["cmd"], {"sec": s["id"], "group": s["name"], "edition": "", "does": x["does"], "add": x["add"],
+                                   "example": x["example"], "where": x.get("where_override") or s["where"],
+                                   "platforms": x.get("platforms", ""), "prereq": s.get("prereq", ""),
+                                   "source": x.get("source_url") or s["source"], "copy": x["example"]})
         slugs.append(slug)
     groups.append((s["id"], s["name"], "", slugs))
 
-add(SK["slug"], SK["cmd"], {"sec": "web", "group": "Websites", "edition": "", "does": SK["does"],
-                            "add": SK["add"], "example": SK["example"], "works": SK["works"]})
+add(SK["slug"], SK["cmd"], {"sec": "web", "group": "Websites", "edition": "", "does": SK["does"], "add": SK["add"],
+                            "example": SK["example"], "where": "your web browser, on the site itself",
+                            "platforms": SK.get("platforms", ""), "prereq": "", "works": [w for w in SK["works"] if w != "Slash Guide"] + ["Slash Guide"],
+                            "source": SK.get("source_url", ""), "copy": "/"})
 groups.append(("web", "Websites", "", [SK["slug"]]))
 
 for sid, gname, ed, slugs in groups:
@@ -79,7 +89,17 @@ for sid, gname, ed, slugs in groups:
         c = cmds[slug]
         u = next(u for u in c["uses"] if u["sec"] == sid and u["group"] == gname)
         rows.append({"s": sid, "slug": slug, "c": c["cmd"], "d": u["does"], "g": gname, "ed": ed,
-                     "a": ACR.get(slug, ""), "x": u["example"]})
+                     "a": ACR.get(slug, ""), "x": u["example"], "copy": u["copy"]})
+
+def ex_line(r):
+    x = (r["x"] or "").strip()
+    c = r["c"] if r["c"].startswith("/") else "/" + r["c"]
+    if not x.lower().startswith(c.lower()):
+        return ""
+    rest = x[len(c):].strip()
+    if not rest:
+        return ""
+    return f'<span class="row-ex m"><span class="row-ex-c">{e(c)}</span> {e(rest)}</span>'
 
 def related(slug, sec, group, n=4):
     for sid, gname, ed, slugs in groups:
@@ -152,7 +172,7 @@ def page(title, desc, body, rel, cls=""):
       <p class="otb-tag">In pursuit of small improvements, better thinking, and a richer life.</p>
       <a class="otb-proj" href="https://onetobetter.com" rel="noopener">A One to Better project</a>
     </div>
-    <p class="fine">Shortcuts your AI understands, plus the slash commands built into everyday apps. Not affiliated with or endorsed by OpenAI, Anthropic, Google, xAI, Microsoft, GitHub, Slack, Notion, Discord or Obsidian; names are trademarks of their owners. No ads, no trackers, no cookies.</p>
+    <p class="fine">Copy-ready AI prompts, plus the slash commands built into everyday apps. AI answers vary and can be wrong; check what matters. Not affiliated with or endorsed by OpenAI, Anthropic, Google, xAI, Microsoft, GitHub, Slack, Notion, Discord or Obsidian; names are trademarks of their owners. No ads, no trackers, no cookies.</p>
   </div>
 </footer>
 <script src="{rel}assets/app.js" defer></script>
@@ -161,8 +181,18 @@ def page(title, desc, body, rel, cls=""):
 """
 
 def copy_btn(text, label="Copy", cls=""):
-    return (f'<button class="copy {cls}" type="button" data-copy="{e(text)}" aria-label="{e(label)}: {e(text)}">'
+    return (f'<button class="copy {cls}" type="button" data-copy="{e(text)}" aria-label="{e(label)}">'
             f'{icon("copy", 15)}{icon("check", 15)}<span class="copy-l">{e(label)}</span></button>')
+
+def prompt_html(t):
+    """Prompt text: red /command, [placeholders] marked, line breaks kept."""
+    import re as _re
+    head, sp, tail = t.partition(" ")
+    out = f'<span class="m red">{e(head)}</span>' + (" " if sp else "")
+    parts = _re.split(r"(\[[^\]]+\])", tail)
+    for k, part in enumerate(parts):
+        out += f'<mark class="ph">{e(part)}</mark>' if k % 2 else e(part)
+    return out.replace("\n", "<br>")
 
 def ex_html(ex):
     """Colour the leading /command inside an example."""
@@ -180,7 +210,7 @@ def home():
         meaning = f'<span class="acr">{e(ACR[slug])}</span>' if slug in ACR else ""
         feat_html += f"""<li class="feat">
   <a class="feat-link" href="{slug}/"><span class="cmd m">{e(c['cmd'])}</span>{meaning}<span class="d">{e(u['does'])}</span></a>
-  <div class="feat-f"><span class="tag">{e(u['edition'])} · {e(u['group'])}</span>{copy_btn(c['cmd'])}</div>
+  <div class="feat-f"><span class="tag">{e(u['edition'])} · {e(u['group'])}</span>{copy_btn(u['copy'], 'Copy prompt')}</div>
 </li>"""
 
     pills = '<button class="pill" type="button" data-sec="all" data-title="All shortcuts" aria-pressed="true">All</button>'
@@ -211,7 +241,7 @@ def home():
                 hay = " ".join([r["c"], r["d"], r["g"], r["a"], r["x"], SEC[sid]["short"], r["ed"]]).lower()
                 lib += (f'<li class="row" data-s="{sid}" data-q="{e(hay)}"><a class="row-a" href="{slug}/">'
                         f'<span class="cmd m">{e(r["c"])}</span><span class="row-t">{acr}<span class="d">{e(r["d"])}</span></span></a>'
-                        f'{copy_btn(r["c"])}</li>')
+                        f'{copy_btn(r["copy"], "Copy prompt" if sid == "ai" else "Copy")}</li>')
             lib += "</ul></div>"
         lib += "</section>"
 
@@ -219,7 +249,7 @@ def home():
 <section class="hero wrap">
   <div class="hero-l">
     <h1>Type <span class="m red">/</span>. Get it done.</h1>
-    <p class="sub">Plain-English shortcuts for AI and the apps you already use. One slash word, two details, a better result. Free, copy-ready, no sign-up.</p>
+    <p class="sub">Copy-ready AI prompts, each with a short slash word to remember it by, plus the real slash commands built into the apps you use. Free, no sign-up.</p>
     <form class="search" id="search" role="search" onsubmit="return false">
       <label class="vh" for="q">Search shortcuts</label>
       <span class="search-slash m" aria-hidden="true">/</span>
@@ -229,25 +259,36 @@ def home():
     <div class="pills" role="group" aria-label="Filter by app">{pills}</div>
   </div>
   <figure class="demo" aria-label="Example">
-    <figcaption class="demo-cap"><span>Try it</span><span>ChatGPT · Claude · Gemini · Copilot</span></figcaption>
+    <figcaption class="demo-cap"><span>Example</span><span>Any AI chat</span></figcaption>
     <div class="chat">
-      <p class="u"><span class="m">/eli5</span> how inflation works</p>
+      <p class="u"><span class="m">/eli5</span> Explain like I'm 5, with an everyday example: how inflation works. Then go a bit deeper.</p>
       <div class="a"><p>Imagine your allowance stays $10, but the candy bar you buy goes from $1 to $1.25.</p><p class="a2">Prices creep up, so each dollar buys a little less.</p></div>
     </div>
-    <p class="demo-f"><a href="eli5/" class="m red">/eli5</a> = Explain Like I'm 5. The slash word tells your AI the job.</p>
+    <p class="demo-f">Sample answer, written to illustrate. Real answers vary by app. <a href="eli5/" class="m red">/eli5</a> = Explain Like I'm 5.</p>
   </figure>
 </section>
 
 <section class="wrap block" aria-labelledby="start-h">
   <h2 id="start-h">Start with these</h2>
-  <p class="h2s">Copy one, paste it into your AI, add your details.</p>
+  <p class="h2s">Copy the full prompt, paste it into any AI chat, and fill in the [brackets].</p>
   <ul class="feats">{feat_html}</ul>
 </section>
 
 <section class="wrap block" aria-labelledby="where-h">
-  <h2 id="where-h">The slash works everywhere</h2>
-  <p class="h2s">AI chat leads, and the apps you use every day have their own.</p>
+  <h2 id="where-h">Where the slash shows up</h2>
+  <p class="h2s">AI chats read your whole prompt. Slack, Teams and the rest have real built-in commands.</p>
   <ul class="where">{where}</ul>
+</section>
+
+<section class="wrap block" id="how" aria-labelledby="how-h">
+  <h2 id="how-h">How the AI shortcuts work</h2>
+  <ol class="how">
+    <li><b>They're prompts, not commands.</b> No AI app has a built-in /eli5. The slash word is a label you can remember; the words after it tell the AI the job. That's why every page gives you the full prompt.</li>
+    <li><b>Fill in the [brackets].</b> The details you add are what make the answer good. Each page lists what to give.</li>
+    <li><b>If a menu pops up when you type /,</b> that's the app's own tool list (ChatGPT, Claude, Gemini, Perplexity and Microsoft 365 Copilot do this). Press Esc or tap away and keep typing, or paste the whole prompt in one go.</li>
+    <li><b>Photos and files</b> need an app that accepts uploads. Most do, often with limits on free plans. Every page that needs one says so and gives a type-it-in option.</li>
+    <li><b>Check what matters.</b> AI can be confidently wrong. Check facts, numbers and anything about health, money or the law before you rely on it.</li>
+  </ol>
 </section>
 
 <section class="wrap block lib" id="shortcuts" aria-labelledby="lib-h">
@@ -260,7 +301,7 @@ def home():
   <div class="pdfs">
     <div>
       <h2>Free PDF editions</h2>
-      <p>Print them, pin them next to your desk, share them with your team. 70 shortcuts each, no email needed.</p>
+      <p>Print them, pin them next to your desk, share them with your team. Every full prompt, no email needed.</p>
       <a class="btn" href="downloads/">{icon('download', 18)} Get the free PDFs</a>
     </div>
     <div class="covers" aria-hidden="true">
@@ -299,20 +340,36 @@ def cmd_page(c):
         if multi:
             label = {"Everyday": "In everyday life", "Work": "At work"}.get(u["edition"], f"In {s['short']}")
             uses_html += f'<h2 class="use-h">{e(label)}</h2>'
-        works = "".join(f'<li class="pill">{e(w)}</li>' for w in u["works"])
-        note = ""
         if u["sec"] == "ai":
-            note = "A shortcut your AI understands from the word, not an official feature. Results vary a little by model."
-        elif s.get("source"):
-            note = f'Built into {e(s["short"])}. <a href="{e(s["source"])}" rel="noopener">Official list {icon("ext", 13)}</a>'
-            if s.get("note"):
-                note = e(s["note"]) + " " + note
-        uses_html += f"""<div class="use">
+            give = "".join(f"<li>{e(g)}</li>" for g in u["give"])
+            needs = (f'<div class="note-box"><p><b>You need:</b> {e(u["needs"])}</p>'
+                     + (f'<p>{e(u["fallback"])}</p>' if u["fallback"] else "") + "</div>") if u["needs"] else ""
+            check = f'<div class="note-box chk"><p><b>Check:</b> {e(u["check"])}</p></div>' if u["check"] else ""
+            uses_html += f"""<div class="use">
   <p class="does">{e(u['does'])}</p>
+  <h3 class="lbl">The full prompt</h3>
+  <div class="pr"><p>{prompt_html(u['prompt'])}</p>{copy_btn(u['prompt'], 'Copy prompt')}</div>
+  <p class="pr-tip">Replace the highlighted [brackets] with your own details, then send.</p>
+  <h3 class="lbl">What you're asking</h3><p class="add">{e(u['asks_ai'])}</p>
+  <h3 class="lbl">Give it</h3><ul class="give">{give}</ul>
+  {needs}{check}
+  <h3 class="lbl">Filled-in example</h3><div class="ex"><p>{prompt_html(u['example'])}</p>{copy_btn(u['example'], 'Copy')}</div>
+  <p class="honest">Use it in any AI chat. The slash word is a label, not a built-in command; the prompt does the work, and answers vary by app. <a href="../#how">How these work</a></p>
+</div>"""
+        else:
+            where = u.get("where", "")
+            plat = f'<h3 class="lbl">Works in</h3><ul class="works">' + "".join(f'<li class="pill">{e(w)}</li>' for w in (u.get("works") or [x.strip() for x in u["platforms"].split(",")])) + "</ul>" if (u.get("works") or u.get("platforms")) else ""
+            prereq = f'<div class="note-box"><p><b>Before you start:</b> {e(u["prereq"])}</p></div>' if u.get("prereq") else ""
+            src = f' <a href="{e(u["source"])}" rel="noopener">Official help page {icon("ext", 13)}</a>' if u.get("source") else ""
+            note = f'{e(s["note"])} ' if s.get("note") else ""
+            uses_html += f"""<div class="use">
+  <p class="does">{e(u['does'])}</p>
+  <h3 class="lbl">Where you type it</h3><p class="add">In {e(where)}.</p>
+  {prereq}
   <h3 class="lbl">Add</h3><p class="add">{e(u['add'])}</p>
   <h3 class="lbl">Example</h3><div class="ex"><p>{ex_html(u['example'])}</p>{copy_btn(u['example'])}</div>
-  <h3 class="lbl">Works in</h3><ul class="works">{works}</ul>
-  <p class="honest">{note}</p>
+  {plat}
+  <p class="honest">{note}A real command built into {e(s['short'])}, checked against its own help pages in November 2026.{src}</p>
 </div>"""
 
     rel = related(slug, first["sec"], first["group"])
@@ -329,12 +386,12 @@ def cmd_page(c):
   <nav class="crumb" aria-label="Breadcrumb"><a href="../?s={sec['id']}#shortcuts">{e(sec['short'])}</a>{crumb_tail}</nav>
   <div class="d-grid">
     <article class="d-main">
-      <div class="d-head"><h1 class="m">{e(cmd)}</h1>{copy_btn(cmd, 'Copy', 'copy-big')}</div>
+      <div class="d-head"><h1 class="m">{e(cmd)}</h1>{copy_btn(first['copy'], 'Copy prompt' if first['sec'] == 'ai' else 'Copy', 'copy-big')}</div>
       {acr}
       {uses_html}
     </article>
     <aside class="d-side">
-      <h2 class="lbl">Watch · 45 sec</h2>
+      <h2 class="lbl">Watch</h2>
       {video_slot(slug, cmd)}
       <h2 class="lbl">Try next</h2>
       <ul class="next">{rel_html}</ul>
@@ -343,7 +400,7 @@ def cmd_page(c):
   </div>
 </div>
 """
-    return page(title, f"{cmd}: {first['does']} Example: {first['example']}", body, "../", "cmdpage")
+    return page(title, f"{cmd}: {first['does']} Full prompt and example inside.", body, "../", "cmdpage")
 
 # ---------------------------------------------------------------- downloads
 def downloads():
@@ -352,14 +409,14 @@ def downloads():
         size = (ED / pdf).stat().st_size
         pages = subprocess.run(["pdfinfo", str(ED / pdf)], capture_output=True, text=True).stdout
         npages = next((l.split()[-1] for l in pages.splitlines() if l.startswith("Pages:")), "")
-        secs = "".join(f"<li>{e(s[0])}</li>" for s in mod.SECTIONS)
+        secs = "".join(f"<li>{e(g['name'])}</li>" for g in GUIDE[slug])
         title = {"everyday": "AI shortcuts for everyday life", "work": "AI shortcuts for knowledge work"}[slug]
         eds.append(f"""<article class="ed-card">
   <img class="cover" src="../assets/cover-{slug}.png" width="300" height="388" alt="Cover of the {e(mod.EDITION['name'])}">
   <div class="ed-body">
     <h2>{e(mod.EDITION['name'])}</h2>
     <p class="ed-k">{e(title)} · {e(mod.EDITION['kicker'])}</p>
-    <p class="ed-meta">70 shortcuts · {npages} pages · PDF, {round(size/1024)} KB · US Letter</p>
+    <p class="ed-meta">{sum(len(g["entries"]) for g in GUIDE[slug])} shortcuts · {npages} pages · PDF, {round(size/1024)} KB · US Letter</p>
     <h3 class="lbl">Inside</h3>
     <ul class="ed-secs">{secs}</ul>
     <a class="btn" href="{pdf}" download>{icon('download', 18)} Download the {e(mod.EDITION['name'])}</a>
@@ -368,12 +425,12 @@ def downloads():
     body = f"""
 <div class="wrap dl">
   <h1>Free PDF editions</h1>
-  <p class="sub">Every shortcut with what to add and an example, laid out to print. No email, no sign-up. Share them with anyone.</p>
+  <p class="sub">Every shortcut with its full prompt, what to give it and what to check, laid out to print. No email, no sign-up. Share them with anyone.</p>
   <div class="eds">{''.join(eds)}</div>
-  <p class="honest">Shortcuts your AI understands, not official features of any AI product. Results vary a little by model. Never paste confidential or company data, and follow your employer's AI policy.</p>
+  <p class="honest">Prompts, not official features of any AI product. Answers vary by app and can be wrong. Never paste confidential or company data, and follow your employer's AI policy.</p>
 </div>"""
     return page("Free PDF editions | Slash Guide",
-                "Download the Slash Guide Everyday and Work editions: 70 AI slash shortcuts each, free to print and share.",
+                "Download the Slash Guide Everyday and Work editions: copy-ready AI prompts with slash-word labels, free to print and share.",
                 body, "../", "dlpage")
 
 # ---------------------------------------------------------------- 404 (works at any base path)
@@ -414,6 +471,16 @@ def main():
     for slug, c in cmds.items():
         (OUT / slug).mkdir(exist_ok=True)
         (OUT / slug / "index.html").write_text(cmd_page(c))
+    for old, new in REDIRECTS.items():
+        if old in cmds:
+            continue
+        (OUT / old).mkdir(exist_ok=True)
+        if isinstance(new, list):
+            links = " or ".join(f'<a href="../{n}/">/{n}</a>' for n in new)
+            (OUT / old / "index.html").write_text(page(f"/{old} has new names | Slash Guide", f"/{old} is now {', '.join('/' + n for n in new)}.",
+                f'<div class="wrap detail"><h1 class="m red">/{old}</h1><p class="does">This shortcut now has clearer names: {links}.</p></div>', "../", "cmdpage"))
+        else:
+            (OUT / old / "index.html").write_text(f'<!doctype html><meta charset="utf-8"><title>Moved to /{new}</title><meta http-equiv="refresh" content="0; url=../{new}/"><link rel="canonical" href="../{new}/"><p>This shortcut is now <a href="../{new}/">/{new}</a>.</p>')
     (OUT / "404.html").write_text(NOT_FOUND)
     (OUT / ".nojekyll").write_text("")
     print(f"built {N_TOTAL} command pages ({N_AI} AI), {len(rows)} library rows -> {OUT}")
