@@ -1,4 +1,4 @@
-/* Slash Guide: copy buttons, search + filter, the / key, Short facade. No tracking. */
+/* Slash Guide: copy buttons, search + filter, the / key, Short facade. No tracking in this file; visit counts come from Fathom in the page head. */
 (function () {
   "use strict";
 

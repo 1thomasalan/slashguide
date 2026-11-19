@@ -159,6 +159,7 @@ def page(title, desc, body, rel, cls="", path="/"):
 <link rel="preload" href="{rel}assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/mono-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{rel}assets/style.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="RBNLUJFB" defer></script>
 </head>
 <body class="{cls}">
 <a class="skip" href="#main">Skip to content</a>
@@ -183,7 +184,7 @@ def page(title, desc, body, rel, cls="", path="/"):
       <p class="otb-tag">In pursuit of small improvements, better thinking, and a richer life.</p>
       <a class="otb-proj" href="https://onetobetter.com" rel="noopener">A One to Better project</a>
     </div>
-    <p class="fine">Copy-ready AI prompts, plus the slash commands built into everyday apps. AI answers vary and can be wrong; check what matters. Not affiliated with or endorsed by OpenAI, Anthropic, Google, xAI, Microsoft, GitHub, Slack, Notion, Discord or Obsidian; names are trademarks of their owners. No ads, no trackers, no cookies.</p>
+    <p class="fine">Copy-ready AI prompts, plus the slash commands built into everyday apps. AI answers vary and can be wrong; check what matters. Not affiliated with or endorsed by OpenAI, Anthropic, Google, xAI, Microsoft, GitHub, Slack, Notion, Discord or Obsidian; names are trademarks of their owners. No ads, no cookies. Visits are counted by Fathom, a privacy-first analytics tool that collects no personal data.</p>
   </div>
 </footer>
 <script src="{rel}assets/app.js" defer></script>
@@ -448,7 +449,7 @@ def downloads():
 NOT_FOUND = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Not found | Slash Guide</title>
 <style>body{font-family:Inter,Helvetica,Arial,sans-serif;color:#111;margin:0;display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px}
-h1{font-family:ui-monospace,Menlo,monospace;color:#C81018;font-size:56px;letter-spacing:-2px;margin:0}p{color:#555;font-size:18px}a{color:#C81018;text-underline-offset:3px}@media (prefers-color-scheme:dark){body{background:#111112;color:#ececea}p{color:#9c9c98}h1,a{color:#f0444c}}</style></head>
+h1{font-family:ui-monospace,Menlo,monospace;color:#C81018;font-size:56px;letter-spacing:-2px;margin:0}p{color:#555;font-size:18px}a{color:#C81018;text-underline-offset:3px}@media (prefers-color-scheme:dark){body{background:#111112;color:#ececea}p{color:#9c9c98}h1,a{color:#f0444c}}</style><script src="https://cdn.usefathom.com/script.js" data-site="RBNLUJFB" defer></script></head>
 <body><main><h1>/404</h1><p>That shortcut isn't here. It may have a different name.</p><p><a id="home" href="/">Search all shortcuts</a></p></main>
 </body></html>
 """
