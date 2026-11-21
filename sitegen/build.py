@@ -270,13 +270,20 @@ def home():
     </form>
     <div class="pills" role="group" aria-label="Filter by app">{pills}</div>
   </div>
-  <figure class="demo" aria-label="Example">
+  <figure class="demo" aria-label="Example: the same request, with and without a shortcut">
     <figcaption class="demo-cap"><span>Example</span><span>Any AI chat</span></figcaption>
-    <div class="chat">
-      <p class="u"><span class="m">/eli5</span> Explain like I'm 5, with an everyday example: how inflation works. Then go a bit deeper.</p>
-      <div class="a"><p>Imagine your allowance stays $10, but the candy bar you buy goes from $1 to $1.25.</p><p class="a2">Prices creep up, so each dollar buys a little less.</p></div>
+    <div class="vs vs-a">
+      <p class="vs-l">You type</p>
+      <p class="vs-typed">summarize this</p>
+      <div class="vs-bars" aria-hidden="true"><i style="width:96%"></i><i style="width:88%"></i><i style="width:98%"></i><i style="width:60%"></i></div>
+      <p class="vs-cap">Six long paragraphs. Polite, but not the point.</p>
     </div>
-    <p class="demo-f">Sample answer, written to illustrate. Real answers vary by app. <a href="eli5/" class="m red">/eli5</a> = Explain Like I'm 5.</p>
+    <div class="vs vs-b">
+      <p class="vs-l"><a href="tldr/" class="m red">/tldr</a> gives you</p>
+      <ul class="vs-list"><li>Move to Bldg 5: Dec 8</li><li>Pack desks by Dec 5</li><li>Phones back Dec 8 AM</li></ul>
+      <p class="vs-do"><b>Do:</b> label your crate by Friday.</p>
+    </div>
+    <p class="demo-f">Sample answer, written to illustrate. Real answers vary by app. <a href="tldr/" class="m red">/tldr</a> = Too Long; Didn't Read.<br><a href="tldr/" class="demo-go">Get the prompt</a></p>
   </figure>
 </section>
 

@@ -79,6 +79,18 @@ h1{text-wrap:balance}
 .a{margin-top:14px;color:var(--ink)}.a p+p{margin-top:8px}.a2{color:var(--g)}
 .demo-f{margin-top:14px;font-size:14px;color:var(--ink2)}
 .demo-f a{font-weight:600}
+.vs{background:var(--bg);border:1px solid var(--l);border-radius:12px;padding:16px 18px}
+.vs+.vs{margin-top:10px}
+.vs-l{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--g);margin-bottom:8px}
+.vs-l .m{text-transform:none;letter-spacing:0;font-size:14px;font-weight:600}
+.vs-typed{font-family:Mono,monospace;font-size:15px;color:var(--ink2)}
+.vs-bars{margin:12px 0 10px;display:grid;gap:7px}.vs-bars i{display:block;height:8px;border-radius:4px;background:var(--l)}
+.vs-cap{font-size:14px;color:var(--g)}
+.vs-b{border-color:var(--r);box-shadow:inset 3px 0 0 var(--r)}
+.vs-list{list-style:none;display:grid;gap:6px;font-size:16px;color:var(--ink);font-weight:500}
+.vs-list li{padding-left:16px;position:relative}.vs-list li:before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--r)}
+.vs-do{margin-top:10px;font-size:15px;color:var(--ink2)}.vs-do b{color:var(--r)}
+.demo-go{display:inline-block;margin-top:8px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 
 /* blocks */
 .block{padding-top:44px;padding-bottom:12px}
