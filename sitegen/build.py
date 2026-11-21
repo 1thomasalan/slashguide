@@ -258,7 +258,7 @@ def home():
         lib += "</section>"
 
     body = f"""
-<section class="hero wrap">
+<section class="hero hero-solo wrap">
   <div class="hero-l">
     <h1>Type <span class="m red">/</span>. Get it done.</h1>
     <p class="sub">Copy-ready AI prompts, each with a short slash word to remember it by, plus the real slash commands built into the apps you use. Free, no sign-up.</p>
@@ -270,22 +270,26 @@ def home():
     </form>
     <div class="pills" role="group" aria-label="Filter by app">{pills}</div>
   </div>
-  <figure class="demo" aria-label="Example: the same request, with and without a shortcut">
-    <figcaption class="demo-cap"><span>Example</span><span>Any AI chat</span></figcaption>
-    <div class="vs vs-a">
-      <p class="vs-l">You type</p>
-      <p class="vs-typed">summarize this</p>
-      <div class="vs-bars" aria-hidden="true"><i style="width:96%"></i><i style="width:88%"></i><i style="width:98%"></i><i style="width:60%"></i></div>
-      <p class="vs-cap">Six long paragraphs. Polite, but not the point.</p>
-    </div>
-    <div class="vs vs-b">
-      <p class="vs-l"><a href="tldr/" class="m red">/tldr</a> gives you</p>
-      <ul class="vs-list"><li>Move to Bldg 5: Dec 8</li><li>Pack desks by Dec 5</li><li>Phones back Dec 8 AM</li></ul>
-      <p class="vs-do"><b>Do:</b> label your crate by Friday.</p>
-    </div>
-    <p class="demo-f">Sample answer, written to illustrate. Real answers vary by app. <a href="tldr/" class="m red">/tldr</a> = Too Long; Didn't Read.<br><a href="tldr/" class="demo-go">Get the prompt</a></p>
-  </figure>
 </section>
+<section class="wrap sx" aria-label="Example: the same request, with and without a shortcut">
+  <p class="sx-k">You asked for three bullets</p>
+  <h2 class="sx-h">You got six paragraphs <em>and a conclusion.</em></h2>
+  <div class="sx-cols">
+    <div class="sx-box">
+      <p class="sx-l">What you typed</p>
+      <p class="sx-typed">summarize this</p>
+      <div class="sx-bars" aria-hidden="true"><i style="width:96%"></i><i style="width:90%"></i><i style="width:98%"></i><i style="width:62%"></i><i class="gap"></i><i style="width:94%"></i><i style="width:97%"></i><i style="width:70%"></i></div>
+      <p class="sx-cap">&rarr; Long, polite, not the point.</p>
+    </div>
+    <div class="sx-box sx-go">
+      <p class="sx-l"><span class="m">/tldr</span> gives you</p>
+      <ul class="sx-list"><li>Move to Bldg 5: Dec 8</li><li>Pack desks by Dec 5</li><li>Phones back Dec 8 AM</li></ul>
+      <p class="sx-do"><span>Do:</span> label your crate by Friday.</p>
+    </div>
+  </div>
+  <div class="sx-f"><p>Sample answer, written to illustrate. Real answers vary by app. <span class="m red">/tldr</span> = Too Long; Didn't Read.</p><a class="sx-btn" href="tldr/">Get the /tldr prompt &rarr;</a></div>
+</section>
+
 
 <section class="wrap block" aria-labelledby="start-h">
   <h2 id="start-h">Start with these</h2>
